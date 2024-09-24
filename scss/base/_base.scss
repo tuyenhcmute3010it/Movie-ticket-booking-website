@@ -1,3 +1,56 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
 * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+a,
+button,
+input,
+textarea,
+section,
+img {
+  font-family: inherit;
+  color: inherit;
+  outline: none;
+  border: none;
+  padding: 0;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+.separate {
+  margin: var(--margin) 0;
+  height: 1px;
+  background-color: #d2d1d6;
 }
