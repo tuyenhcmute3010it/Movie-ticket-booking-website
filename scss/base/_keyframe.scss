@@ -20,3 +20,12 @@
     transform: translate3d(4px, 0, 0);
   }
 }
+
+@keyframes underline {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
