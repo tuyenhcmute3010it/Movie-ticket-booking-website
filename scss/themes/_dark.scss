@@ -1,0 +1,26 @@
+@use "../abstracts";
+html.dark {
+  --text-color: #fff;
+  --body-bg: #000;
+  --icon-color: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
+    hue-rotate(275deg) brightness(106%) contrast(106%);
+  // top bar
+  --top-bar-bg: #000;
+  // button
+  --btn-primary-bg: rgb(237, 242, 247, 0.3);
+  //   search-bar
+  --search-bar-bg: rgb(237, 242, 247, 0.1);
+  --search-bar-search-bg: rgb(237, 242, 247, 0.1);
+  // navbar
+  --navbar-arrow-filter: brightness(0) saturate(100%) invert(0%) sepia(71%)
+    saturate(7463%) hue-rotate(103deg) brightness(97%) contrast(107%);
+  --navbar-hover-color: #999;
+  --navbar-top-filter: brightness(0) saturate(100%) invert(10%) sepia(0%)
+    saturate(16%) hue-rotate(137deg) brightness(104%) contrast(83%);
+  --navbar-side-bar-bg: #333;
+  --navbar-return-bg: #222;
+  //  dropdown
+  --dropdown-inner-bg: url(../img/dropdown/bg-dropdown.png) repeat scroll center
+    center rgba(0, 0, 0, 0);
+  --dropdown-inner-border: #222;
+}

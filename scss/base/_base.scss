@@ -13,6 +13,8 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  background-color: var(--body-bg);
 }
 a {
   color: inherit;
@@ -53,4 +55,7 @@ strong {
   margin: var(--margin) 0;
   height: 1px;
   background-color: #d2d1d6;
+}
+.icon {
+  filter: var(--icon-color) !important;
 }

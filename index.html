@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>movin</title>
-    <!-- fonts  -->
-    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
     <!-- main  -->
     <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- fonts  -->
+    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+
     <!-- favicon  -->
-    <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/ " />
+    <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/" />
     <link
       rel="apple-touch-icon"
       sizes="60x60"
@@ -81,17 +82,28 @@
       content="./assets/favicon/ms-icon-144x144.png"
     />
     <meta name="theme-color" content="#ffffff" />
+
+    <!-- javaScript -->
+    <script src="./assets/js/scrips.js"></script>
+    <!--  -->
   </head>
   <body>
-    <header>
-      <!-- scrip -->
-    </header>
+    <!-- header -->
+    <header id="header"></header>
+    <script>
+      load("#header", "./template/header.html");
+    </script>
+    <!-- end header -->
     <main>
       <!-- main -->
+      <div class="container"></div>
       <!-- end main -->
     </main>
-    <footer>
-      <!-- scrip -->
-    </footer>
+    <!-- footer -->
+    <footer id="footer"></footer>
+    <script>
+      load("#footer", "./template/footer.html");
+    </script>
+    <!-- end footer -->
   </body>
 </html>

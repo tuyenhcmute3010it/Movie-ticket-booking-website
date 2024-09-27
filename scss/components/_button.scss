@@ -1,0 +1,50 @@
+@use "../abstracts";
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 20px;
+  background-color: #f8f8f8;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.44;
+  border-radius: 6px;
+  + .btn {
+    &:not(.btn--no-margin) {
+      margin-left: 20px;
+      @include abstracts.screen(lg) {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &--text {
+    color: #9e9da8;
+    background-color: transparent;
+  }
+  &--primary {
+    background-color: var(--btn-primary-bg);
+    color: inherit;
+  }
+  &--outline {
+    background-color: transparent;
+    border: 1px solid #d2d1d6;
+  }
+  &--rounded {
+    border-radius: 999px;
+  }
+  &--danger {
+    background-color: rgb(231, 58, 58);
+    color: #fff;
+  }
+  &[disabled],
+  &--disable {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  &:hover {
+    opacity: 0.9;
+  }
+}
