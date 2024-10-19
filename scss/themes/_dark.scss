@@ -27,4 +27,12 @@ html.dark {
   --footer-bg: #212127;
   --footer-heading-color: #FDFDFD;
   --box-shadow: box-shadow: 0px 40px 90px 20px rgba(0, 0, 0, 0.2);
+    // act dropdown
+    --act-dropdown-bg: #2f3441;
+    --act-dropdown-shadow: rgba(23, 28, 40, 0.4);
+    --act-dropdown-title-color: #b9babe;
+    --act-dropdown-bottom-border: #171c28;
+    --act-dropdown-arrow-filter :  brightness(0) saturate(100%) invert(16%) sepia(25%) saturate(510%) hue-rotate(185deg) brightness(94%) contrast(88%);
+    //separate
+    --separate-color: #ebebeb;
 }

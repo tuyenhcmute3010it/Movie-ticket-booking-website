@@ -1365,6 +1365,12 @@ html.dark {
   --footer-bg: #212127;
   --footer-heading-color: #FDFDFD;
   --box-shadow: box-shadow: 0px 40px 90px 20px rgba(0, 0, 0, 0.2);
+  --act-dropdown-bg: #2f3441;
+  --act-dropdown-shadow: rgba(23, 28, 40, 0.4);
+  --act-dropdown-title-color: #b9babe;
+  --act-dropdown-bottom-border: #171c28;
+  --act-dropdown-arrow-filter: brightness(0) saturate(100%) invert(16%) sepia(25%) saturate(510%) hue-rotate(185deg) brightness(94%) contrast(88%);
+  --separate-color: #ebebeb;
 }
 
 html {
@@ -1389,6 +1395,12 @@ html {
   --footer-bg: #fbfbfb;
   --footer-heading-color: #020000;
   --box-shadow: box-shadow: 0px 17px 55px 0px rgba(96, 100, 100, 0.05);
+  --act-dropdown-bg: #fff;
+  --act-dropdown-shadow: rgba(200, 200, 200, 0.4);
+  --act-dropdown-title-color: #1a162e;
+  --act-dropdown-bottom-border: #d2d1d6;
+  --act-dropdown-arrow-filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(3%) hue-rotate(104deg) brightness(101%) contrast(104%);
+  --separate-color: #292e39;
 }
 
 .top-bar {
@@ -1613,6 +1625,23 @@ html {
     height: 40px !important;
   }
 }
+.top-act__user {
+  position: relative;
+  margin-left: 120px;
+}
+.top-act__user:hover .act-dropdown {
+  display: block;
+}
+.top-act__dropdown {
+  margin-top: 10px;
+  right: 0px !important;
+}
+.top-act__dropdown-arrow {
+  right: 15px !important;
+}
+.top-act__dropdown-inner {
+  width: min(285px, 100vw) !important;
+}
 
 .menu-column__list {
   display: flex;
@@ -1625,6 +1654,131 @@ html {
 }
 .menu-column__link:hover {
   color: #e71a0f;
+}
+
+.act-dropdown {
+  padding-top: 28px;
+  display: none;
+  position: absolute;
+  top: 48px;
+  right: -58px;
+}
+.act-dropdown__arrow {
+  filter: var(--act-dropdown-arrow-filter) !important;
+  position: absolute;
+  top: 8px;
+  right: 100px;
+  z-index: 1;
+}
+.act-dropdown__arrow-img {
+  background: transparent;
+  width: 30px;
+  height: 24px;
+}
+.act-dropdown__inner {
+  position: relative;
+  width: min(500px, 100vw);
+  border-radius: 20px;
+  padding: 30px;
+  background: var(--act-dropdown-bg);
+  box-shadow: 0px 40px 90px 20px var(--act-dropdown-shadow);
+}
+.act-dropdown-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.act-dropdown__title {
+  color: var(--act-dropdown-title-color);
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+.act-dropdown__view-all {
+  color: #0071dc;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+.act-dropdown__bottom {
+  margin-top: 20px;
+  border-width: 1px 0;
+  border-color: var(--act-dropdown-bottom-border);
+  border-style: solid;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.act-dropdown__row {
+  display: flex;
+  justify-content: space-between;
+}
+.act-dropdown__label, .act-dropdown__value {
+  color: var(--act-dropdown-title-color);
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+.act-dropdown__label--bold, .act-dropdown__value--bold {
+  color: var(--act-dropdown-bold);
+  font-weight: 500;
+}
+.act-dropdown__value {
+  text-align: left;
+}
+.act-dropdown__checkout {
+  margin-top: 20px;
+  display: flex;
+  justify-content: end;
+}
+.act-dropdown__checkout-btn {
+  width: 278px !important;
+}
+.act-dropdown__list {
+  padding-bottom: 10px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.act-dropdown__separate {
+  margin-top: 20px;
+  height: 1px;
+  background-color: var(--act-dropdown-bottom-border);
+}
+
+.user-menu__icon {
+  width: 20px;
+  height: 20px;
+}
+.user-menu__top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.user-menu__avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+.user-menu__name {
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+.user-menu__username {
+  margin-top: 5px;
+}
+.user-menu__list {
+  margin-top: 10px;
+}
+.user-menu__link {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.user-menu__separate {
+  border-top: 1px solid var(--separate-color);
 }
 
 .footer {
@@ -2112,10 +2266,11 @@ html {
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   object-fit: cover;
+  padding: 10px;
 }
 
 .form:has(:invalid) .form__submit-btn {

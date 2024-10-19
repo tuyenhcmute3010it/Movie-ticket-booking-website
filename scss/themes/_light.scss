@@ -30,5 +30,12 @@ html {
   --footer-heading-color: #020000;
   // 
    --box-shadow: box-shadow: 0px 17px 55px 0px rgba(96, 100, 100, 0.05);
-  
+  // act dropdown
+  --act-dropdown-bg: #fff;
+  --act-dropdown-shadow: rgba(200, 200, 200, 0.4);
+  --act-dropdown-title-color: #1a162e;
+  --act-dropdown-bottom-border: #d2d1d6;
+  --act-dropdown-arrow-filter : brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(3%) hue-rotate(104deg) brightness(101%) contrast(104%);
+  //separate
+  --separate-color: #292e39;
 }
