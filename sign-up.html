@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>movin</title>
+    <title>Movin</title>
     <!-- main  -->
     <link rel="stylesheet" href="assets/css/main.css" />
     <!-- fonts  -->
@@ -88,22 +88,153 @@
     <!--  -->
   </head>
   <body>
-    <!-- header -->
-    <header id="header"></header>
-    <script>
-      load("#header", "./template/header.html");
-    </script>
-    <!-- end header -->
-    <main>
-      <!-- main -->
-      <div class="container"></div>
-      <!-- end main -->
+    <main class="auth">
+      <!-- auth intro -->
+      <div class="auth__intro d-md-none">
+        <a href="./" class="logo auth__intro-logo d-none d-md-flex">
+          <img
+            src="./assets/icon/logo.svg"
+            alt="grocerymart"
+            class="logo__img"
+          />
+          <h1 class="logo__title">grocerymart</h1>
+        </a>
+
+        <img
+          src="./assets/img/Login/Intro.png"
+          alt=""
+          class="auth__intro-img"
+        />
+        <p class="auth__intro-text">
+          Please provide the following information to sign up for your Movin
+          membership. You have to be at least 12 years of age to be eligible for
+          registration.
+        </p>
+        <button
+          class="auth__intro-next d-none d-md-flex js-toggle"
+          toggle-target="#auth-content"
+        >
+          <img src="./assets/img/auth/intro-arrow.svg" alt="" />
+        </button>
+      </div>
+      <!-- auth content -->
+      <div id="auth-content" class="auth__content">
+        <div class="auth__content-inner">
+          <!-- logo -->
+          <a href="./" class="logo">
+            <img
+              src="./assets/img/logo_movin.png"
+              alt="movin"
+              class="logo__img"
+            />
+            <h2 class="logo__title">FILM-MOMENT-EXPERIENCE</h2>
+          </a>
+
+          <h1 class="auth__heading">Sign Up</h1>
+          <p class="auth__desc">Join today – Experience the best in cinema!</p>
+          <form action="./sign-in.html" class="form auth__form">
+            <div class="form__group">
+              <div class="form__text-input">
+                <input
+                  type="email"
+                  name=""
+                  id=""
+                  placeholder=" "
+                  class="form__input"
+                  required
+                />
+                <span for="" class="form__holder">Email</span>
+
+                <img
+                  src="./assets/icon/mess.svg"
+                  alt=""
+                  class="form__input-icon"
+                />
+                <img
+                  src="./assets/icon/error.svg"
+                  alt=""
+                  class="form__input-icon--error"
+                />
+              </div>
+              <p class="form__error">Email is not correct format</p>
+            </div>
+
+            <div class="form__group">
+              <div class="form__text-input">
+                <input
+                  type="password"
+                  name=""
+                  id=""
+                  placeholder=" "
+                  class="form__input"
+                  required
+                  minlength="6"
+                />
+                <span for="" class="form__holder">Password</span>
+                <img
+                  src="./assets/icon/lock.svg"
+                  alt=""
+                  class="form__input-icon"
+                />
+                <img
+                  src="./assets/icon/error.svg"
+                  alt=""
+                  class="form__input-icon--error"
+                />
+              </div>
+              <p class="form__error">Password at least 6 character</p>
+            </div>
+            <div class="form__group">
+              <div class="form__text-input">
+                <input
+                  type="password"
+                  name=""
+                  id=""
+                  placeholder=" "
+                  class="form__input"
+                  required
+                  minlength="6"
+                />
+                <span for="" class="form__holder">Confirm Password</span>
+                <img
+                  src="./assets/icon/lock.svg"
+                  alt=""
+                  class="form__input-icon"
+                />
+                <img
+                  src="./assets/icon/error.svg"
+                  alt=""
+                  class="form__input-icon--error"
+                />
+              </div>
+              <p class="form__error">Password at least 6 character</p>
+            </div>
+            <div class="form__group form__group--inline">
+              <label for="checked" class="form__checkbox">
+                <input
+                  type="checkbox"
+                  name=""
+                  id="checked"
+                  class="form__checkbox-input d-none"
+                />
+                <span id="checked" class="form__checkbox-label"
+                  >I have read and agree to the
+                  <a class="form__group-term">Terms & Conditions</a> and
+                  <a class="form__group-term">Privacy Policy</a></span
+                >
+              </label>
+            </div>
+            <div class="form__group auth__btn-group">
+              <button class="btn btn--primary auth__btn form__submit-btn">
+                Sign Up
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
-    <!-- footer -->
-    <footer id="footer"></footer>
     <script>
-      load("#footer", "./template/footer.html");
+      window.dispatchEvent(new Event("template-loaded"));
     </script>
-    <!-- end footer -->
   </body>
 </html>

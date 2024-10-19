@@ -180,6 +180,7 @@
   }
   @include abstracts.screen(md) {
     margin-left: 0px;
+    margin-right: 0px;
   }
 
   &__sign-up {

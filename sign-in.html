@@ -88,22 +88,109 @@
     <!--  -->
   </head>
   <body>
-    <!-- header -->
-    <header id="header"></header>
-    <script>
-      load("#header", "./template/header.html");
-    </script>
-    <!-- end header -->
-    <main>
-      <!-- main -->
-      <div class="container"></div>
-      <!-- end main -->
+    <main class="auth">
+      <!-- auth intro -->
+      <div class="auth__intro d-md-none">
+        <img
+          src="./assets/img/Login/Intro.png"
+          alt=""
+          class="auth__intro-img"
+        />
+        <p class="auth__intro-text">
+          Pick your movie, book your seat, enjoy the show
+        </p>
+      </div>
+      <!-- auth content -->
+      <div class="auth__content">
+        <div class="auth__content-inner">
+          <!-- logo -->
+          <a href="./" class="logo">
+            <img
+              src="./assets/img/logo_movin.png"
+              alt="movin"
+              class="logo__img auth__logo"
+            />
+            <h2 class="logo__title">FILM-MOMENT-EXPERIENCE</h2>
+          </a>
+          <h1 class="auth__heading">Sign in to Movin</h1>
+
+          <form action="./index-logined.html" class="form auth__form">
+            <div class="form__group">
+              <div class="form__text-input">
+                <input
+                  type="email"
+                  name=""
+                  id=""
+                  placeholder=" "
+                  class="form__input"
+                  required
+                />
+                <span for="" class="form__holder">Email</span>
+
+                <img
+                  src="./assets/icon/mess.svg"
+                  alt=""
+                  class="form__input-icon"
+                />
+                <img
+                  src="./assets/icon/error.svg"
+                  alt=""
+                  class="form__input-icon--error"
+                />
+              </div>
+              <p class="form__error">Email is not correct format</p>
+            </div>
+
+            <div class="form__group">
+              <div class="form__text-input">
+                <input
+                  type="password"
+                  name=""
+                  id=""
+                  placeholder=" "
+                  class="form__input"
+                  required
+                  minlength="6"
+                />
+                <span for="" class="form__holder">Password</span>
+                <img
+                  src="./assets/icon/lock.svg"
+                  alt=""
+                  class="form__input-icon"
+                />
+                <img
+                  src="./assets/icon/error.svg"
+                  alt=""
+                  class="form__input-icon--error"
+                />
+              </div>
+              <p class="form__error">Password at least 6 character</p>
+            </div>
+
+            <div class="form__group form__group--inline">
+              <a
+                href="./reset-password.html"
+                class="auth__link form__pull-right"
+                >Forgot Password</a
+              >
+            </div>
+            <div class="form__group auth__btn-group">
+              <button class="btn btn--primary auth__btn form__submit-btn">
+                Login
+              </button>
+            </div>
+          </form>
+          <p class="auth__text">
+            Don’t have an account yet?
+            <a href="./sign-up.html" class="auth__link auth__text-link"
+              >Sign Up</a
+            >
+          </p>
+        </div>
+      </div>
     </main>
-    <!-- footer -->
-    <footer id="footer"></footer>
     <script>
-      load("#footer", "./template/footer.html");
+      window.dispatchEvent(new Event("template-loaded"));
     </script>
-    <!-- end footer -->
   </body>
 </html>
