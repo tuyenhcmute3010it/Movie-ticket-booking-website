@@ -85,6 +85,7 @@
 
     <!-- javaScript -->
     <script src="./assets/js/scrips.js"></script>
+    <script src="./assets/js/slideshow.js"></script>
     <!--  -->
   </head>
   <body>
@@ -96,52 +97,555 @@
     <!-- end header -->
     <main>
       <!-- main -->
-      <div class="container">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo culpa
-        dolorem reiciendis expedita aperiam mollitia ab sunt incidunt esse
-        cumque maiores modi officia natus rerum iste quas dolorum dignissimos,
-        qui sapiente fugit quasi. Ipsum temporibus repellat ex ut ducimus!
-        Laboriosam fugiat voluptates hic, esse, officia deleniti a quibusdam,
-        quaerat odit rerum assumenda? Delectus ullam perspiciatis numquam,
-        mollitia laudantium itaque quas a excepturi necessitatibus cum natus
-        aliquid architecto! Tempore dolores voluptates deserunt natus incidunt
-        quibusdam, omnis illo voluptatum corrupti deleniti voluptatibus delectus
-        magnam saepe labore laudantium eos et quam laborum quod aperiam repellat
-        soluta doloremque veniam earum? Facere, animi. Sequi, facere. Lorem
-        ipsum dolor sit amet consectetur adipisicing elit. Nobis quas iure dicta
-        hic. Dolorum, ea illum praesentium qui, harum quam assumenda aspernatur
-        quas perspiciatis enim iure laborum, animi eaque. Eaque laborum odit
-        delectus perspiciatis quam eos magnam in magni sit officiis, deleniti
-        dolorem accusantium expedita earum illo enim? Eum quaerat iure
-        aspernatur explicabo nihil itaque, sint optio consectetur quos nam saepe
-        id illum vel. Unde provident nesciunt nam, cupiditate mollitia
-        voluptatum architecto, totam hic libero, fuga placeat distinctio. Atque,
-        aliquam omnis deleniti ab dolorem ducimus facilis itaque modi molestiae
-        et voluptatum saepe aspernatur totam corrupti doloribus possimus
-        corporis, voluptates inventore sequi consequuntur quas recusandae ea
-        animi tempore! Ipsam quibusdam quisquam, odio rerum veniam placeat
-        aperiam magnam pariatur qui, vero ducimus eius laudantium commodi,
-        cupiditate sit sapiente odit labore. Quod sapiente quasi nulla excepturi
-        repellat? Non beatae incidunt sit esse veniam voluptas. Excepturi,
-        expedita voluptate atque at, ipsa consequatur sapiente exercitationem
-        magni voluptas nulla veritatis eos, in animi aliquid debitis eum
-        nostrum. Non ducimus magni ad, molestiae voluptate cupiditate
-        consectetur consequuntur maxime culpa ab, consequatur sunt placeat
-        exercitationem eum tempore fugit necessitatibus nihil ipsam distinctio
-        accusantium odit cum ratione vel! Dolorum accusamus architecto, totam
-        consequuntur sit consequatur est nulla recusandae blanditiis quibusdam
-        facere dolor. Asperiores eos similique saepe deleniti tempore nihil
-        itaque nobis doloribus exercitationem nostrum cumque, corporis
-        reprehenderit, tempora distinctio accusantium autem repellat! Dolorum
-        qui harum tenetur saepe! Quas, repellat blanditiis! Commodi quibusdam
-        laborum exercitationem deleniti! Veniam qui delectus maiores, fugiat
-        vero beatae necessitatibus tenetur hic deserunt provident ducimus
-        consectetur. Delectus hic ipsam necessitatibus tenetur corrupti alias
-        eveniet incidunt temporibus veritatis sapiente cum in ad commodi, autem,
-        impedit quae sed numquam molestias eligendi molestiae. Natus aut facilis
-        ipsa a perspiciatis quod nesciunt est non reprehenderit autem. Ullam
-        animi facere voluptatem tempora iusto? Repellendus nulla cupiditate
-        consequatur sapiente dolore maiores ea.
+      <!-- container -->
+      <div id="home" class="container home">
+        <div class="home__container">
+          <div class="slideshow">
+            <div class="slideshow__inner">
+              <div class="slideshow__item">
+                <a href="#!" class="slideshow__link">
+                  <img
+                    src="./assets/img/slide-show-films/film-1.jpg"
+                    alt=""
+                    class="slideshow__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slideshow__item">
+                <a href="#!" class="slideshow__link">
+                  <img
+                    src="./assets/img/slide-show-films/film-2.jpg"
+                    alt=""
+                    class="slideshow__img"
+                  />
+                </a>
+              </div>
+              <div class="slideshow__item">
+                <a href="#!" class="slideshow__link">
+                  <img
+                    src="./assets/img/slide-show-films/film-3.webp"
+                    alt=""
+                    class="slideshow__img"
+                  />
+                </a>
+              </div>
+              <div class="slideshow__item">
+                <a href="#!" class="slideshow__link">
+                  <img
+                    src="./assets/img/slide-show-films/film-4.jpg"
+                    alt=""
+                    class="slideshow__img"
+                  />
+                </a>
+              </div>
+              <div class="slideshow__item">
+                <a href="#!" class="slideshow__link">
+                  <img
+                    src="./assets/img/slide-show-films/film-3.jpg"
+                    alt=""
+                    class="slideshow__img"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="slideshow__controls">
+              <button class="slideshow__button slideshow__button--left">
+                <
+              </button>
+              <button class="slideshow__button slideshow__button--right">
+                >
+              </button>
+            </div>
+            <div class="slideshow__page">
+              <span class="slideshow__slider" data-index="0"></span>
+              <span class="slideshow__slider" data-index="1"></span>
+              <span class="slideshow__slider" data-index="2"></span>
+              <span class="slideshow__slider" data-index="3"></span>
+              <span class="slideshow__slider" data-index="4"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- browser film  -->
+        <section class="home__container">
+          <div class="row row-cols-4 row-cols-lg-2 row-cols-sm-1 g-3">
+            <!-- film 1 -->
+            <div class="col">
+              <article class="film-card">
+                <div class="film-card__img-wrap">
+                  <a href="./film-detail.html">
+                    <img
+                      src="./assets/img/films/film-1.webp"
+                      alt=""
+                      class="film-card__thumb"
+                    />
+                  </a>
+                </div>
+                <h3 class="film-card__title">
+                  <a href="./film-detail.html">The Wild Robot</a>
+                </h3>
+                <div class="film-card__row">
+                  <button class="film-card__more">
+                    <img
+                      src="./assets/icon/see-more.svg"
+                      class="film-card__more-icon"
+                      alt=""
+                    />
+                    See Detail
+                  </button>
+                  <button class="film-card__book">
+                    <img
+                      src="./assets/icon/book.svg"
+                      class="film-card__book-icon"
+                      alt=""
+                    />
+                    Book tickets
+                  </button>
+                </div>
+              </article>
+              <div class="film-card__overlay"></div>
+            </div>
+            <!-- film 2 -->
+            <div class="col">
+              <article class="film-card">
+                <div class="film-card__img-wrap">
+                  <a href="./film-detail.html">
+                    <img
+                      src="./assets/img/films/film-2.webp"
+                      alt=""
+                      class="film-card__thumb"
+                    />
+                  </a>
+                  <button class="like-btn like-btn--liked film-card__like-btn">
+                    <img
+                      src="./assets/icon/heart.svg"
+                      alt=""
+                      class="like-btn__icon icon"
+                    />
+                  </button>
+                </div>
+                <h3 class="film-card__title">
+                  <a href="./film-detail.html">Venom: The Last Dance</a>
+                </h3>
+                <div class="film-card__row">
+                  <button class="film-card__more">
+                    <img
+                      src="./assets/icon/see-more.svg"
+                      class="film-card__more-icon"
+                      alt=""
+                    />
+                    See Detail
+                  </button>
+                  <button class="film-card__book">
+                    <img
+                      src="./assets/icon/book.svg"
+                      class="film-card__book-icon"
+                      alt=""
+                    />
+                    Book tickets
+                  </button>
+                </div>
+              </article>
+              <div class="film-card__overlay"></div>
+            </div>
+            <!-- film 3 -->
+            <div class="col">
+              <article class="film-card">
+                <div class="film-card__img-wrap">
+                  <a href="./film-detail.html">
+                    <img
+                      src="./assets/img/films/film-12.avif"
+                      alt=""
+                      class="film-card__thumb"
+                    />
+                  </a>
+                </div>
+                <h3 class="film-card__title">
+                  <a href="./film-detail.html">Saturday Night</a>
+                </h3>
+                <div class="film-card__row">
+                  <button class="film-card__more">
+                    <img
+                      src="./assets/icon/see-more.svg"
+                      class="film-card__more-icon"
+                      alt=""
+                    />
+                    See Detail
+                  </button>
+                  <button class="film-card__book">
+                    <img
+                      src="./assets/icon/book.svg"
+                      class="film-card__book-icon"
+                      alt=""
+                    />
+                    Book tickets
+                  </button>
+                </div>
+              </article>
+              <div class="film-card__overlay"></div>
+            </div>
+            <!-- film 4  -->
+            <div class="col">
+              <article class="film-card">
+                <div class="film-card__img-wrap">
+                  <a href="./film-detail.html">
+                    <img
+                      src="./assets/img/films/film-3.webp"
+                      alt=""
+                      class="film-card__thumb"
+                    />
+                  </a>
+                  <button class="like-btn like-btn--liked film-card__like-btn">
+                    <img
+                      src="./assets/icon/heart.svg"
+                      alt=""
+                      class="like-btn__icon icon"
+                    />
+                  </button>
+                </div>
+                <h3 class="film-card__title">
+                  <a href="./film-detail.html">Transformers One</a>
+                </h3>
+                <div class="film-card__row">
+                  <button class="film-card__more">
+                    <img
+                      src="./assets/icon/see-more.svg"
+                      class="film-card__more-icon"
+                      alt=""
+                    />
+                    See Detail
+                  </button>
+                  <button class="film-card__book">
+                    <img
+                      src="./assets/icon/book.svg"
+                      class="film-card__book-icon"
+                      alt=""
+                    />
+                    Book tickets
+                  </button>
+                </div>
+              </article>
+              <div class="film-card__overlay"></div>
+            </div>
+            <!-- film 1 -->
+            <div class="col">
+              <article class="film-card">
+                <div class="film-card__img-wrap">
+                  <a href="./film-detail.html">
+                    <img
+                      src="./assets/img/films/film-4.webp"
+                      alt=""
+                      class="film-card__thumb"
+                    />
+                  </a>
+                </div>
+                <h3 class="film-card__title">
+                  <a href="./film-detail.html">Beetlejuice Beetlejuice</a>
+                </h3>
+                <div class="film-card__row">
+                  <button class="film-card__more">
+                    <img
+                      src="./assets/icon/see-more.svg"
+                      class="film-card__more-icon"
+                      alt=""
+                    />
+                    See Detail
+                  </button>
+                  <button class="film-card__book">
+                    <img
+                      src="./assets/icon/book.svg"
+                      class="film-card__book-icon"
+                      alt=""
+                    />
+                    Book tickets
+                  </button>
+                </div>
+              </article>
+              <div class="film-card__overlay"></div>
+            </div>
+            <!-- film 2 -->
+            <div class="col">
+              <article class="film-card">
+                <div class="film-card__img-wrap">
+                  <a href="./film-detail.html">
+                    <img
+                      src="./assets/img/films/film-5.webp"
+                      alt=""
+                      class="film-card__thumb"
+                    />
+                  </a>
+                  <button class="like-btn like-btn--liked film-card__like-btn">
+                    <img
+                      src="./assets/icon/heart.svg"
+                      alt=""
+                      class="like-btn__icon icon"
+                    />
+                  </button>
+                </div>
+                <h3 class="film-card__title">
+                  <a href="./film-detail.html">Terrifier 3</a>
+                </h3>
+                <div class="film-card__row">
+                  <button class="film-card__more">
+                    <img
+                      src="./assets/icon/see-more.svg"
+                      class="film-card__more-icon"
+                      alt=""
+                    />
+                    See Detail
+                  </button>
+                  <button class="film-card__book">
+                    <img
+                      src="./assets/icon/book.svg"
+                      class="film-card__book-icon"
+                      alt=""
+                    />
+                    Book tickets
+                  </button>
+                </div>
+              </article>
+              <div class="film-card__overlay"></div>
+            </div>
+            <!-- film 3 -->
+            <div class="col">
+              <article class="film-card">
+                <div class="film-card__img-wrap">
+                  <a href="./film-detail.html">
+                    <img
+                      src="./assets/img/films/film-6.webp"
+                      alt=""
+                      class="film-card__thumb"
+                    />
+                  </a>
+                </div>
+                <h3 class="film-card__title">
+                  <a href="./film-detail.html">The Apprentice</a>
+                </h3>
+                <div class="film-card__row">
+                  <button class="film-card__more">
+                    <img
+                      src="./assets/icon/see-more.svg"
+                      class="film-card__more-icon"
+                      alt=""
+                    />
+                    See Detail
+                  </button>
+                  <button class="film-card__book">
+                    <img
+                      src="./assets/icon/book.svg"
+                      class="film-card__book-icon"
+                      alt=""
+                    />
+                    Book tickets
+                  </button>
+                </div>
+              </article>
+              <div class="film-card__overlay"></div>
+            </div>
+            <!-- film 4  -->
+            <div class="col">
+              <article class="film-card">
+                <div class="film-card__img-wrap">
+                  <a href="./film-detail.html">
+                    <img
+                      src="./assets/img/films/film-7.webp"
+                      alt=""
+                      class="film-card__thumb"
+                    />
+                  </a>
+                  <button class="like-btn like-btn--liked film-card__like-btn">
+                    <img
+                      src="./assets/icon/heart.svg"
+                      alt=""
+                      class="like-btn__icon icon"
+                    />
+                  </button>
+                </div>
+                <h3 class="film-card__title">
+                  <a href="./film-detail.html">Despicable Me 4</a>
+                </h3>
+                <div class="film-card__row">
+                  <button class="film-card__more">
+                    <img
+                      src="./assets/icon/see-more.svg"
+                      class="film-card__more-icon"
+                      alt=""
+                    />
+                    See Detail
+                  </button>
+                  <button class="film-card__book">
+                    <img
+                      src="./assets/icon/book.svg"
+                      class="film-card__book-icon"
+                      alt=""
+                    />
+                    Book tickets
+                  </button>
+                </div>
+              </article>
+              <div class="film-card__overlay"></div>
+            </div>
+            <!-- film 1 -->
+            <div class="col">
+              <article class="film-card">
+                <div class="film-card__img-wrap">
+                  <a href="./film-detail.html">
+                    <img
+                      src="./assets/img/films/film-8.webp"
+                      alt=""
+                      class="film-card__thumb"
+                    />
+                  </a>
+                </div>
+                <h3 class="film-card__title">
+                  <a href="./film-detail.html">Hey Duggee Is 10</a>
+                </h3>
+                <div class="film-card__row">
+                  <button class="film-card__more">
+                    <img
+                      src="./assets/icon/see-more.svg"
+                      class="film-card__more-icon"
+                      alt=""
+                    />
+                    See Detail
+                  </button>
+                  <button class="film-card__book">
+                    <img
+                      src="./assets/icon/book.svg"
+                      class="film-card__book-icon"
+                      alt=""
+                    />
+                    Book tickets
+                  </button>
+                </div>
+              </article>
+              <div class="film-card__overlay"></div>
+            </div>
+            <!-- film 2 -->
+            <div class="col">
+              <article class="film-card">
+                <div class="film-card__img-wrap">
+                  <a href="./film-detail.html">
+                    <img
+                      src="./assets/img/films/film-9.webp"
+                      alt=""
+                      class="film-card__thumb"
+                    />
+                  </a>
+                  <button class="like-btn like-btn--liked film-card__like-btn">
+                    <img
+                      src="./assets/icon/heart.svg"
+                      alt=""
+                      class="like-btn__icon icon"
+                    />
+                  </button>
+                </div>
+                <h3 class="film-card__title">
+                  <a href="./film-detail.html">Joker: Folie à Deux</a>
+                </h3>
+                <div class="film-card__row">
+                  <button class="film-card__more">
+                    <img
+                      src="./assets/icon/see-more.svg"
+                      class="film-card__more-icon"
+                      alt=""
+                    />
+                    See Detail
+                  </button>
+                  <button class="film-card__book">
+                    <img
+                      src="./assets/icon/book.svg"
+                      class="film-card__book-icon"
+                      alt=""
+                    />
+                    Book tickets
+                  </button>
+                </div>
+              </article>
+              <div class="film-card__overlay"></div>
+            </div>
+            <!-- film 3 -->
+            <div class="col">
+              <article class="film-card">
+                <div class="film-card__img-wrap">
+                  <a href="./film-detail.html">
+                    <img
+                      src="./assets/img/films/film-10.webp"
+                      alt=""
+                      class="film-card__thumb"
+                    />
+                  </a>
+                </div>
+                <h3 class="film-card__title">
+                  <a href="./film-detail.html">Smile 2</a>
+                </h3>
+                <div class="film-card__row">
+                  <button class="film-card__more">
+                    <img
+                      src="./assets/icon/see-more.svg"
+                      class="film-card__more-icon"
+                      alt=""
+                    />
+                    See Detail
+                  </button>
+                  <button class="film-card__book">
+                    <img
+                      src="./assets/icon/book.svg"
+                      class="film-card__book-icon"
+                      alt=""
+                    />
+                    Book tickets
+                  </button>
+                </div>
+              </article>
+              <div class="film-card__overlay"></div>
+            </div>
+            <!-- film 4  -->
+            <div class="col">
+              <article class="film-card">
+                <div class="film-card__img-wrap">
+                  <a href="./film-detail.html">
+                    <img
+                      src="./assets/img/films/film-11.avif"
+                      alt=""
+                      class="film-card__thumb"
+                    />
+                  </a>
+                  <button class="like-btn like-btn--liked film-card__like-btn">
+                    <img
+                      src="./assets/icon/heart.svg"
+                      alt=""
+                      class="like-btn__icon icon"
+                    />
+                  </button>
+                </div>
+                <h3 class="film-card__title">
+                  <a href="./film-detail.html">Lee</a>
+                </h3>
+                <div class="film-card__row">
+                  <button class="film-card__more">
+                    <img
+                      src="./assets/icon/see-more.svg"
+                      class="film-card__more-icon"
+                      alt=""
+                    />
+                    See Detail
+                  </button>
+                  <button class="film-card__book">
+                    <img
+                      src="./assets/icon/book.svg"
+                      class="film-card__book-icon"
+                      alt=""
+                    />
+                    Book tickets
+                  </button>
+                </div>
+              </article>
+              <div class="film-card__overlay"></div>
+            </div>
+          </div>
+        </section>
       </div>
       <!-- end main -->
     </main>

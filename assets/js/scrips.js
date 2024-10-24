@@ -152,3 +152,4 @@ window.addEventListener("template-loaded", () => {
 
 const isDark = localStorage.dark === "true";
 document.querySelector("html").classList.toggle("dark", isDark);
+/////////////////////////////////////////////////////////////////

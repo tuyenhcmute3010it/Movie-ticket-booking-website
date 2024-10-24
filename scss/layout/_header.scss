@@ -208,10 +208,17 @@
   }
   &__user {
     position: relative;
+    z-index: 999;
     &:hover .act-dropdown {
       display: block;
     }
     margin-left: 120px;
+    @include abstracts.screen(lg) {
+      margin-left: 50px;
+    }
+    @include abstracts.screen(md) {
+      margin-left: 0px;
+    }
   }
   &__dropdown {
     margin-top: 10px;
