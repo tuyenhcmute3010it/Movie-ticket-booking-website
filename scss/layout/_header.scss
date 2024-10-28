@@ -371,9 +371,103 @@
     display: flex;
     align-items: center;
     gap: 15px;
+    &--themes {
+      width: 200px !important;
+      height: 75px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
   }
 
   &__separate {
     border-top: 1px solid var(--separate-color);
   }
+}
+// code darkmod , light mode
+.toggle > div {
+  position: relative;
+  padding: 10px;
+  width: 100px;
+  height: 55px;
+  border-radius: 50px;
+  box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.5),
+    0px 1px 1px 0 rgba(255, 255, 255, 1);
+  background: rgb(189, 191, 193);
+  background: linear-gradient(
+    to bottom,
+    rgba(189, 191, 193, 1) 0%,
+    rgba(249, 251, 254, 1) 100%
+  );
+}
+
+.toggle > div > input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  top: 7px;
+  left: 5px;
+  width: 100px;
+  height: 45px;
+
+  z-index: 5;
+}
+
+.toggle > div > input[type="checkbox"] ~ div {
+  width: 80px;
+  height: 35px;
+  border-radius: 50px;
+  border: 1px solid #979797;
+  box-shadow: inset 5px 0 0 0 rgba(0, 0, 0, 0.1),
+    inset -5px 0 0 0 rgba(0, 0, 0, 0.1),
+    inset -6px 0 0 0 rgba(255, 255, 255, 0.5),
+    inset -4px 6px 11px -5px rgba(0, 0, 0, 0.2),
+    inset 1px 1px 0 0 rgba(255, 255, 255, 1),
+    -6px 4px 11px -7px rgba(0, 0, 0, 0.5);
+}
+
+.toggle > div > input[type="checkbox"]:checked ~ div {
+  box-shadow: inset -5px 0 0 0 rgba(0, 0, 0, 0.1),
+    inset 5px 0 0 0 rgba(0, 0, 0, 0.1), inset 6px 0 0 0 rgba(255, 255, 255, 0.5),
+    inset -4px 6px 11px -5px rgba(0, 0, 0, 0.2),
+    inset 1px 1px 0 0 rgba(255, 255, 255, 1),
+    -6px 4px 11px -7px rgba(0, 0, 0, 0.5);
+  background: rgb(229, 229, 229);
+
+  background: linear-gradient(
+    to right,
+    rgba(229, 229, 229, 1) 40%,
+    rgb(255, 4, 0) 98%
+  );
+}
+
+.toggle > div > input[type="checkbox"]:not(:checked) ~ div {
+  box-shadow: inset -5px 0 0 0 rgba(0, 0, 0, 0.1),
+    inset 5px 0 0 0 rgba(0, 0, 0, 0.1), inset 6px 0 0 0 rgba(255, 255, 255, 0.5),
+    inset -4px 6px 11px -5px rgba(0, 0, 0, 0.2),
+    inset 1px 1px 0 0 rgba(255, 255, 255, 1),
+    -6px 4px 11px -7px rgba(0, 0, 0, 0.5);
+  background: rgb(229, 229, 229);
+
+  background: linear-gradient(
+    to left,
+    rgba(229, 229, 229, 1) 40%,
+    rgb(0, 30, 255) 98%
+  );
+}
+
+.toggle > div > input[type="checkbox"] ~ div:before {
+  content: attr(data-unchecked);
+  display: block;
+  position: absolute;
+  border-radius: 10px;
+  top: 27px;
+  left: 30px;
+}
+
+.toggle > div > input[type="checkbox"]:checked ~ div:after {
+  color: #000;
+  text-shadow: none;
+  filter: dropshadow(none);
 }

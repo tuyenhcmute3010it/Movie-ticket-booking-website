@@ -1,3 +1,8 @@
+// auto flow in top page
+window.onload = function () {
+  window.scrollTo(0, 0);
+};
+////
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -29,14 +34,6 @@ function load(selector, path) {
     });
 }
 
-// ////////////////////////////////////////////////////////////////
-/**
- * JS toggle
- *
- * Cách dùng:
- * <button class="js-toggle" toggle-target="#box">Click</button>
- * <div id="box">Content show/hide</div>
- */
 window.addEventListener("template-loaded", initJsToggle);
 
 function initJsToggle() {
@@ -79,15 +76,7 @@ window.addEventListener("template-loaded", () => {
     };
   });
 });
-////////////////////////////////////////////////
-/**
- * Giữ active menu khi hover
- *
- * Cách dùng:
- * 1. Thêm class "js-menu-list" vào thẻ ul menu chính
- * 2. Thêm class "js-dropdown" vào class "dropdown" hiện tại
- *  nếu muốn reset lại item active khi ẩn menu
- */
+
 window.addEventListener("template-loaded", handleActiveMenu);
 
 function handleActiveMenu() {
@@ -130,8 +119,6 @@ function handleActiveMenu() {
   });
 }
 
-////////////////////////////////////////////
-// switch themes
 window.addEventListener("template-loaded", () => {
   const switchBtn = document.querySelector("#switch-theme-btn");
   if (switchBtn) {
@@ -140,16 +127,115 @@ window.addEventListener("template-loaded", () => {
       document.querySelector("html").classList.toggle("dark", !isDark);
       localStorage.setItem("dark", !isDark);
       switchBtn.querySelector("span").textContent = isDark
-        ? "Dark mode"
-        : "Light mode";
+        ? "Light mode"
+        : "Dark mode";
+      switchBtn.querySelector("data-unchecked").textContent = isDark
+        ? "Light mode"
+        : "Dark mode";
     };
     const isDark = localStorage.dark === "true";
     switchBtn.querySelector("span").textContent = isDark
-      ? "Light mode"
-      : "Dark mode";
+      ? "Dark mode"
+      : "Light mode";
+    switchBtn.querySelector("data-unchecked").textContent = isDark
+      ? "Dark mode"
+      : "Light mode";
   }
 });
 
 const isDark = localStorage.dark === "true";
 document.querySelector("html").classList.toggle("dark", isDark);
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+document.addEventListener("DOMContentLoaded", function () {
+  const images = [
+    "./assets/img/thumbs_preview/a-wild-robot-1.webp",
+    "./assets/img/thumbs_preview/a-wild-robot-2.jpg",
+    "./assets/img/thumbs_preview/a-wild-robot-3.webp",
+    "./assets/img/thumbs_preview/a-wild-robot-4.webp",
+  ];
+
+  let currentIndex = 0;
+
+  function showImage(index) {
+    currentIndex = index;
+    const overlay = document.getElementById("imageOverlay");
+    const overlayImg = document.getElementById("overlay-thumb-img");
+
+    overlayImg.src = images[currentIndex];
+    overlay.style.display = "flex";
+  }
+
+  function hideImage() {
+    const overlay = document.getElementById("imageOverlay");
+    overlay.style.display = "none";
+  }
+
+  function changeImage(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) {
+      currentIndex = images.length - 1;
+    } else if (currentIndex >= images.length) {
+      currentIndex = 0;
+    }
+
+    const overlayImg = document.getElementById("overlay-thumb-img");
+    overlayImg.src = images[currentIndex];
+  }
+
+  document
+    .querySelector(".overlay-thumb__prev")
+    .addEventListener("click", function (event) {
+      event.stopPropagation();
+      changeImage(-1);
+    });
+
+  document
+    .querySelector(".overlay-thumb__next")
+    .addEventListener("click", function (event) {
+      event.stopPropagation();
+      changeImage(1);
+    });
+
+  document
+    .querySelector(".overlay-thumb__close")
+    .addEventListener("click", function (event) {
+      event.stopPropagation();
+      hideImage();
+    });
+
+  document
+    .querySelectorAll(".prod-preview__thumb-img")
+    .forEach((thumbnail, index) => {
+      thumbnail.addEventListener("click", function () {
+        showImage(index);
+      });
+    });
+});
+///////////////////////////////////////////////
+// js tab
+
+window.addEventListener("template-loaded", () => {
+  const tabsSelector = "prod-tab__item";
+  const contentsSelector = "prod-tab__content";
+
+  const tabActive = `${tabsSelector}--active`;
+  const contentActive = `${contentsSelector}--active`;
+
+  const tabContainers = $$(".js-tabs");
+  tabContainers.forEach((tabContainer) => {
+    const tabs = tabContainer.querySelectorAll(`.${tabsSelector}`);
+    const contents = tabContainer.querySelectorAll(`.${contentsSelector}`);
+    tabs.forEach((tab, index) => {
+      tab.onclick = () => {
+        tabContainer
+          .querySelector(`.${tabActive}`)
+          ?.classList.remove(tabActive);
+        tabContainer
+          .querySelector(`.${contentActive}`)
+          ?.classList.remove(contentActive);
+        tab.classList.add(tabActive);
+        contents[index].classList.add(contentActive);
+      };
+    });
+  });
+});

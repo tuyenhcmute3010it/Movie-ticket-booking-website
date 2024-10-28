@@ -39,4 +39,25 @@ html.dark {
     --film-card-bg: #171c28;
     --film-card-color: #fff;
     --film-card-more-color : #fff;
+      // breadcrumb
+  --breadcrumb-detail-bg: #171c28;
+  --breadcrumb-shadow: rgba(23, 28, 40, 0.2);
+  --breadcrumb-link-current-color: #fff;
+/////
+  --prod-prop-sub-title-color : #fff;
+  --prod-info-heading-color: #fff;
+  --prod-prop-color:#ccc;
+  --prod-info-color: #fff;
+  --prod-prop-title-color : #fff;
+  --prod-prop-tag-color : orange;
+  --prod-content-heading: #fff;
+  --prod-prop-filter : brightness(0) saturate(100%) invert(71%) sepia(34%) saturate(4013%) hue-rotate(358deg) brightness(100%) contrast(107%);  
+  // review card
+  --review-card-bg: #171c28;
+  --prod-content-heading: rgb(255, 255, 255);
+  --upload-icon-filter : brightness(0) saturate(100%) invert(100%) sepia(5%) saturate(26%) hue-rotate(239deg) brightness(105%) contrast(100%);
+  --comment-item-bg :rgba(0, 0, 0 , 0.5);
+  --comment-content : rgb(237, 242, 247, 0.1);
+  --comment-input-bg:  rgb(237, 242, 247, 0.1);
+  --schedule-content-color : rgba(0, 0, 0 , 0.6);
 }

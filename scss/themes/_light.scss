@@ -42,4 +42,32 @@ html {
     --film-card-bg: #ebebeb;
     --film-card-color: #1a162e;
     --film-card-more-color : #000;
+      // breadcrumb
+    @include abstracts.screen(md) {
+    --breadcrumb-detail-bg: #fff;
+    }
+  --breadcrumb-shadow: rgba(237, 237, 246, 0.2);
+  --breadcrumb-link-current-color: #1a162e;
+
+  @include abstracts.screen(md) {
+    --breadcrumb-detail-bg: #fff;
+  }
+  --breadcrumb-shadow: rgba(237, 237, 246, 0.2);
+  --breadcrumb-link-current-color: #1a162e;
+  // pro-info
+
+  --prod-prop-sub-title-color : #000;
+  --prod-info-heading-color: #1a162e;
+  --prod-prop-color:#201b1b;
+  --prod-info-color: #000;
+  --prod-prop-title-color : #000;
+  --prod-prop-tag-color : red;
+  --prod-content-heading: #171c28;
+  --prod-prop-filter : brightness(0) saturate(100%) invert(18%) sepia(93%) saturate(5866%) hue-rotate(357deg) brightness(105%) contrast(117%);
+  // review card 
+  --review-card-bg: #fafafd;
+  --comment-item-bg : #ccc;
+  --comment-content :#f0f0f0;
+  --comment-input-bg : #fff;
+  
 }

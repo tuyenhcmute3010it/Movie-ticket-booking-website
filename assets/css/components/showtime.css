@@ -1,0 +1,141 @@
+.showtime {
+  margin-top: 30px;
+  width: 100%;
+}
+.showtime__movie-schedule-container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+.showtime__movie-block {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+}
+@media (max-width: 575.98px) {
+  .showtime__movie-block {
+    width: 100%;
+  }
+}
+.showtime__showtimes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+.showtime__tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.showtime__tab-button {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+@media (max-width: 1399.98px) {
+  .showtime__tab-button {
+    width: 11.1111111111%;
+  }
+}
+@media (max-width: 1199.98px) {
+  .showtime__tab-button {
+    width: 20%;
+  }
+}
+@media (max-width: 767.98px) {
+  .showtime__tab-button {
+    width: 20%;
+  }
+}
+@media (max-width: 575.98px) {
+  .showtime__tab-button {
+    width: 40%;
+  }
+}
+.showtime__tab-button.active {
+  background-color: #ffcc00;
+  color: #222;
+}
+
+.schedule-content {
+  background-color: #fafafa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  color: var(--schedule-content-color);
+}
+
+.movie-list {
+  display: grid;
+  gap: 20px;
+}
+
+.movie-title {
+  font-size: 18px;
+  color: #ff6600;
+  margin-bottom: 8px;
+}
+
+.showtime-button {
+  background-color: #ffcc00;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #222;
+  border-radius: 5px;
+  width: min(120px, 100%);
+}
+
+.showtime-button.past {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.movie-subtitle {
+  font-size: 1.6rem;
+  color: #666;
+  margin-top: 4px;
+  color: blue;
+}
+
+.movie-description {
+  font-size: 1.5rem;
+  color: #555;
+  margin-top: 4px;
+}
+
+.showtime-button.past {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6; /* Add some transparency */
+}
+
+.nav-button {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+  border-radius: 5px;
+}
+
+.nav-button:hover {
+  background-color: #ffcc00; /* Highlight on hover */
+}
+
+/*# sourceMappingURL=showtime.css.map */

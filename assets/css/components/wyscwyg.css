@@ -1,0 +1,180 @@
+.comment__interaction {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 15px 0;
+}
+@media (max-width: 767.98px) {
+  .comment__interaction {
+    justify-content: space-between;
+  }
+}
+
+.comment__interaction button {
+  width: 200px;
+  height: 35px;
+  font-size: 2rem;
+  background-color: #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+.comment__interaction button:hover {
+  opacity: 0.7;
+}
+@media (max-width: 575.98px) {
+  .comment__interaction button {
+    width: 45%;
+    font-size: 1.5rem;
+  }
+}
+
+.comments-section {
+  margin-top: 10px;
+}
+
+.comments-container {
+  max-height: 250px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding-right: 10px;
+}
+
+/* Comment item style */
+.comment-item {
+  display: flex;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: var(--comment-item-bg);
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.comment-content {
+  background-color: var(--comment-content);
+  padding: 10px;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.comment-author {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.comment-text {
+  margin-top: 5px;
+}
+
+.comment-input {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: var(--comment-input-bg);
+}
+
+.submit-comment {
+  padding: 5px 10px;
+  background-color: #ccc;
+  width: 100px;
+  height: 40px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.submit-comment:hover {
+  background-color: #007bff;
+}
+.submit-comment:hover .submit-comment__send {
+  filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(2%) hue-rotate(157deg) brightness(105%) contrast(100%);
+}
+
+.upload-icon__img {
+  width: 25px;
+  height: 25px;
+  margin: 0 5px 5px 0;
+  filter: var(--upload-icon-filter);
+}
+.upload-icon__img:hover {
+  filter: brightness(0) saturate(100%) invert(8%) sepia(85%) saturate(7427%) hue-rotate(247deg) brightness(115%) contrast(144%);
+}
+
+.uploaded-image {
+  max-width: 300px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 5px;
+  object-fit: contain;
+}
+
+.image-preview-container {
+  margin-top: 10px;
+}
+
+.icon-list {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 5px;
+  z-index: 10;
+}
+
+.icon-list span {
+  cursor: pointer;
+  padding: 5px;
+  margin: 2px;
+  transition: background-color 0.2s;
+}
+
+.icon-list span:hover {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.like-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px; /* Adjust font size as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.like-btn__icon {
+  width: 25px;
+  height: 25px;
+}
+
+.like-btn.liked {
+  color: blue; /* Change to blue when liked */
+}
+
+.like-btn.liked img {
+  filter: brightness(0) saturate(100%) invert(8%) sepia(85%) saturate(7427%) hue-rotate(247deg) brightness(115%) contrast(144%);
+}
+
+.submit-comment__send {
+  width: 25px;
+  height: 25px;
+}
+
+/*# sourceMappingURL=wyscwyg.css.map */
