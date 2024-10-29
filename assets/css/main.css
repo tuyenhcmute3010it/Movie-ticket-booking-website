@@ -3252,46 +3252,40 @@ html {
 }
 .showtime__tabs {
   display: flex;
-  justify-content: space-around;
   margin-bottom: 20px;
   overflow-x: auto;
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  scrollbar-width: none;
   flex-wrap: wrap;
   gap: 10px;
+}
+@media (max-width: 575.98px) {
+  .showtime__tabs {
+    justify-content: space-between;
+  }
 }
 .showtime__tab-button {
   background-color: #e0e0e0;
   border: none;
   padding: 15px;
-  font-size: 16px;
+  font-size: 1.6rem;
   cursor: pointer;
+  width: 95px;
   color: #333;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
-@media (max-width: 1399.98px) {
-  .showtime__tab-button {
-    width: 11.1111111111%;
-  }
-}
-@media (max-width: 1199.98px) {
-  .showtime__tab-button {
-    width: 20%;
-  }
-}
-@media (max-width: 767.98px) {
-  .showtime__tab-button {
-    width: 20%;
-  }
-}
-@media (max-width: 575.98px) {
-  .showtime__tab-button {
-    width: 40%;
-  }
-}
 .showtime__tab-button.active {
   background-color: #ffcc00;
   color: #222;
+}
+.showtime__tab-button:hover {
+  opacity: 0.8;
+}
+.showtime__controls {
+  width: 95px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .schedule-content {
@@ -3308,7 +3302,7 @@ html {
 }
 
 .movie-title {
-  font-size: 18px;
+  font-size: 1.8rem;
   color: #ff6600;
   margin-bottom: 8px;
 }
@@ -3317,11 +3311,14 @@ html {
   background-color: #ffcc00;
   border: none;
   padding: 10px;
-  font-size: 14px;
+  font-size: 1.4rem;
   cursor: pointer;
   color: #222;
   border-radius: 5px;
-  width: min(120px, 100%);
+  width: min(105px, 100%);
+}
+.showtime-button:hover {
+  opacity: 0.8;
 }
 
 .showtime-button.past {
@@ -3345,21 +3342,36 @@ html {
 .showtime-button.past {
   background-color: #ccc;
   cursor: not-allowed;
-  opacity: 0.6; /* Add some transparency */
+  opacity: 0.6;
 }
 
 .nav-button {
-  background-color: #e0e0e0;
+  border-radius: 10px 0 0 10px;
+  background-color: #ebebeb;
   border: none;
   padding: 10px;
-  font-size: 16px;
+  font-size: 1.6rem;
   cursor: pointer;
   color: #333;
-  border-radius: 5px;
+}
+.nav-button:hover {
+  background-color: rgba(129, 216, 208, 0.7);
 }
 
-.nav-button:hover {
-  background-color: #ffcc00; /* Highlight on hover */
+.nav-button + .nav-button {
+  border-radius: 0 10px 10px 0;
+}
+
+.showtime-button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.showtime-button:hover {
+  background-color: lightgray;
 }
 
 .home__container {
@@ -3818,7 +3830,7 @@ html {
 }
 @media (max-width: 575.98px) {
   .prod-tab__item {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     padding: 0 20px;
   }
 }

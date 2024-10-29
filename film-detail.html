@@ -88,6 +88,8 @@
     <script src="./assets/js/slideshow.js"></script>
     <script src="./assets/js/review.js"></script>
     <script src="./assets/js/showtime.js"></script>
+    <!-- <script src="./assets/js/buysticket.js" > </script> -->
+    <!-- <script src="./assets/js/trailer.js"></script> -->
     <!--  -->
   </head>
   <body>
@@ -163,28 +165,7 @@
                     />
                   </div> -->
                 </div>
-                <!-- <div class="prod-preview__thumbs">
-                  <img
-                    src="./assets/img/thumbs_preview/a-wild-robot-1.webp"
-                    alt=""
-                    class="prod-preview__thumb-img prod-preview__thumb-img--current"
-                  />
-                  <img  
-                    src="./assets/img/thumbs_preview/a-wild-robot-2.jpg"
-                    alt=""
-                    class="prod-preview__thumb-img"
-                  />
-                  <img
-                    src="./assets/img/thumbs_preview/a-wild-robot-3.webp"
-                    alt=""
-                    class="prod-preview__thumb-img"
-                  />
-                  <img
-                    src="./assets/img/thumbs_preview/a-wild-robot-4.webp"
-                    alt=""
-                    class="prod-preview__thumb-img"
-                  />
-                </div> -->
+
                 <div class="prod-preview__thumbs">
                   <img
                     src="./assets/img/thumbs_preview/a-wild-robot-1.webp"
@@ -292,19 +273,36 @@
                         </h4>
                       </div>
                       <div class="prod-prop">
-                      <button
-                    class="film-card__trailer"
-                    data-video-url="https://www.youtube.com/embed/67vbA5ZJdKQ?si=4CVYKS8_yhKgI7kE"
-                  >
-                    <div class="film-card__play">
-                      <img
-                        src="./assets/icon/play-trailer.svg"
-                        class="film-card__trailer-icon"
-                        alt=""
-                      />
-                    </div>
-                    Trailer
-                  </button>
+                        <button
+                          class="film-card__trailer"
+                          data-video-url="https://www.youtube.com/embed/67vbA5ZJdKQ?si=4CVYKS8_yhKgI7kE"
+                        >
+                          <div class="film-card__play">
+                            <img
+                              src="./assets/icon/play-trailer.svg"
+                              class="film-card__trailer-icon"
+                              alt=""
+                            />
+                          </div>
+                          Trailer
+                        </button>
+                        <div class="film-card__overlay"></div>
+                        <div class="film-card__container" id="overlay">
+                          <div class="film-card__video">
+                            <iframe
+                              class="film-card__iframe"
+                              id="trailerVideo"
+                              src=""
+                              frameborder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowfullscreen
+                              referrerpolicy="strict-origin-when-cross-origin"
+                            ></iframe>
+                            <button class="film-card__close" id="closeButton">
+                              &times;
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -344,24 +342,51 @@
               <!-- show time -->
               <div class="prod-tab__content prod-tab__content--active">
                 <div class="row">
-                  <div class="col-10 col-lg-12 offset-1 offset-lg-0">
+                  <div class="col-8 col-xl-12 offset-2 offset-xl-0">
                     <!-- showtime -->
-                    <div class="showtime">
+                    <!-- <div class="showtime">
                       <div class="showtime__movie-schedule-container">
                         <div class="showtime__tabs">
-                          <button class="showtime__tab-button active" data-day="0">
+                          <button
+                            class="showtime__tab-button active"
+                            data-day="0"
+                          >
                             Today
                           </button>
                           <button id="prevButton" class="nav-button">◀</button>
                           <button id="nextButton" class="nav-button">▶</button>
+                          <div class="schedule-content">
+                            <div class="movie-list" id="movie-list"></div>
+                            <div id="no-sessions-message"></div>
+                          </div>
+                        </div>
+
+    
+                      </div>
+                    </div> -->
+                    <div class="showtime">
+                      <div class="showtime__movie-schedule-container">
+                        <div class="showtime__tabs">
+                          <button
+                            class="showtime__tab-button active"
+                            data-day="0"
+                          >
+                            Today
+                          </button>
+                          <div class="showtime__controls">
+                            <button id="prevButton" class="nav-button">
+                              ◀
+                            </button>
+                            <button id="nextButton" class="nav-button">
+                              ▶
+                            </button>
+                          </div>
                         </div>
                         <div class="schedule-content">
-                          <div class="movie-list" id="movie-list">
-                          </div>
-                          <div id="no-sessions-message"></div> 
+                          <div class="movie-list" id="movie-list"></div>
+
+                          <div id="no-sessions-message"></div>
                         </div>
-                      </div>
-        
                       </div>
                     </div>
                     <!--  -->
@@ -740,7 +765,7 @@
                                 alt=""
                               />
                             </button>
-                  
+
                             <button
                               class="icon-select"
                               onclick="toggleIconList(this)"
@@ -1273,7 +1298,7 @@
                 </div>
               </div>
               <!-- /review tag -->
-               <!-- also showing -->
+              <!-- also showing -->
               <div class="prod-tab__content">
                 <div class="prod-content">
                   <h2 class="prod-content__heading">New & Coming soon</h2>
@@ -1347,7 +1372,6 @@
                               class="film-card__thumb"
                             />
                           </a>
-                          
                         </div>
                         <h3 class="film-card__title">
                           <a href="./film-detail.html">Despicable Me 4</a>
@@ -1462,7 +1486,6 @@
                               class="film-card__thumb"
                             />
                           </a>
-                          
                         </div>
                         <h3 class="film-card__title">
                           <a href="./film-detail.html">Joker: Folie à Deux</a>
@@ -1577,7 +1600,6 @@
                               class="film-card__thumb"
                             />
                           </a>
-                          
                         </div>
                         <h3 class="film-card__title">
                           <a href="./film-detail.html">Lee</a>
