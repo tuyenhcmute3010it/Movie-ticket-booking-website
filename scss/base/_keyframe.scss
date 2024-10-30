@@ -37,3 +37,23 @@
     transform: rotate(180deg);
   }
 }
+//// light
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 0; /* Tắt đèn ở đầu và cuối */
+  }
+  50% {
+    opacity: 1; /* Sáng đèn ở giữa */
+  }
+}
+//// rotate
+@keyframes rotate {
+  0%,
+  100% {
+    transform: rotate(-30deg); /* Không xoay */
+  }
+  50% {
+    transform: rotate(-85deg); /* Xoay sang trái */
+  }
+}

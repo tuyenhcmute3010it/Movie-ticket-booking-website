@@ -228,3 +228,48 @@ document.addEventListener("DOMContentLoaded", function () {
     updateMovieList(dayOffset);
   }
 });
+/////////////////////////////////
+let showtimeSelected = false;
+
+window.addEventListener("template-loaded", () => {
+  const tabsSelector = "buy-tickets-tab__item";
+  const contentsSelector = "buy-tickets-tab__content";
+
+  const tabActive = `${tabsSelector}--active`;
+  const contentActive = `${contentsSelector}--active`;
+
+  const tabContainers = $$(".js-tabs");
+  tabContainers.forEach((tabContainer) => {
+    const tabs = tabContainer.querySelectorAll(`.${tabsSelector}`);
+    const contents = tabContainer.querySelectorAll(`.${contentsSelector}`);
+    tabs.forEach((tab, index) => {
+      tab.onclick = () => {
+        tabContainer
+          .querySelector(`.${tabActive}`)
+          ?.classList.remove(tabActive);
+        tabContainer
+          .querySelector(`.${contentActive}`)
+          ?.classList.remove(contentActive);
+        tab.classList.add(tabActive);
+        contents[index].classList.add(contentActive);
+
+        showtimeSelected = true; // Set to true when a showtime is selected
+        toggleSeatAndFoodSelection();
+      };
+    });
+  });
+});
+
+function toggleSeatAndFoodSelection() {
+  const seats = document.querySelectorAll(".seat");
+  const foodCheckboxes = document.querySelectorAll(".food-checkbox");
+
+  seats.forEach((seat) => {
+    seat.classList.toggle("disabled", !showtimeSelected);
+    seat.onclick = showtimeSelected ? () => selectSeat(seat) : null;
+  });
+
+  foodCheckboxes.forEach((checkbox) => {
+    checkbox.disabled = !showtimeSelected;
+  });
+}

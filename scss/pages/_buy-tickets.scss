@@ -1,0 +1,228 @@
+@use "../abstracts";
+.buy-tickets {
+  &__control-thumbs {
+    display: flex;
+    gap: 5px;
+  }
+  &__item {
+    width: calc(100% + 11px);
+    flex-shrink: 0;
+    padding-top: 150%;
+    position: relative;
+    left: -14px;
+  }
+  &__confirm {
+    background-color: blue;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+.buy-tickets-tab {
+  margin-top: 30px;
+  padding-right: 30px;
+  &__list {
+    display: flex;
+    align-items: center;
+    margin: 0 -30px;
+    @include abstracts.screen(sm) {
+      margin: 0 -20px;
+    }
+  }
+  &__item {
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 30px;
+    color: #9e9da8;
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: 1.45;
+    &--active {
+      color: inherit;
+    }
+    @include abstracts.screen(lg) {
+      font-size: 1.8rem;
+    }
+    @include abstracts.screen(sm) {
+      font-size: 1.3rem;
+      padding: 0 20px;
+    }
+  }
+  &__contents {
+    padding-top: 30px;
+  }
+  &__content {
+    display: none;
+    &--active {
+      display: block;
+    }
+  }
+}
+.buy-tickets-info {
+  background: var(--prod-info-bg);
+  padding: 30px 60px;
+  @include abstracts.screen(xxl) {
+    padding: 30px;
+  }
+  @include abstracts.screen(lg) {
+    margin-top: 30px;
+  }
+  @include abstracts.screen(md) {
+    border-radius: 20px;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  &__heading {
+    color: var(--prod-info-heading-color);
+    font-family: "Clash Display";
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.38;
+    margin-bottom: 40px;
+  }
+
+  &-content {
+    position: relative;
+    margin: 0;
+    min-height: 100vh;
+    &::before {
+      content: "";
+      background: url(/assets/img/films/film-1.webp) no-repeat center;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.2;
+      z-index: -1;
+      border-radius: 10px;
+    }
+  }
+}
+//////////////////////////////////////
+h1,
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.seat.selected {
+  background-color: #ff7043;
+}
+
+.food-menu {
+  margin: 20px 0;
+}
+
+.food-item {
+  margin: 10px 0;
+}
+
+.seat-chart {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 8px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.seat {
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.seat-chart {
+  margin-bottom: 50px; /* Space for the fixed layout */
+}
+
+.food-menu {
+  width: 100%;
+  margin: 10px auto;
+}
+
+.food-menu-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.food-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  justify-content: space-between;
+  height: 100%;
+  background-color: #ccc;
+  box-shadow: var(--box-shadow);
+}
+
+.food-image {
+  width: 50px; /* Adjust size */
+  height: auto;
+  margin-right: 15px;
+}
+
+.food-details {
+  flex-grow: 1;
+}
+
+.food-label {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+}
+
+.food-name {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.food-price {
+  color: #fff;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.quantity-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.quantity-btn:hover {
+  background-color: #0056b3;
+}
+
+.food-quantity {
+  margin: 0 10px;
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}

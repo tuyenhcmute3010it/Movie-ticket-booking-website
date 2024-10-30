@@ -28,24 +28,25 @@ html {
   // footer
   --footer-bg: #fbfbfb;
   --footer-heading-color: #020000;
-  // 
-   --box-shadow: box-shadow: 0px 17px 55px 0px rgba(96, 100, 100, 0.05);
+  //
+  --box-shadow: 0px 17px 55px 0px rgba(96, 100, 100, 0.05);
   // act dropdown
   --act-dropdown-bg: #fff;
   --act-dropdown-shadow: rgba(200, 200, 200, 0.4);
   --act-dropdown-title-color: #1a162e;
   --act-dropdown-bottom-border: #d2d1d6;
-  --act-dropdown-arrow-filter : brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(3%) hue-rotate(104deg) brightness(101%) contrast(104%);
+  --act-dropdown-arrow-filter: brightness(0) saturate(100%) invert(99%)
+    sepia(0%) saturate(3%) hue-rotate(104deg) brightness(101%) contrast(104%);
   //separate
   --separate-color: #292e39;
-    // film card
-    --film-card-bg: #ebebeb;
-    --film-card-color: #1a162e;
-    --film-card-more-color : #000;
-      // breadcrumb
-    @include abstracts.screen(md) {
+  // film card
+  --film-card-bg: #ebebeb;
+  --film-card-color: #1a162e;
+  --film-card-more-color: #000;
+  // breadcrumb
+  @include abstracts.screen(md) {
     --breadcrumb-detail-bg: #fff;
-    }
+  }
   --breadcrumb-shadow: rgba(237, 237, 246, 0.2);
   --breadcrumb-link-current-color: #1a162e;
 
@@ -56,18 +57,26 @@ html {
   --breadcrumb-link-current-color: #1a162e;
   // pro-info
 
-  --prod-prop-sub-title-color : #000;
+  --prod-prop-sub-title-color: #000;
   --prod-info-heading-color: #1a162e;
-  --prod-prop-color:#201b1b;
+  --prod-prop-color: #201b1b;
   --prod-info-color: #000;
-  --prod-prop-title-color : #000;
-  --prod-prop-tag-color : red;
+  --prod-prop-title-color: #000;
+  --prod-prop-tag-color: red;
   --prod-content-heading: #171c28;
-  --prod-prop-filter : brightness(0) saturate(100%) invert(18%) sepia(93%) saturate(5866%) hue-rotate(357deg) brightness(105%) contrast(117%);
-  // review card 
+  --prod-prop-filter: brightness(0) saturate(100%) invert(18%) sepia(93%)
+    saturate(5866%) hue-rotate(357deg) brightness(105%) contrast(117%);
+  // review card
   --review-card-bg: #fafafd;
-  --comment-item-bg : #ccc;
-  --comment-content :#f0f0f0;
-  --comment-input-bg : #fff;
-  
+  --comment-item-bg: #ccc;
+  --comment-content: #f0f0f0;
+  --comment-input-bg: #fff;
+  //booking
+  --booking-doorleave-filter: brightness(0) saturate(100%) invert(11%)
+    sepia(98%) saturate(6409%) hue-rotate(0deg) brightness(115%) contrast(107%);
+  //screen top
+  --screen-top-filter: brightness(0) saturate(100%) invert(89%) sepia(5%)
+    saturate(2573%) hue-rotate(119deg) brightness(88%) contrast(97%);
+  --screen-inner-bg: url(../img/dropdown/bg-themes-light.jpg) repeat scroll
+    center center rgba(0, 0, 0, 0);
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -1351,6 +1352,22 @@ strong {
     transform: rotate(180deg);
   }
 }
+@keyframes flash {
+  0%, 100% {
+    opacity: 0; /* Tắt đèn ở đầu và cuối */
+  }
+  50% {
+    opacity: 1; /* Sáng đèn ở giữa */
+  }
+}
+@keyframes rotate {
+  0%, 100% {
+    transform: rotate(-30deg); /* Không xoay */
+  }
+  50% {
+    transform: rotate(-85deg); /* Xoay sang trái */
+  }
+}
 html.dark {
   --text-color: #fff;
   --body-bg: #000;
@@ -1368,6 +1385,8 @@ html.dark {
   --navbar-side-bar-bg: #333;
   --navbar-return-bg: #222;
   --dropdown-inner-bg: url(../img/dropdown/bg-dropdown.png) repeat scroll center
+    center rgba(0, 0, 0, 0);
+  --screen-inner-bg: url(../img/dropdown/bg-dropdown.png) repeat scroll center
     center rgba(0, 0, 0, 0);
   --dropdown-inner-border: #222;
   --footer-bg: #212127;
@@ -1400,6 +1419,8 @@ html.dark {
   --comment-content: rgb(237, 242, 247, 0.1);
   --comment-input-bg: rgb(237, 242, 247, 0.1);
   --schedule-content-color: rgba(0, 0, 0 , 0.6);
+  --booking-doorleave-filter: brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(0%) hue-rotate(143deg) brightness(104%) contrast(105%);
+  --screen-top-filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7494%) hue-rotate(294deg) brightness(104%) contrast(94%);
 }
 
 html {
@@ -1423,12 +1444,13 @@ html {
   --dropdown-inner-border: #c4d6dc;
   --footer-bg: #fbfbfb;
   --footer-heading-color: #020000;
-  --box-shadow: box-shadow: 0px 17px 55px 0px rgba(96, 100, 100, 0.05);
+  --box-shadow: 0px 17px 55px 0px rgba(96, 100, 100, 0.05);
   --act-dropdown-bg: #fff;
   --act-dropdown-shadow: rgba(200, 200, 200, 0.4);
   --act-dropdown-title-color: #1a162e;
   --act-dropdown-bottom-border: #d2d1d6;
-  --act-dropdown-arrow-filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(3%) hue-rotate(104deg) brightness(101%) contrast(104%);
+  --act-dropdown-arrow-filter: brightness(0) saturate(100%) invert(99%)
+    sepia(0%) saturate(3%) hue-rotate(104deg) brightness(101%) contrast(104%);
   --separate-color: #292e39;
   --film-card-bg: #ebebeb;
   --film-card-color: #1a162e;
@@ -1439,16 +1461,23 @@ html {
   --breadcrumb-link-current-color: #1a162e;
   --prod-prop-sub-title-color: #000;
   --prod-info-heading-color: #1a162e;
-  --prod-prop-color:#201b1b;
+  --prod-prop-color: #201b1b;
   --prod-info-color: #000;
   --prod-prop-title-color: #000;
   --prod-prop-tag-color: red;
   --prod-content-heading: #171c28;
-  --prod-prop-filter: brightness(0) saturate(100%) invert(18%) sepia(93%) saturate(5866%) hue-rotate(357deg) brightness(105%) contrast(117%);
+  --prod-prop-filter: brightness(0) saturate(100%) invert(18%) sepia(93%)
+    saturate(5866%) hue-rotate(357deg) brightness(105%) contrast(117%);
   --review-card-bg: #fafafd;
   --comment-item-bg: #ccc;
-  --comment-content:#f0f0f0;
+  --comment-content: #f0f0f0;
   --comment-input-bg: #fff;
+  --booking-doorleave-filter: brightness(0) saturate(100%) invert(11%)
+    sepia(98%) saturate(6409%) hue-rotate(0deg) brightness(115%) contrast(107%);
+  --screen-top-filter: brightness(0) saturate(100%) invert(89%) sepia(5%)
+    saturate(2573%) hue-rotate(119deg) brightness(88%) contrast(97%);
+  --screen-inner-bg: url(../img/dropdown/bg-themes-light.jpg) repeat scroll
+    center center rgba(0, 0, 0, 0);
 }
 @media (max-width: 767.98px) {
   html {
@@ -3280,12 +3309,40 @@ html {
 }
 .showtime__tab-button:hover {
   opacity: 0.8;
+  background-color: #ffcc00;
 }
 .showtime__controls {
   width: 95px;
   display: flex;
   justify-content: center;
   gap: 10px;
+}
+.showtime-button {
+  background-color: #ffcc00;
+  border: none;
+  padding: 10px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #222;
+  border-radius: 5px;
+  width: min(105px, 100%);
+  padding: 10px 15px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.showtime-button:hover {
+  opacity: 0.7;
+}
+.showtime-button.past {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+@media (max-width: 575.98px) {
+  .showtime-button {
+    width: 40%;
+  }
 }
 
 .schedule-content {
@@ -3307,25 +3364,6 @@ html {
   margin-bottom: 8px;
 }
 
-.showtime-button {
-  background-color: #ffcc00;
-  border: none;
-  padding: 10px;
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: #222;
-  border-radius: 5px;
-  width: min(105px, 100%);
-}
-.showtime-button:hover {
-  opacity: 0.8;
-}
-
-.showtime-button.past {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
 .movie-subtitle {
   font-size: 1.6rem;
   color: #666;
@@ -3337,12 +3375,6 @@ html {
   font-size: 1.5rem;
   color: #555;
   margin-top: 4px;
-}
-
-.showtime-button.past {
-  background-color: #ccc;
-  cursor: not-allowed;
-  opacity: 0.6;
 }
 
 .nav-button {
@@ -3362,16 +3394,150 @@ html {
   border-radius: 0 10px 10px 0;
 }
 
-.showtime-button {
-  padding: 10px 15px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+.booking {
+  position: relative;
+  margin-top: 20px;
+  background: var(--screen-inner-bg);
+  background-size: cover;
+  opacity: 0.8;
+  border-radius: 10px;
+  padding: 10px;
+  height: auto;
+}
+.booking__doorleave {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.booking__doorleave-img {
+  width: 35px;
+  height: 35px;
+  filter: var(--booking-doorleave-filter);
+}
+.booking__light {
+  rotate: 180deg;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  left: calc(40% - 50px);
+  filter: var(--screen-top-filter);
+}
+.booking-details {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #95dad2; /* Set a background color for visibility */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  padding: 20px; /* Space around the content */
+  z-index: 1000; /* Ensure it stays on top */
+  display: none; /* Initially hidden */
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 20px;
+}
+.booking__confirm {
+  width: max(200px, 30%);
 }
 
-.showtime-button:hover {
-  background-color: lightgray;
+.booking-item {
+  color: red;
+}
+
+#bookingInfo {
+  width: max(300px, 60%);
+  color: red;
+  display: flex;
+  line-height: 1.3;
+}
+
+#totalAmount {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+#countdown {
+  color: red;
+}
+
+#bookingInfo {
+  font-size: 2rem;
+}
+
+.screen__top {
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 100%;
+  filter: var(--screen-top-filter);
+}
+
+.seat.selected {
+  background-color: #6c63ff;
+}
+
+.seat.occupied {
+  background-color: #444;
+  cursor: not-allowed;
+}
+
+.seat {
+  color: #fff;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.seat__chair {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.light {
+  opacity: 0;
+  animation: flash 6s infinite;
+}
+
+.projection {
+  animation: rotate 6s infinite;
+}
+
+.screen__light-wrap {
+  position: relative;
+  top: 0;
+}
+
+.booking__light {
+  position: absolute;
+  top: 5px;
+  left: 35%;
+  rotate: 90deg;
+  background-color: transparent;
+  filter: brightness(0) saturate(100%) invert(78%) sepia(0%) saturate(3725%) hue-rotate(59deg) brightness(107%) contrast(88%);
+}
+
+.booking__light-2 {
+  left: 60%;
+}
+
+.booking__light-3 {
+  left: 70%;
+  top: 20px;
+}
+
+.booking__light-4 {
+  left: 25%;
+  top: 20px;
+}
+
+.booking__screen {
+  filter: var(--screen-top-filter);
 }
 
 .home__container {
@@ -3905,6 +4071,244 @@ html {
   right: -40px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.buy-tickets__control-thumbs {
+  display: flex;
+  gap: 5px;
+}
+.buy-tickets__item {
+  width: calc(100% + 11px);
+  flex-shrink: 0;
+  padding-top: 150%;
+  position: relative;
+  left: -14px;
+}
+.buy-tickets__confirm {
+  background-color: blue;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.buy-tickets__confirm:hover {
+  background-color: #0056b3;
+}
+
+.buy-tickets-tab {
+  margin-top: 30px;
+  padding-right: 30px;
+}
+.buy-tickets-tab__list {
+  display: flex;
+  align-items: center;
+  margin: 0 -30px;
+}
+@media (max-width: 575.98px) {
+  .buy-tickets-tab__list {
+    margin: 0 -20px;
+  }
+}
+.buy-tickets-tab__item {
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  padding: 0 30px;
+  color: #9e9da8;
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+.buy-tickets-tab__item--active {
+  color: inherit;
+}
+@media (max-width: 991.98px) {
+  .buy-tickets-tab__item {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .buy-tickets-tab__item {
+    font-size: 1.3rem;
+    padding: 0 20px;
+  }
+}
+.buy-tickets-tab__contents {
+  padding-top: 30px;
+}
+.buy-tickets-tab__content {
+  display: none;
+}
+.buy-tickets-tab__content--active {
+  display: block;
+}
+
+.buy-tickets-info {
+  background: var(--prod-info-bg);
+  padding: 30px 60px;
+}
+@media (max-width: 1399.98px) {
+  .buy-tickets-info {
+    padding: 30px;
+  }
+}
+@media (max-width: 991.98px) {
+  .buy-tickets-info {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 767.98px) {
+  .buy-tickets-info {
+    border-radius: 20px;
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+.buy-tickets-info__heading {
+  color: var(--prod-info-heading-color);
+  font-family: "Clash Display";
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.38;
+  margin-bottom: 40px;
+}
+.buy-tickets-info-content {
+  position: relative;
+  margin: 0;
+  min-height: 100vh;
+}
+.buy-tickets-info-content::before {
+  content: "";
+  background: url(/assets/img/films/film-1.webp) no-repeat center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  z-index: -1;
+  border-radius: 10px;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.seat.selected {
+  background-color: #ff7043;
+}
+
+.food-menu {
+  margin: 20px 0;
+}
+
+.food-item {
+  margin: 10px 0;
+}
+
+.seat-chart {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 8px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.seat {
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.seat-chart {
+  margin-bottom: 50px; /* Space for the fixed layout */
+}
+
+.food-menu {
+  width: 100%;
+  margin: 10px auto;
+}
+
+.food-menu-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.food-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  justify-content: space-between;
+  height: 100%;
+  background-color: #ccc;
+  box-shadow: var(--box-shadow);
+}
+
+.food-image {
+  width: 50px; /* Adjust size */
+  height: auto;
+  margin-right: 15px;
+}
+
+.food-details {
+  flex-grow: 1;
+}
+
+.food-label {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+}
+
+.food-name {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.food-price {
+  color: #fff;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.quantity-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.quantity-btn:hover {
+  background-color: #0056b3;
+}
+
+.food-quantity {
+  margin: 0 10px;
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=main.css.map */

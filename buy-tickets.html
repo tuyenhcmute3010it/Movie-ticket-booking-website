@@ -129,12 +129,12 @@
           </ul>
         </div>
         <!-- film info -->
-        <div class="film-container prod-info-content">
+        <div class="film-container buy-tickets-info-content">
           <div class="row">
-            <div class="col-4 col-xl-6 col-lg-12">
+            <div class="col-3 col-xl-6 col-lg-12">
               <div class="prod-preview">
                 <div class="prod-preview__list">
-                  <div class="prod-preview__item">
+                  <div class="prod-preview__item buy-tickets__item">
                     <a href="./film-detail.html">
                       <img
                         src="./assets/img/films/film-1.webp"
@@ -145,7 +145,7 @@
                   </div>
                 </div>
 
-                <div class="prod-preview__thumbs">
+                <div class="prod-preview__thumbs buy-tickets__control-thumbs">
                   <img
                     src="./assets/img/thumbs_preview/a-wild-robot-1.webp"
                     alt="A Wild Robot - Thumbnail 1"
@@ -187,22 +187,1217 @@
                 </div>
               </div>
             </div>
-            <div class="col-8 col-xl-6 col-lg-12">
-              <div class="showtime">
-                <div class="showtime__movie-schedule-container">
-                  <div class="showtime__tabs">
-                    <button class="showtime__tab-button active" data-day="0">
-                      Today
-                    </button>
-                    <div class="showtime__controls">
-                      <button id="prevButton" class="nav-button">◀</button>
-                      <button id="nextButton" class="nav-button">▶</button>
+            <div class="col-9 col-xl-6 col-lg-12">
+              <div class="buy-tickets-tab js-tabs">
+                <ul class="buy-tickets-tab__list">
+                  <li
+                    class="buy-tickets-tab__item buy-tickets-tab__item--active"
+                  >
+                    Seats & Food Selection
+                  </li>
+                  <li class="buy-tickets-tab__item">Payment</li>
+                  <li class="buy-tickets-tab__item">Confirmation</li>
+                </ul>
+                <div class="buy-tickets-tab__contents">
+                  <!-- show time -->
+                  <div
+                    class="buy-tickets-tab__content buy-tickets-tab__content--active"
+                  >
+                    <div class="row">
+                      <div class="col-12">
+                        <!--  -->
+                        <div class="showtime">
+                          <div class="showtime__movie-schedule-container">
+                            <div class="showtime__tabs">
+                              <button
+                                class="showtime__tab-button active"
+                                data-day="0"
+                              >
+                                Today
+                              </button>
+                              <div class="showtime__controls">
+                                <button id="prevButton" class="nav-button">
+                                  ◀
+                                </button>
+                                <button id="nextButton" class="nav-button">
+                                  ▶
+                                </button>
+                              </div>
+                            </div>
+                            <div class="schedule-content">
+                              <div class="movie-list" id="movie-list"></div>
+
+                              <div id="no-sessions-message"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="booking">
+                          <div class="booking__inner">
+                            <h1>Screen</h1>
+                            <div class="booking__screen">
+                              <svg
+                                width="100%"
+                                height="100%"
+                                viewBox="0 0 552 100"
+                                class="seat-map__screen-image"
+                              >
+                                <g
+                                  opacity="0.91"
+                                  filter="url(#filter0_f_2284_34995)"
+                                >
+                                  <path
+                                    class="light"
+                                    d="M276.5 88.5347C375.116 88.5347 441 71.2976 441 50.0347C441 28.7717 375.116 11.5347 276.5 11.5347C177.884 11.5347 112 28.7717 112 50.0347C112 71.2976 177.884 88.5347 276.5 88.5347Z"
+                                    fill="#F3EBE8"
+                                  ></path>
+                                </g>
+                                <path
+                                  d="M91.6985 45H458.171L488 18H64L91.6985 45Z"
+                                  fill="url(#paint0_linear_2284_34995)"
+                                ></path>
+                                <path
+                                  d="M64 15H488V17H64V15Z"
+                                  fill="white"
+                                ></path>
+                                <g filter="url(#filter1_i_2284_34995)">
+                                  <path
+                                    d="M91.6985 45H458.171L488 18H64L91.6985 45Z"
+                                    fill="#D8D8D8"
+                                  ></path>
+                                </g>
+                                <g
+                                  opacity="0.95"
+                                  class="light"
+                                  filter="url(#filter2_f_2284_34995)"
+                                >
+                                  <path
+                                    d="M92.7306 45H457.151L508 75H44L92.7306 45Z"
+                                    fill="url(#paint1_linear_2284_34995)"
+                                  ></path>
+                                </g>
+                                <g
+                                  opacity="0.65"
+                                  class="light"
+                                  filter="url(#filter3_f_2284_34995)"
+                                >
+                                  <path
+                                    d="M92.9807 45H456.903L550 75H2L92.9807 45Z"
+                                    fill="url(#paint2_linear_2284_34995)"
+                                  ></path>
+                                </g>
+                                <g filter="url(#filter4_f_2284_34995)">
+                                  <path
+                                    class="light"
+                                    d="M92.5678 45H457.312L487 75H65L92.5678 45Z"
+                                    fill="url(#paint3_linear_2284_34995)"
+                                  ></path>
+                                </g>
+                                <path
+                                  class="light"
+                                  opacity="0.69933"
+                                  d="M149 45.5347V44.5347H402V45.5347H149Z"
+                                  fill="url(#paint4_linear_2284_34995)"
+                                ></path>
+                                <defs>
+                                  <filter
+                                    id="filter0_f_2284_34995"
+                                    x="101"
+                                    y="0.534668"
+                                    width="351"
+                                    height="99"
+                                    filterUnits="userSpaceOnUse"
+                                    color-interpolation-filters="sRGB"
+                                  >
+                                    <feFlood
+                                      flood-opacity="0"
+                                      result="BackgroundImageFix"
+                                    ></feFlood>
+                                    <feBlend
+                                      mode="normal"
+                                      in="SourceGraphic"
+                                      in2="BackgroundImageFix"
+                                      result="shape"
+                                    ></feBlend>
+                                    <feGaussianBlur
+                                      stdDeviation="5.5"
+                                      result="effect1_foregroundBlur_2284_34995"
+                                    ></feGaussianBlur>
+                                  </filter>
+                                  <filter
+                                    id="filter1_i_2284_34995"
+                                    x="64"
+                                    y="17"
+                                    width="424"
+                                    height="28"
+                                    filterUnits="userSpaceOnUse"
+                                    color-interpolation-filters="sRGB"
+                                  >
+                                    <feFlood
+                                      flood-opacity="0"
+                                      result="BackgroundImageFix"
+                                    ></feFlood>
+                                    <feBlend
+                                      mode="normal"
+                                      in="SourceGraphic"
+                                      in2="BackgroundImageFix"
+                                      result="shape"
+                                    ></feBlend>
+                                    <feColorMatrix
+                                      in="SourceAlpha"
+                                      type="matrix"
+                                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                      result="hardAlpha"
+                                    ></feColorMatrix>
+                                    <feOffset dy="-1"></feOffset>
+                                    <feGaussianBlur
+                                      stdDeviation="1.5"
+                                    ></feGaussianBlur>
+                                    <feComposite
+                                      in2="hardAlpha"
+                                      operator="arithmetic"
+                                      k2="-1"
+                                      k3="1"
+                                    ></feComposite>
+                                    <feColorMatrix
+                                      type="matrix"
+                                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0681612 0"
+                                    ></feColorMatrix>
+                                    <feBlend
+                                      mode="normal"
+                                      in2="shape"
+                                      result="effect1_innerShadow_2284_34995"
+                                    ></feBlend>
+                                  </filter>
+                                  <filter
+                                    id="filter2_f_2284_34995"
+                                    x="42.9"
+                                    y="43.9"
+                                    width="466.2"
+                                    height="32.2"
+                                    filterUnits="userSpaceOnUse"
+                                    color-interpolation-filters="sRGB"
+                                  >
+                                    <feFlood
+                                      flood-opacity="0"
+                                      result="BackgroundImageFix"
+                                    ></feFlood>
+                                    <feBlend
+                                      mode="normal"
+                                      in="SourceGraphic"
+                                      in2="BackgroundImageFix"
+                                      result="shape"
+                                    ></feBlend>
+                                    <feGaussianBlur
+                                      stdDeviation="0.55"
+                                      result="effect1_foregroundBlur_2284_34995"
+                                    ></feGaussianBlur>
+                                  </filter>
+                                  <filter
+                                    id="filter3_f_2284_34995"
+                                    x="0.9"
+                                    y="43.9"
+                                    width="550.2"
+                                    height="32.2"
+                                    filterUnits="userSpaceOnUse"
+                                    color-interpolation-filters="sRGB"
+                                  >
+                                    <feFlood
+                                      flood-opacity="0"
+                                      result="BackgroundImageFix"
+                                    ></feFlood>
+                                    <feBlend
+                                      mode="normal"
+                                      in="SourceGraphic"
+                                      in2="BackgroundImageFix"
+                                      result="shape"
+                                    ></feBlend>
+                                    <feGaussianBlur
+                                      stdDeviation="0.55"
+                                      result="effect1_foregroundBlur_2284_34995"
+                                    ></feGaussianBlur>
+                                  </filter>
+                                  <filter
+                                    id="filter4_f_2284_34995"
+                                    x="63.9"
+                                    y="43.9"
+                                    width="424.2"
+                                    height="32.2"
+                                    filterUnits="userSpaceOnUse"
+                                    color-interpolation-filters="sRGB"
+                                  >
+                                    <feFlood
+                                      flood-opacity="0"
+                                      result="BackgroundImageFix"
+                                    ></feFlood>
+                                    <feBlend
+                                      mode="normal"
+                                      in="SourceGraphic"
+                                      in2="BackgroundImageFix"
+                                      result="shape"
+                                    ></feBlend>
+                                    <feGaussianBlur
+                                      stdDeviation="0.55"
+                                      result="effect1_foregroundBlur_2284_34995"
+                                    ></feGaussianBlur>
+                                  </filter>
+                                  <linearGradient
+                                    id="paint0_linear_2284_34995"
+                                    x1="276"
+                                    y1="45"
+                                    x2="276"
+                                    y2="18"
+                                    gradientUnits="userSpaceOnUse"
+                                  >
+                                    <stop stop-color="#9C9898"></stop>
+                                    <stop
+                                      offset="1"
+                                      stop-color="#D0CCCB"
+                                    ></stop>
+                                  </linearGradient>
+                                  <linearGradient
+                                    id="paint1_linear_2284_34995"
+                                    x1="276"
+                                    y1="75"
+                                    x2="276"
+                                    y2="45.8095"
+                                    gradientUnits="userSpaceOnUse"
+                                  >
+                                    <stop
+                                      stop-color="#D3D0D0"
+                                      stop-opacity="0"
+                                    ></stop>
+                                    <stop
+                                      offset="1"
+                                      stop-color="#C5C1C0"
+                                      stop-opacity="0.340636"
+                                    ></stop>
+                                  </linearGradient>
+                                  <linearGradient
+                                    id="paint2_linear_2284_34995"
+                                    x1="276"
+                                    y1="75"
+                                    x2="276"
+                                    y2="45.8095"
+                                    gradientUnits="userSpaceOnUse"
+                                  >
+                                    <stop
+                                      stop-color="#D3D0D0"
+                                      stop-opacity="0"
+                                    ></stop>
+                                    <stop
+                                      offset="1"
+                                      stop-color="#C5C1C0"
+                                      stop-opacity="0.340636"
+                                    ></stop>
+                                  </linearGradient>
+                                  <linearGradient
+                                    id="paint3_linear_2284_34995"
+                                    x1="276"
+                                    y1="75"
+                                    x2="276"
+                                    y2="45.8095"
+                                    gradientUnits="userSpaceOnUse"
+                                  >
+                                    <stop
+                                      stop-color="#D3D0D0"
+                                      stop-opacity="0"
+                                    ></stop>
+                                    <stop
+                                      offset="1"
+                                      stop-color="#C5C1C0"
+                                      stop-opacity="0.340636"
+                                    ></stop>
+                                  </linearGradient>
+                                  <linearGradient
+                                    id="paint4_linear_2284_34995"
+                                    x1="149"
+                                    y1="45.5347"
+                                    x2="402"
+                                    y2="45.5347"
+                                    gradientUnits="userSpaceOnUse"
+                                  >
+                                    <stop
+                                      stop-color="#AFAEAE"
+                                      stop-opacity="0"
+                                    ></stop>
+                                    <stop
+                                      offset="0.0270686"
+                                      stop-color="#AFAEAE"
+                                    ></stop>
+                                    <stop
+                                      offset="0.969667"
+                                      stop-color="#AFAEAE"
+                                    ></stop>
+                                    <stop
+                                      offset="1"
+                                      stop-color="#AFAEAE"
+                                      stop-opacity="0"
+                                    ></stop>
+                                  </linearGradient>
+                                </defs>
+                              </svg>
+                            </div>
+                            <div class="screen__top"></div>
+                            <img
+                              class="projection booking__light"
+                              src="./assets/img/screen-light/light-projector.png"
+                              alt="Máy đèn"
+                            />
+                            <img
+                              class="projection booking__light booking__light-2"
+                              src="./assets/img/screen-light/light-projector.png"
+                              alt="Máy đèn"
+                            />
+                            <img
+                              class="projection booking__light booking__light-3"
+                              src="./assets/img/screen-light/light-projector.png"
+                              alt="Máy đèn"
+                            />
+                            <img
+                              class="projection booking__light booking__light-4"
+                              src="./assets/img/screen-light/light-projector.png"
+                              alt="Máy đèn"
+                            />
+                            <div class="booking__doorleave">
+                              <img
+                                src="./assets/icon/leave-cinema.png"
+                                class="booking__doorleave-img"
+                                alt=""
+                              />
+                              <img
+                                src="./assets/icon/leave-cinema.png"
+                                alt=""
+                                class="booking__doorleave-img"
+                              />
+                            </div>
+                            <div class="seat-chart">
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                A1
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                A2
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                A3
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                A4
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                A5
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                A6
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                A7
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                A8
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                A9
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                A10
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                A11
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                A12
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                B1
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                B2
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                B3
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                B4
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                B5
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                B6
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                B7
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                B8
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                B9
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                B10
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                B11
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                B12
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                C1
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                C2
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                C3
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                C4
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                C5
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                C6
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                C7
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                C8
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                C9
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                C10
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                C11
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                C12
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                D1
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                D2
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                D3
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                D4
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                D5
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                D6
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                D7
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                D8
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                D9
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                D10
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                D11
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                D12
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                E1
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                E2
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                E3
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                E4
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                E5
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                E6
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                E7
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                E8
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                E9
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                E10
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                E11
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                E12
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                F1
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                F2
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                F3
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                F4
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                F5
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                F6
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                F7
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                F8
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                F9
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                F10
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                F11
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                F12
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                G1
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                G2
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                G3
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                G4
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                G5
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                G6
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                G7
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                G8
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                G9
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                G10
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                G11
+                              </div>
+                              <div class="seat" onclick="selectSeat(this)">
+                                <img
+                                  src="./assets/icon/seat.png"
+                                  class="seat__chair"
+                                  alt=""
+                                />
+                                G12
+                              </div>
+                            </div>
+                          <img
+                            src="./assets/icon/screen-top.png"
+                            class="screen__top"
+                            alt=""
+                          />
+                        </div>
+                        <div class="food-menu">
+                          <h2 class="food-menu-title">Food & Drinks</h2>
+                        <div class="row row-cols-2 g-3">
+                          
+                          <div class="col">
+                              <div class="food-item" data-price="209000">
+                                <img src="./assets/img/food/food-1.png" alt="Popcorn" class="food-image">
+                                <div class="food-details">
+                                  <label class="food-label">
+                                    <span class="food-name">Combo Party(2 Bắp Ngọt 60oz + 4 Coke 22oz)</span>
+                                    <span class="food-price">209,000 VND</span>
+                                  </label>
+                                  <div class="quantity-controls">
+                                    <button class="quantity-btn minus" onclick="changeQuantity(event, -1)">-</button>
+                                    <span class="food-quantity">0</span>
+                                    <button class="quantity-btn plus" onclick="changeQuantity(event, 1)">+</button>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                          
+                           <div class="col">
+                              <div class="food-item" data-price="94000">
+                                <img src="./assets/img/food/food-2.png" alt="Soda" class="food-image">
+                                <div class="food-details">
+                                  <label class="food-label">
+                                    <span class="food-name">Combo Solo
+
+                                      (1 Bắp Ngọt 60oz + 1 Coke 32oz)</span>
+                                    <span class="food-price">94,000 VND</span>
+                                  </label>
+                                  <div class="quantity-controls">
+                                    <button class="quantity-btn minus" onclick="changeQuantity(event, -1)">-</button>
+                                    <span class="food-quantity">0</span>
+                                    <button class="quantity-btn plus" onclick="changeQuantity(event, 1)">+</button>
+                                  </div>
+                                </div>
+                              </div>
+                           </div>
+                         <div class="col">
+                            
+                              <div class="food-item" data-price="115000">
+                                <img src="./assets/img/food/food-3.png" alt="Nachos" class="food-image">
+                                <div class="food-details">
+                                  <label class="food-label">
+                                    <span class="food-name">
+                                      Combo Couple
+                                      
+                                      (1 Bắp Ngọt 60oz + 2 Coke 32oz)</span>
+                                    <span class="food-price">115,000 VND</span>
+                                  </label>
+                                  <div class="quantity-controls">
+                                    <button class="quantity-btn minus" onclick="changeQuantity(event, -1)">-</button>
+                                    <span class="food-quantity">0</span>
+                                    <button class="quantity-btn plus" onclick="changeQuantity(event, 1)">+</button>
+                                  </div>
+                                </div>
+                              </div>
+                         </div>
+                          <div class="col">
+                              <div class="food-item" data-price="259000">
+                                <img src="./assets/img/food/food-4.png" alt="Popcorn" class="food-image">
+                                <div class="food-details">
+                                  <label class="food-label">
+                                    <span class="food-name">Combo Nhà Bear
+
+                                      (4 Coke 22oz + 2 Bắp 2 Ngăn 64OZ Phô Mai + Caramel)</span>
+                                    <span class="food-price">259,000 VND</span>
+                                  </label>
+                                  <div class="quantity-controls">
+                                    <button class="quantity-btn minus" onclick="changeQuantity(event, -1)">-</button>
+                                    <span class="food-quantity">0</span>
+                                    <button class="quantity-btn plus" onclick="changeQuantity(event, 1)">+</button>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                          
+                           <div class="col">
+                              <div class="food-item" data-price="37000">
+                                <img src="./assets/img/food/food-5.png" alt="Soda" class="food-image">
+                                <div class="food-details">
+                                  <label class="food-label">
+                                    <span class="food-name">Coke 32oz</span>
+                                    <span class="food-price">37,000 VND</span>
+                                  </label>
+                                  <div class="quantity-controls">
+                                    <button class="quantity-btn minus" onclick="changeQuantity(event, -1)">-</button>
+                                    <span class="food-quantity">0</span>
+                                    <button class="quantity-btn plus" onclick="changeQuantity(event, 1)">+</button>
+                                  </div>
+                                </div>
+                              </div>
+                           </div>
+                         <div class="col">
+                              <div class="food-item" data-price="37000">
+                                <img src="./assets/img/food/food-6.png" alt="Nachos" class="food-image">
+                                <div class="food-details">
+                                  <label class="food-label">
+                                    <span class="food-name">Sprite 32oz</span>
+                                    <span class="food-price">37,000 VND</span>
+                                  </label>
+                                  <div class="quantity-controls">
+                                    <button class="quantity-btn minus" onclick="changeQuantity(event, -1)">-</button>
+                                    <span class="food-quantity">0</span>
+                                    <button class="quantity-btn plus" onclick="changeQuantity(event, 1)">+</button>
+                                  </div>
+                                </div>
+                              </div>
+                         </div>
+                        </div>
+                        </div>
+                 <!-- booking details -->
+                        <div class="booking-details" id="bookingDetails" style="display:none;">
+                          <p id="bookingInfo"></p>
+                         <div class="booking__confirm">
+                            <div id="totalAmount"></div>
+                            <div>Time Remaining: <span id="countdown">5m 0s</span></div>
+                            <button class="buy-tickets__confirm" onclick="confirmBooking()">Confirm Booking</button>
+                         </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="schedule-content">
-                    <div class="movie-list" id="movie-list"></div>
 
-                    <div id="no-sessions-message"></div>
+                  <!-- review tag -->
+                  <div class="buy-tickets-tab__content">
+                    <div class="buy-tickets-content">
+                      <h2 class="buy-tickets-content__heading">
+                        Movin Club Member's Reviews
+                      </h2>
+                      <div class="row row-cols-1 gy-3">
+                        <!-- col 1 -->
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /review tag -->
+                  <!-- also showing -->
+                  <div class="buy-tickets-tab__content">
+                    <div class="buy-tickets-content">
+                      <h2 class="buy-tickets-content__heading">
+                        New & Coming soon
+                      </h2>
+                      <div
+                        class="row row-cols-6 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-3"
+                      ></div>
+                    </div>
                   </div>
                 </div>
               </div>
