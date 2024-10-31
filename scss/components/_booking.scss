@@ -1,3 +1,4 @@
+@use "../abstracts";
 .booking {
   position: relative;
   margin-top: 20px;
@@ -6,7 +7,19 @@
   opacity: 0.8;
   border-radius: 10px;
   padding: 10px;
+  @include abstracts.screen(md) {
+    padding: 0;
+  }
   height: auto;
+  &__title {
+    text-align: center;
+    &-screen {
+      @include abstracts.screen(md) {
+        padding-top: 3px;
+        font-size: 1.6rem;
+      }
+    }
+  }
 
   &__doorleave {
     display: flex;
@@ -32,28 +45,118 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #95dad2; /* Set a background color for visibility */
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
-    padding: 20px; /* Space around the content */
-    z-index: 1000; /* Ensure it stays on top */
-    display: none; /* Initially hidden */
+    background-color: #95dad2;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    display: none;
     align-items: center;
     justify-content: space-between;
     gap: 30px;
     margin-top: 20px;
+    @include abstracts.screen(md) {
+      flex-direction: column;
+      gap: 10px;
+      font-size: 1.2rem;
+    }
   }
   &__confirm {
     width: max(200px, 30%);
+    @include abstracts.screen(md) {
+      width: 100%;
+    }
+  }
+  &__light {
+    position: absolute;
+    top: 5px;
+    left: 35%;
+    rotate: 90deg;
+    background-color: transparent;
+    filter: brightness(0) saturate(100%) invert(78%) sepia(0%) saturate(3725%)
+      hue-rotate(59deg) brightness(107%) contrast(88%);
+    @include abstracts.screen(lg) {
+      width: 30px;
+      height: 30px;
+    }
+    @include abstracts.screen(md) {
+      width: 20px;
+      height: 20px;
+    }
+    @include abstracts.screen(sm) {
+      width: 15px;
+      height: 15px;
+    }
+  }
+  &__light-1 {
+    @include abstracts.screen(sm) {
+      top: 2px;
+      left: 32%;
+    }
+  }
+  &__light-2 {
+    left: 60%;
+    @include abstracts.screen(lg) {
+      top: 3px;
+    }
+    @include abstracts.screen(md) {
+      left: calc(60% + 15px);
+      top: 5px;
+    }
+  }
+  &__light-3 {
+    left: 70%;
+    top: 20px;
+    @include abstracts.screen(lg) {
+      top: 12px;
+    }
+    @include abstracts.screen(md) {
+      top: 13px;
+      left: 73%;
+    }
+    @include abstracts.screen(sm) {
+      top: 7px;
+    }
+  }
+  &__light-4 {
+    left: 25%;
+    top: 20px;
+    @include abstracts.screen(lg) {
+      top: 12px;
+    }
+    @include abstracts.screen(sm) {
+      top: 6px;
+    }
+  }
+  &__screen {
+    filter: var(--screen-top-filter);
+  }
+  &__confirm-payment {
+    display: flex;
   }
 }
 .booking-item {
   color: red;
 }
 #bookingInfo {
+  font-size: 2rem;
   width: max(300px, 60%);
   color: red;
   display: flex;
   line-height: 1.3;
+
+  padding: 5px;
+  @include abstracts.screen(lg) {
+    gap: 10px;
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  @include abstracts.screen(md) {
+    width: 100%;
+  }
+  @include abstracts.screen(sm) {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
 }
 #totalAmount {
   font-size: 2rem;
@@ -63,9 +166,7 @@
 #countdown {
   color: red;
 }
-#bookingInfo {
-  font-size: 2rem;
-}
+
 .screen__top {
   position: absolute;
   top: 0;
@@ -83,20 +184,6 @@
   cursor: not-allowed;
 }
 
-.seat {
-  &__chair {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-  }
-  color: #fff;
-  z-index: 1;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 /// light
 .light {
   opacity: 0;
@@ -105,34 +192,9 @@
 .projection {
   animation: rotate 6s infinite;
 }
-
 .screen__light-wrap {
   position: relative;
   top: 0;
-}
-
-.booking__light {
-  position: absolute;
-  top: 5px;
-  left: 35%;
-  rotate: 90deg;
-  background-color: transparent;
-  filter: brightness(0) saturate(100%) invert(78%) sepia(0%) saturate(3725%)
-    hue-rotate(59deg) brightness(107%) contrast(88%);
-}
-.booking__light-2 {
-  left: 60%;
-}
-.booking__light-3 {
-  left: 70%;
-  top: 20px;
-}
-.booking__light-4 {
-  left: 25%;
-  top: 20px;
-}
-.booking__screen {
-  filter: var(--screen-top-filter);
 }
 
 ////////

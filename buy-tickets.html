@@ -131,7 +131,7 @@
         <!-- film info -->
         <div class="film-container buy-tickets-info-content">
           <div class="row">
-            <div class="col-3 col-xl-6 col-lg-12">
+            <div class="col-3 col-xl-8 offset-xl-2 col-lg-12 offset-lg-0">
               <div class="prod-preview">
                 <div class="prod-preview__list">
                   <div class="prod-preview__item buy-tickets__item">
@@ -187,7 +187,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-9 col-xl-6 col-lg-12">
+            <div class="col-9 col-xl-12 col-lg-12">
               <div class="buy-tickets-tab js-tabs">
                 <ul class="buy-tickets-tab__list">
                   <li
@@ -234,7 +234,7 @@
 
                         <div class="booking">
                           <div class="booking__inner">
-                            <h1>Screen</h1>
+                            <h1 class="booking__title booking__title-screen">Screen</h1>
                             <div class="booking__screen">
                               <svg
                                 width="100%"
@@ -540,7 +540,7 @@
                             </div>
                             <div class="screen__top"></div>
                             <img
-                              class="projection booking__light"
+                              class="projection booking__light booking__light-1"
                               src="./assets/img/screen-light/light-projector.png"
                               alt="Máy đèn"
                             />
@@ -1253,7 +1253,7 @@
                         </div>
                         <div class="food-menu">
                           <h2 class="food-menu-title">Food & Drinks</h2>
-                        <div class="row row-cols-2 g-3">
+                        <div class="row row-cols-2 g-3 row-cols-md-1">
                           
                           <div class="col">
                               <div class="food-item" data-price="209000">
@@ -1377,27 +1377,164 @@
                   </div>
 
                   <!-- review tag -->
-                  <div class="buy-tickets-tab__content">
-                    <div class="buy-tickets-content">
-                      <h2 class="buy-tickets-content__heading">
-                        Movin Club Member's Reviews
-                      </h2>
-                      <div class="row row-cols-1 gy-3">
-                        <!-- col 1 -->
-                      </div>
+                </div>
+                <div class="buy-tickets-tab__content">
+                  <div class="buy-tickets-content">
+                       <div class="row row-cols-xl-1">
+                        <div class="col">
+                          <div id="paymentInfo"></div>
+                          <div class="booking__confirm-payment">
+                            <!-- <button class="buy-tickets__confirm" onclick="confirmBooking()">Confirm Booking</button> -->
+                          </div>
+                       </div>
+                        <div class="col">
+                          <div id="auth-content" class="auth__content payment__content">
+                            <div class="auth__content-inner payment__inner">
+                              <!-- logo -->
+                              <form action="https://pay.vnpay.vn/" class="form payment__form">
+                                <div class="form__group payment__form-group">
+                                  <div class="form__text-input">
+                                    <input
+                                      type="text"
+                                      name=""
+                                      id=""
+                                      placeholder=" "
+                                      class="form__input"
+                                      required
+                                      minlength="1"
+                                    />
+                                    <span for="" class="form__holder">Name</span>
+                                    <img
+                                      src="./assets/icon/lock.svg"
+                                      alt=""
+                                      class="form__input-icon"
+                                    />
+                                    <img
+                                      src="./assets/icon/error.svg"
+                                      alt=""
+                                      class="form__input-icon--error"
+                                    />
+                                  </div>
+                                  <p class="form__error">Please Input Your Name</p>
+                                </div>
+                                <div class="form__group">
+                                  <div class="form__text-input">
+                                    <input
+                                      type="email"
+                                      name=""
+                                      id=""
+                                      placeholder=" "
+                                      class="form__input"
+                                      required
+                                    />
+                                    <span for="" class="form__holder">Email</span>
+                    
+                                    <img
+                                      src="./assets/icon/mess.svg"
+                                      alt=""
+                                      class="form__input-icon"
+                                    />
+                                    <img
+                                      src="./assets/icon/error.svg"
+                                      alt=""
+                                      class="form__input-icon--error"
+                                    />
+                                  </div>
+                                  <p class="form__error">Email is not correct format</p>
+                                </div>
+                    
+                                <div class="form__group">
+                                  <div class="form__text-input">
+                                    <input
+                                      type="phone"
+                                      name=""
+                                      id=""
+                                      placeholder=" "
+                                      class="form__input"
+                                      required
+                                    />
+                                    <span for="" class="form__holder">Phone</span>
+                                    <img
+                                      src="./assets/icon/lock.svg"
+                                      alt=""
+                                      class="form__input-icon"
+                                    />
+                                    <img
+                                      src="./assets/icon/error.svg"
+                                      alt=""
+                                      class="form__input-icon--error"
+                                    />
+                                  </div>
+                                  <p class="form__error">Phone Not Correct</p>
+                                </div>
+                            
+                            
+                            <div class="payment-methods">
+                            <div class="payment-option">
+                                <input type="radio" id="vnpay" name="option" class="payment-checkbox">
+                                <label for="vnpay">
+                                    <div class="payment-info">
+                                        <h4>Thanh toán trực tuyến qua cổng thanh toán VNPAY</h4>
+                                        <ul>
+                                            <li>QR Pay trên ứng dụng Mobile Banking của các ngân hàng và Ví VNPAY (quét mã VNPAY-QR để thanh toán)</li>
+                                            <li>Thẻ quốc tế phát hành trong nước và nước ngoài: Visa, Master, JCB, UnionPay, Amex, Google Pay, Apple Pay, Samsung Pay</li>
+                                            <li>Thẻ ATM/Tài khoản nội địa</li>
+                                        </ul>
+                                    </div>
+                                </label>
+                            </div>
+            
+                                    <div class="payment-option">
+                                        <input type="radio" id="momo" name="option" class="payment-checkbox">
+                                        <label for="momo">
+                                            <div class="payment-info">
+                                                <h4>Thanh toán trực tuyến qua ví điện tử MoMo</h4>
+                                                <ul>
+                                                    <li>Nhập mã MOMODSVN giảm đến 100k tại mục Ưu đãi</li>
+                                                </ul>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form__group form__group--inline">
+                                  <label for="checked" class="form__checkbox">
+                                    <input
+                                      type="checkbox"
+                                      name=""
+                                      id="checked"
+                                      class="form__checkbox-input d-none"
+                                      checked
+                                    />
+                                    <span id="checked" class="form__checkbox-label"
+                                      >I have read and agree to the
+                                      <a class="form__group-term">Terms & Conditions</a> and
+                                      <a class="form__group-term">Privacy Policy</a></span
+                                    >
+                                  </label>
+                                </div>
+                                <div class="form__group auth__btn-group">
+                                  <button class="btn btn--primary auth__btn form__submit-btn">
+                                    Payment
+                                  </button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                     
+                       </div>
                     </div>
-                  </div>
-                  <!-- /review tag -->
-                  <!-- also showing -->
-                  <div class="buy-tickets-tab__content">
-                    <div class="buy-tickets-content">
-                      <h2 class="buy-tickets-content__heading">
-                        New & Coming soon
-                      </h2>
-                      <div
-                        class="row row-cols-6 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-3"
-                      ></div>
-                    </div>
+                </div>
+                <!-- /review tag -->
+                <!-- also showing -->
+                <div class="buy-tickets-tab__content">
+                  <div class="buy-tickets-content">
+                    <h2 class="buy-tickets-content__heading">
+                      In Ve Dien Tu 
+                    </h2>
+                    <div
+                      class="row row-cols-6 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-3"
+                    ></div>
                   </div>
                 </div>
               </div>

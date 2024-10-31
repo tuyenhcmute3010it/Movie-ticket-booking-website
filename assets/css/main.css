@@ -201,6 +201,11 @@ strong {
   filter: var(--icon-color) !important;
 }
 
+h1,
+h2 {
+  font-size: 2.5rem;
+}
+
 .row > *, .container-fluid, .container {
   padding-left: calc(var(--grid-gutter-x) * 0.5);
   padding-right: calc(var(--grid-gutter-x) * 0.5);
@@ -3404,6 +3409,20 @@ html {
   padding: 10px;
   height: auto;
 }
+@media (max-width: 767.98px) {
+  .booking {
+    padding: 0;
+  }
+}
+.booking__title {
+  text-align: center;
+}
+@media (max-width: 767.98px) {
+  .booking__title-screen {
+    padding-top: 3px;
+    font-size: 1.6rem;
+  }
+}
 .booking__doorleave {
   display: flex;
   align-items: center;
@@ -3428,18 +3447,116 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #95dad2; /* Set a background color for visibility */
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
-  padding: 20px; /* Space around the content */
-  z-index: 1000; /* Ensure it stays on top */
-  display: none; /* Initially hidden */
+  background-color: #95dad2;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000;
+  display: none;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
   margin-top: 20px;
 }
+@media (max-width: 767.98px) {
+  .booking-details {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2rem;
+  }
+}
 .booking__confirm {
   width: max(200px, 30%);
+}
+@media (max-width: 767.98px) {
+  .booking__confirm {
+    width: 100%;
+  }
+}
+.booking__light {
+  position: absolute;
+  top: 5px;
+  left: 35%;
+  rotate: 90deg;
+  background-color: transparent;
+  filter: brightness(0) saturate(100%) invert(78%) sepia(0%) saturate(3725%) hue-rotate(59deg) brightness(107%) contrast(88%);
+}
+@media (max-width: 991.98px) {
+  .booking__light {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media (max-width: 767.98px) {
+  .booking__light {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (max-width: 575.98px) {
+  .booking__light {
+    width: 15px;
+    height: 15px;
+  }
+}
+@media (max-width: 575.98px) {
+  .booking__light-1 {
+    top: 2px;
+    left: 32%;
+  }
+}
+.booking__light-2 {
+  left: 60%;
+}
+@media (max-width: 991.98px) {
+  .booking__light-2 {
+    top: 3px;
+  }
+}
+@media (max-width: 767.98px) {
+  .booking__light-2 {
+    left: calc(60% + 15px);
+    top: 5px;
+  }
+}
+.booking__light-3 {
+  left: 70%;
+  top: 20px;
+}
+@media (max-width: 991.98px) {
+  .booking__light-3 {
+    top: 12px;
+  }
+}
+@media (max-width: 767.98px) {
+  .booking__light-3 {
+    top: 13px;
+    left: 73%;
+  }
+}
+@media (max-width: 575.98px) {
+  .booking__light-3 {
+    top: 7px;
+  }
+}
+.booking__light-4 {
+  left: 25%;
+  top: 20px;
+}
+@media (max-width: 991.98px) {
+  .booking__light-4 {
+    top: 12px;
+  }
+}
+@media (max-width: 575.98px) {
+  .booking__light-4 {
+    top: 6px;
+  }
+}
+.booking__screen {
+  filter: var(--screen-top-filter);
+}
+.booking__confirm-payment {
+  display: flex;
 }
 
 .booking-item {
@@ -3447,10 +3564,30 @@ html {
 }
 
 #bookingInfo {
+  font-size: 2rem;
   width: max(300px, 60%);
   color: red;
   display: flex;
   line-height: 1.3;
+  padding: 5px;
+}
+@media (max-width: 991.98px) {
+  #bookingInfo {
+    gap: 10px;
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+}
+@media (max-width: 767.98px) {
+  #bookingInfo {
+    width: 100%;
+  }
+}
+@media (max-width: 575.98px) {
+  #bookingInfo {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
 }
 
 #totalAmount {
@@ -3461,10 +3598,6 @@ html {
 
 #countdown {
   color: red;
-}
-
-#bookingInfo {
-  font-size: 2rem;
 }
 
 .screen__top {
@@ -3484,21 +3617,6 @@ html {
   cursor: not-allowed;
 }
 
-.seat {
-  color: #fff;
-  z-index: 1;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.seat__chair {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
-}
-
 .light {
   opacity: 0;
   animation: flash 6s infinite;
@@ -3513,31 +3631,205 @@ html {
   top: 0;
 }
 
-.booking__light {
-  position: absolute;
-  top: 5px;
-  left: 35%;
-  rotate: 90deg;
-  background-color: transparent;
-  filter: brightness(0) saturate(100%) invert(78%) sepia(0%) saturate(3725%) hue-rotate(59deg) brightness(107%) contrast(88%);
+.buy-tickets-content {
+  padding: 20px;
+  display: flex;
+  border-radius: 10px;
 }
 
-.booking__light-2 {
-  left: 60%;
+.order-summary,
+.payment-options {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
-.booking__light-3 {
-  left: 70%;
-  top: 20px;
+.order-summary h3,
+.payment-options h3 {
+  margin-bottom: 15px;
 }
 
-.booking__light-4 {
-  left: 25%;
-  top: 20px;
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
 }
 
-.booking__screen {
-  filter: var(--screen-top-filter);
+.summary-item.total {
+  font-weight: bold;
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+}
+
+.payment-button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.payment-button:hover {
+  background-color: #0056b3;
+}
+
+.confirm-payment {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#confirmPaymentButton {
+  background-color: #28a745;
+  color: #fff;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#confirmPaymentButton:hover {
+  background-color: #218838;
+}
+
+.payment__info {
+  margin-top: 30px;
+}
+
+.payment__inner {
+  padding: 0 !important;
+}
+
+.payment__form {
+  margin-top: 0;
+}
+
+.payment__content {
+  margin-top: 0;
+  padding: 30px !important;
+  border-radius: 10px;
+}
+@media (max-width: 1199.98px) {
+  .payment__content {
+    margin-top: 30px;
+  }
+}
+
+.payment__form-group {
+  margin-top: 0;
+}
+
+.booking__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.booking__age-rating,
+.booking__cinema,
+.booking__address {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.payment__info {
+  border: 1px solid #ccc;
+  padding: 15px;
+  background-color: #f9f9f9;
+  margin-top: 15px;
+  border-radius: 5px;
+  color: #000;
+}
+
+.payment__header {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.payment__detail {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.payment__total {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e74c3c; /* Change this color as needed */
+  margin-top: 10px;
+}
+
+.payment__inner {
+  width: min(500px, 100%) !important;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.payment__form {
+  width: 100%;
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between each option */
+}
+
+.payment-option {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  align-items: flex-start; /* Align items at the start */
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.payment-option label {
+  text-align: start;
+}
+
+.payment-option:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.payment-checkbox {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.payment-info {
+  flex-grow: 1;
+}
+
+.payment-info h4 {
+  margin-top: 0;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.payment-info ul {
+  padding-left: 20px;
+  margin: 0;
+  list-style-type: disc;
+}
+
+.payment-info li {
+  margin-bottom: 8px;
+  color: #555;
 }
 
 .home__container {
@@ -3613,7 +3905,6 @@ html {
 }
 @media (max-width: 767.98px) {
   .auth__content {
-    position: fixed;
     inset: 0;
     z-index: 1;
     transition: translate 0.3s;
@@ -4077,6 +4368,23 @@ html {
   display: flex;
   gap: 5px;
 }
+@media (max-width: 1399.98px) {
+  .buy-tickets__control-thumbs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 1199.98px) {
+  .buy-tickets__control-thumbs {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 991.98px) {
+  .buy-tickets__control-thumbs {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 .buy-tickets__item {
   width: calc(100% + 11px);
   flex-shrink: 0;
@@ -4102,6 +4410,12 @@ html {
 .buy-tickets-tab {
   margin-top: 30px;
   padding-right: 30px;
+}
+@media (max-width: 1199.98px) {
+  .buy-tickets-tab {
+    padding-right: 0px;
+    padding: 10px;
+  }
 }
 .buy-tickets-tab__list {
   display: flex;
@@ -4196,54 +4510,83 @@ html {
   border-radius: 10px;
 }
 
-h1,
-h2 {
-  text-align: center;
-  font-size: 2.5rem;
-}
-
-.seat.selected {
-  background-color: #ff7043;
-}
-
-.food-menu {
-  margin: 20px 0;
-}
-
-.food-item {
-  margin: 10px 0;
-}
-
-.seat-chart {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 8px;
-  justify-items: center;
-  margin-top: 20px;
-}
-
 .seat {
   border-radius: 5px;
   width: 50px;
   height: 50px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #fff;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.seat__chair {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+@media (max-width: 767.98px) {
+  .seat {
+    width: 37px;
+    height: 37px;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .seat {
+    width: 26px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
+.seat.selected {
+  background-color: #ff7043;
+  font-weight: 700;
+}
 .seat-chart {
-  margin-bottom: 50px; /* Space for the fixed layout */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 8px;
+  justify-items: center;
+  margin: 20px 0 50px;
+}
+@media (max-width: 991.98px) {
+  .seat-chart {
+    gap: 5px;
+  }
+}
+@media (max-width: 767.98px) {
+  .seat-chart {
+    column-gap: 2px;
+    row-gap: 15px;
+  }
+}
+@media (max-width: 575.98px) {
+  .seat-chart {
+    column-gap: 1px;
+    row-gap: 10px;
+  }
+}
+@media (max-width: 767.98px) {
+  .seat-chart {
+    overflow: scroll;
+  }
 }
 
 .food-menu {
   width: 100%;
   margin: 10px auto;
 }
-
 .food-menu-title {
   text-align: center;
   margin-bottom: 20px;
 }
-
 .food-item {
   display: flex;
   align-items: center;
@@ -4256,33 +4599,34 @@ h2 {
   background-color: #ccc;
   box-shadow: var(--box-shadow);
 }
-
 .food-image {
   width: 50px; /* Adjust size */
   height: auto;
   margin-right: 15px;
 }
-
 .food-details {
   flex-grow: 1;
 }
-
 .food-label {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 10px;
 }
-
 .food-name {
   font-weight: bold;
   font-size: 2rem;
 }
-
 .food-price {
   color: #fff;
   text-align: center;
   font-size: 1.8rem;
   font-weight: 600;
+}
+.food-quantity {
+  margin: 0 10px;
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
 }
 
 .quantity-controls {
@@ -4290,7 +4634,6 @@ h2 {
   align-items: center;
   margin-top: 10px;
 }
-
 .quantity-btn {
   background-color: #007bff;
   color: white;
@@ -4299,16 +4642,8 @@ h2 {
   cursor: pointer;
   border-radius: 5px;
 }
-
 .quantity-btn:hover {
   background-color: #0056b3;
-}
-
-.food-quantity {
-  margin: 0 10px;
-  font-size: 16px;
-  width: 20px;
-  text-align: center;
 }
 
 /*# sourceMappingURL=main.css.map */

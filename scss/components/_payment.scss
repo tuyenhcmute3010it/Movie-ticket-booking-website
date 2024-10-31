@@ -1,0 +1,189 @@
+@use "../abstracts";
+.buy-tickets-content {
+  padding: 20px;
+  display: flex;
+  border-radius: 10px;
+}
+
+.order-summary,
+.payment-options {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.order-summary h3,
+.payment-options h3 {
+  margin-bottom: 15px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.summary-item.total {
+  font-weight: bold;
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+}
+
+.payment-button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.payment-button:hover {
+  background-color: #0056b3;
+}
+
+.confirm-payment {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#confirmPaymentButton {
+  background-color: #28a745;
+  color: #fff;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#confirmPaymentButton:hover {
+  background-color: #218838;
+}
+.payment__info {
+  margin-top: 30px;
+}
+.payment__inner {
+  padding: 0 !important;
+}
+.payment__form {
+  margin-top: 0;
+}
+.payment__content {
+  margin-top: 0;
+  padding: 30px !important;
+  border-radius: 10px;
+
+  @include abstracts.screen(xl) {
+    margin-top: 30px;
+  }
+}
+.payment__form-group {
+  margin-top: 0;
+}
+/////////
+.booking__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.booking__age-rating,
+.booking__cinema,
+.booking__address {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.payment__info {
+  border: 1px solid #ccc;
+  padding: 15px;
+  background-color: #f9f9f9;
+  margin-top: 15px;
+  border-radius: 5px;
+  color: #000;
+}
+
+.payment__header {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.payment__detail {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.payment__total {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e74c3c; /* Change this color as needed */
+  margin-top: 10px;
+}
+.payment__inner {
+  width: min(500px, 100%) !important;
+}
+.title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+.payment__form {
+  width: 100%;
+}
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between each option */
+}
+
+.payment-option {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  align-items: flex-start; /* Align items at the start */
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.payment-option label {
+  text-align: start;
+}
+.payment-option:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.payment-checkbox {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.payment-info {
+  flex-grow: 1;
+}
+
+.payment-info h4 {
+  margin-top: 0;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.payment-info ul {
+  padding-left: 20px;
+  margin: 0;
+  list-style-type: disc;
+}
+
+.payment-info li {
+  margin-bottom: 8px;
+  color: #555;
+}

@@ -3,6 +3,17 @@
   &__control-thumbs {
     display: flex;
     gap: 5px;
+    @include abstracts.screen(xxl) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include abstracts.screen(xl) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @include abstracts.screen(lg) {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
   &__item {
     width: calc(100% + 11px);
@@ -30,6 +41,10 @@
 .buy-tickets-tab {
   margin-top: 30px;
   padding-right: 30px;
+  @include abstracts.screen(xl) {
+    padding-right: 0px;
+    padding: 10px;
+  }
   &__list {
     display: flex;
     align-items: center;
@@ -112,31 +127,6 @@
   }
 }
 //////////////////////////////////////
-h1,
-h2 {
-  text-align: center;
-  font-size: 2.5rem;
-}
-
-.seat.selected {
-  background-color: #ff7043;
-}
-
-.food-menu {
-  margin: 20px 0;
-}
-
-.food-item {
-  margin: 10px 0;
-}
-
-.seat-chart {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 8px;
-  justify-items: center;
-  margin-top: 20px;
-}
 
 .seat {
   border-radius: 5px;
@@ -144,85 +134,134 @@ h2 {
   height: 50px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
-
-.seat-chart {
-  margin-bottom: 50px; /* Space for the fixed layout */
-}
-
-.food-menu {
-  width: 100%;
-  margin: 10px auto;
-}
-
-.food-menu-title {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.food-item {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-  padding: 10px;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  justify-content: space-between;
-  height: 100%;
-  background-color: #ccc;
-  box-shadow: var(--box-shadow);
-}
-
-.food-image {
-  width: 50px; /* Adjust size */
-  height: auto;
-  margin-right: 15px;
-}
-
-.food-details {
-  flex-grow: 1;
-}
-
-.food-label {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 10px;
-}
-
-.food-name {
-  font-weight: bold;
-  font-size: 2rem;
-}
-
-.food-price {
+  font-size: 1.6rem;
+  font-weight: 500;
+  &__chair {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
   color: #fff;
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: 600;
-}
-
-.quantity-controls {
+  z-index: 1;
+  position: relative;
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  justify-content: center;
+  @include abstracts.screen(md) {
+    width: 37px;
+    height: 37px;
+    font-size: 1.5rem;
+  }
+  @include abstracts.screen(sm) {
+    width: 26px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  &.selected {
+    background-color: #ff7043;
+    font-weight: 700;
+  }
+  &-chart {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 8px;
+    justify-items: center;
+    margin: 20px 0 50px;
+    @include abstracts.screen(lg) {
+      gap: 5px;
+    }
+    @include abstracts.screen(md) {
+      column-gap: 2px;
+      row-gap: 15px;
+    }
+    @include abstracts.screen(sm) {
+      column-gap: 1px;
+      row-gap: 10px;
+    }
+    @include abstracts.screen(md) {
+      overflow: scroll;
+    }
+  }
 }
 
-.quantity-btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
+.food {
+  &-menu {
+    width: 100%;
+    margin: 10px auto;
+  }
+
+  &-menu-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    justify-content: space-between;
+    height: 100%;
+    background-color: #ccc;
+    box-shadow: var(--box-shadow);
+  }
+
+  &-image {
+    width: 50px; /* Adjust size */
+    height: auto;
+    margin-right: 15px;
+  }
+
+  &-details {
+    flex-grow: 1;
+  }
+
+  &-label {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+  }
+
+  &-name {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  &-price {
+    color: #fff;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  &-quantity {
+    margin: 0 10px;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+  }
 }
 
-.quantity-btn:hover {
-  background-color: #0056b3;
-}
+.quantity {
+  &-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
 
-.food-quantity {
-  margin: 0 10px;
-  font-size: 16px;
-  width: 20px;
-  text-align: center;
+  &-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  &-btn:hover {
+    background-color: #0056b3;
+  }
 }
