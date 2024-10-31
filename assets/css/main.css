@@ -1426,6 +1426,19 @@ html.dark {
   --schedule-content-color: rgba(0, 0, 0 , 0.6);
   --booking-doorleave-filter: brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(0%) hue-rotate(143deg) brightness(104%) contrast(105%);
   --screen-top-filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7494%) hue-rotate(294deg) brightness(104%) contrast(94%);
+  --profile-sidebar-bg: #171c28;
+  --profile-sidebar-shadow: rgba(23, 28, 40, 0.2);
+  --account-info-bg: #292e39;
+  --account-info-icon-bg: #171c28;
+  --profile-link-hover: #292e39;
+  --separate-color: #ebebeb;
+  --cart-info-bg: #171c28;
+  --cart-info-shadow: rgba(23, 28, 40, 0.2);
+  --card-item-border-color: #292e39;
+  --checkout-page-bg: #171c28;
+  --cart-info-bg: #171c28;
+  --cart-item-title-color: #b9babe;
+  --cart-item-select-border: #292e39;
 }
 
 html {
@@ -1483,6 +1496,17 @@ html {
     saturate(2573%) hue-rotate(119deg) brightness(88%) contrast(97%);
   --screen-inner-bg: url(../img/dropdown/bg-themes-light.jpg) repeat scroll
     center center rgba(0, 0, 0, 0);
+  --account-info-bg: #f6f6f6;
+  --account-info-icon-bg: #fff;
+  --profile-sidebar-bg: #ccc;
+  --profile-sidebar-shadow: rgba(237, 237, 246, 0.2);
+  --cart-info-bg: #fff;
+  --cart-info-shadow: rgba(237, 237, 246, 0.2);
+  --card-item-border-color: #d2d1d6;
+  --checkout-page-bg: #fff;
+  --cart-info-bg: #fff;
+  --cart-item-title-color: #1a162e;
+  --cart-item-select-border: #d2d1d6;
 }
 @media (max-width: 767.98px) {
   html {
@@ -2623,6 +2647,10 @@ html {
   top: 50%;
   translate: 0 -50%;
   pointer-events: none;
+}
+.form-card__bottom {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .slideshow {
@@ -3832,6 +3860,115 @@ html {
   color: #555;
 }
 
+.account-info {
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--account-info-bg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.account-info__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  background-color: var(--account-info-icon-bg);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.account-info__title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.46;
+}
+.account-info__desc {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.45;
+  margin-top: 6px;
+}
+
+.cate-item {
+  border-radius: 16px;
+  background: var(--cate-item-bg);
+  display: flex;
+  height: 100%;
+  padding: 20px 26px 20px 20px;
+  column-gap: 20px;
+  align-items: center;
+}
+@media (max-width: 1199.98px) {
+  .cate-item {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+@media (max-width: 767.98px) {
+  .cate-item {
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+.cate-item__thumb {
+  display: block;
+  width: 116px;
+  height: 116px;
+  object-fit: contain;
+  background-color: var(--cate-item-thumb-bg);
+  border-radius: 8px;
+}
+@media (max-width: 1199.98px) {
+  .cate-item__thumb {
+    margin: 0 auto;
+    width: 100%;
+    height: 150px;
+  }
+}
+@media (max-width: 767.98px) {
+  .cate-item__thumb {
+    width: 88px;
+    height: 88px;
+    margin: 0;
+  }
+}
+.cate-item__title {
+  color: var(--cate-item-title-color);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+@media (max-width: 767.98px) {
+  .cate-item__title {
+    font-size: 1.8rem;
+    line-height: 1.44;
+  }
+}
+.cate-item__desc {
+  font-size: 1.6rem;
+  margin-top: 6px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+@media (max-width: 1399.98px) {
+  .cate-item__desc {
+    font-size: 1.4rem;
+    line-height: 1.42;
+  }
+}
+.cate-item__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 30px;
+}
+@media (max-width: 1399.98px) {
+  .cate-item__info {
+    padding-right: 0;
+  }
+}
+
 .home__container {
   margin-top: 40px;
 }
@@ -4421,6 +4558,7 @@ html {
   display: flex;
   align-items: center;
   margin: 0 -30px;
+  flex-wrap: wrap;
 }
 @media (max-width: 575.98px) {
   .buy-tickets-tab__list {
@@ -4644,6 +4782,91 @@ html {
 }
 .quantity-btn:hover {
   background-color: #0056b3;
+}
+
+.profile {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 33px;
+}
+.profile-content {
+  margin-top: 30px;
+}
+.profile__sidebar {
+  border-radius: 20px;
+  background: var(--profile-sidebar-bg);
+  box-shadow: 0px 20px 60px 10px var(--profile-sidebar-shadow);
+  overflow: hidden;
+  padding-bottom: 30px;
+}
+.profile-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(26, 22, 46, 0) 0%, #1a162e 100%), url(../img/avatar/avatar-1.jpg) no-repeat center/cover;
+  padding: 40px 20px 20px;
+  box-shadow: 0px 20px 60px 10px var(--profile-sidebar-shadow);
+}
+.profile-user__avatar {
+  width: 121px;
+  height: 121px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0px 4px 14px 2px rgba(0, 0, 0, 0.08);
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  background: #ccc;
+  background-clip: content-box;
+}
+.profile-user__name {
+  color: #fff;
+  margin-top: 15px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.44;
+}
+.profile-user__desc {
+  color: #fafafd;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.46;
+  margin-top: 2px;
+}
+.profile-menu {
+  margin-top: 30px;
+  padding: 0 30px;
+}
+.profile-menu__title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.44;
+}
+.profile-menu__list {
+  margin-top: 12px;
+}
+.profile-menu__link {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.46;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 5px;
+  margin-left: -5px;
+  border-radius: 5px;
+}
+.profile-menu__link:hover {
+  background-color: var(--profile-link-hover);
+  transition: background-color 0.2s;
+}
+.profile-menu__icon {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.profile__desc {
+  margin-bottom: 16px;
 }
 
 /*# sourceMappingURL=main.css.map */

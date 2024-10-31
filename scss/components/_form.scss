@@ -345,4 +345,8 @@
     translate: 0 -50%;
     pointer-events: none;
   }
+  &-card__bottom {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

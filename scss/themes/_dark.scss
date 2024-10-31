@@ -66,6 +66,19 @@ html.dark {
   --booking-doorleave-filter : brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(0%) hue-rotate(143deg) brightness(104%) contrast(105%);
   //screen top
   --screen-top-filter :  brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7494%) hue-rotate(294deg) brightness(104%) contrast(94%);
-  
-  
+  // profile 
+  --profile-sidebar-bg: #171c28;
+  --profile-sidebar-shadow: rgba(23, 28, 40, 0.2);
+  --account-info-bg: #292e39;
+  --account-info-icon-bg: #171c28;
+  --profile-link-hover: #292e39;
+  --separate-color: #ebebeb;
+    // cart info
+    --cart-info-bg: #171c28;
+    --cart-info-shadow: rgba(23, 28, 40, 0.2);
+    --card-item-border-color: #292e39;
+    --checkout-page-bg: #171c28;
+    --cart-info-bg: #171c28;
+    --cart-item-title-color: #b9babe;
+    --cart-item-select-border: #292e39;
 }

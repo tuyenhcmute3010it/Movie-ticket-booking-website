@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movin</title>
+    <!-- main  -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- fonts  -->
+    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+
+    <!-- favicon  -->
+    <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/" />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="./assets/favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="./assets/favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./assets/favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="./assets/favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="./assets/favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="./assets/favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./assets/favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./assets/favicon/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="./assets/favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="./assets/favicon/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- javaScript -->
+    <script src="./assets/js/scrips.js"></script>
+    <script src="./assets/js/slideshow.js"></script>
+
+    <!--  -->
+  </head>
+  <body>
+    <header id="header"></header>
+    <script>
+      load("#header", "./template/header-logined.html");
+    </script>
+    <!-- container -->
+
+    <main class="profile">
+      <div class="container">
+        <div class="checkout-container">
+          <div class="search-bar d-none d-md-flex">
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Search for item"
+              class="search-bar__input"
+            />
+            <button class="search-bar__submit">
+              <img
+                src="./assets/icon/search.svg"
+                alt=""
+                class="search-bar__icon icon"
+              />
+            </button>
+          </div>
+        </div>
+        <!-- checkout content -->
+        <div class="profile-content">
+          <div class="row gy-xl-3">
+            <div class="col-3 col-xl-4 d-lg-none">
+              <aside class="profile__sidebar">
+                <div class="profile-user">
+                  <img
+                    src="./assets/img/avatar/avatar-3.png"
+                    alt=""
+                    class="profile-user__avatar"
+                  />
+                  <h1 class="profile-user__name">Ricardo Value</h1>
+                  <p class="profile-user__desc">Registered: 17th May 2022</p>
+                </div>
+                <!-- profile menu 1 -->
+                <div class="profile-menu">
+                  <h3 class="profile-menu__title">Manage Account</h3>
+                  <ul class="profile-menu__list">
+                    <li class="profile-menu__item">
+                      <a href="#! " class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img
+                            src="./assets/icon/profile.svg"
+                            alt=""
+                            class="icon"
+                          />
+                        </span>
+                        Personal info
+                      </a>
+                    </li>
+                    <li class="profile-menu__item">
+                      <a href="#! " class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img
+                            src="./assets/icon/address.svg"
+                            alt=""
+                            class="icon"
+                          />
+                        </span>
+                        Addresses
+                      </a>
+                    </li>
+                    <li class="profile-menu__item">
+                      <a href="#! " class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img
+                            src="./assets/icon/mess.svg"
+                            alt=""
+                            class="icon"
+                          />
+                        </span>
+                        Communications & privacy
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- profile menu 4 -->
+                <div class="profile-menu">
+                  <h3 class="profile-menu__title">Customer Service</h3>
+                  <ul class="profile-menu__list">
+                    <li class="profile-menu__item">
+                      <a href="#! " class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img
+                            src="./assets/icon/help.svg"
+                            alt=""
+                            class="icon"
+                          />
+                        </span>
+                        Help
+                      </a>
+                    </li>
+                    <li class="profile-menu__item">
+                      <a href="#! " class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img
+                            src="./assets/icon/term.svg"
+                            alt=""
+                            class="icon"
+                          />
+                        </span>
+                        Terms of Use
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+            <div class="col-9 col-xl-8 col-lg-12">
+              <div class="cart-info">
+                <div class="row gy-3">
+                  <div class="col-12">
+                    <h2 class="cart-info__heading">
+                      <a href="./profile.html">
+                        <img
+                          src="./assets/icon/arrow-left.svg"
+                          alt=""
+                          class="icon cart-info__back-arrow"
+                        />
+                      </a>
+                      Personal info
+                    </h2>
+                    <form action="" class="form">
+                      <!-- form row 1 -->
+                      <div class="form__row">
+                        <div class="form__group">
+                          <label
+                            for="Full name"
+                            class="form__label form__label--small"
+                            >Full name</label
+                          >
+                          <div class="form__text-input">
+                            <input
+                              type="text"
+                              name="Full name"
+                              id="Full name"
+                              placeholder="Full name"
+                              class="form__input"
+                              required
+                            />
+                            <img
+                              src="./assets/icon/font-error.svg"
+                              alt=""
+                              class="form__input-icon--error"
+                            />
+                          </div>
+                          <p class="form__error">Email is not correct format</p>
+                        </div>
+                        <div class="form__group">
+                          <label
+                            for="Email address"
+                            class="form__label form__label--small"
+                            >Email address</label
+                          >
+                          <div class="form__text-input">
+                            <input
+                              type="text"
+                              name="Email address"
+                              id="Email address"
+                              placeholder="Email address"
+                              class="form__input"
+                              required
+                            />
+                            <img
+                              src="./assets/icon/font-error.svg"
+                              alt=""
+                              class="form__input-icon--error"
+                            />
+                          </div>
+                          <p class="form__error">Email is not correct format</p>
+                        </div>
+                      </div>
+                      <!-- form row 2 -->
+                      <div class="form__row">
+                        <div class="form__group">
+                          <label
+                            for="Phone number"
+                            class="form__label form__label--small"
+                            >Phone number</label
+                          >
+                          <div class="form__text-input">
+                            <input
+                              type="text"
+                              name="Phone number"
+                              id="Phone number"
+                              placeholder="Phone number"
+                              class="form__input"
+                              required
+                            />
+                            <img
+                              src="./assets/icon/font-error.svg"
+                              alt=""
+                              class="form__input-icon--error"
+                            />
+                          </div>
+                          <p class="form__error">Email is not correct format</p>
+                        </div>
+                        <div class="form__group">
+                          <label
+                            for="Password"
+                            class="form__label form__label--small"
+                            >Password</label
+                          >
+                          <div class="form__text-input">
+                            <input
+                              type="password"
+                              name="Password"
+                              id="Password"
+                              placeholder="Password"
+                              class="form__input"
+                              required
+                            />
+                            <img
+                              src="./assets/icon/font-error.svg"
+                              alt=""
+                              class="form__input-icon--error"
+                            />
+                          </div>
+                          <p class="form__error">Email is not correct format</p>
+                        </div>
+                      </div>
+                      <!-- form row 3 -->
+                      <div class="form__group">
+                        <div class="form-card__bottom">
+                          <a href="./profile.html" class="btn btn--text"
+                            >Cancel</a
+                          >
+                          <button class="btn btn--primary btn--rounded">
+                            Save
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- footer -->
+        <footer id="footer"></footer>
+        <script>
+          load("#footer", "./template/footer.html");
+        </script>
+      </div>
+    </main>
+    <!-- modal / confirm remove shopping cart item -->
+    <div
+      id="delete-confirm"
+      class="modal modal--small js-toggle"
+      toggle-target="#delete-confirm"
+    >
+      <button class="modal__close">&times;</button>
+      <div class="modal__content">
+        <div class="modal__text">Are you sure to delete this product?</div>
+        <div class="modal__bottom">
+          <button
+            class="btn btn--text modal__btn js-toggle"
+            toggle-target="#delete-confirm"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn--primary modal__btn btn--no-margin js-toggle btn--danger"
+            toggle-target="#delete-confirm"
+          >
+            Remove
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="modal__overlay js-toggle"
+        toggle-target="#delete-confirm"
+      ></div>
+    </div>
+  </body>
+  <!-- js -->
+  <script src="./assets/js/trailer.js"></script>
+  <!-- js -->
+</html>
