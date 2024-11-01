@@ -2,7 +2,7 @@ window.addEventListener("template-loaded", () => {
   initializeTabs();
   initializeSeatSelection();
   initializeFoodSelection();
-  updateBookingInfo(); // To display initial booking info if available
+  updateBookingInfo();
 });
 
 let isBookingConfirmed = false; // Track booking confirmation
@@ -41,7 +41,6 @@ function initializeTabs() {
           .querySelector(`.${contentActive}`)
           ?.classList.remove(contentActive);
 
-        // Add active class to clicked tab and corresponding content
         tab.classList.add(tabActive);
         contents[index].classList.add(contentActive);
       };
@@ -237,6 +236,8 @@ function startCountdown() {
   countdownStarted = true;
 }
 
+//================
+
 function resetCountdown() {
   clearInterval(timer);
   countdownStarted = false;
@@ -247,62 +248,9 @@ function formatTime(ms) {
   const seconds = Math.floor((ms % (1000 * 60)) / 1000);
   return `${minutes}m ${seconds}s`;
 }
+//=====================
 
-// function confirmBooking() {
-//   // Existing confirmation logic
-//   const selectedSeats = Array.from(
-//     document.querySelectorAll(".seat.selected")
-//   ).map((seat) => seat.innerText);
-//   const foodItems = Array.from(document.querySelectorAll(".food-item"))
-//     .map((item) => {
-//       const quantity = item.querySelector(".food-quantity").textContent;
-//       const name = item.querySelector("label").innerText;
-//       return quantity > 0 ? `${name} (x${quantity})` : null;
-//     })
-//     .filter(Boolean)
-//     .join(", ");
-
-//   const movieTitle =
-//     new URLSearchParams(window.location.search).get("movie") || "Movie Title";
-//   const selectedDate = localStorage.getItem("selectedDate");
-//   const selectedTime = localStorage.getItem("selectedTime");
-//   const formattedDate = selectedDate
-//     ? new Date(selectedDate).toLocaleDateString()
-//     : "Not selected";
-
-//   // Store booking data
-//   const bookingData = {
-//     movieTitle,
-//     selectedDate: formattedDate,
-//     selectedTime,
-//     selectedSeats,
-//     foodItems,
-//   };
-//   localStorage.setItem("bookingData", JSON.stringify(bookingData));
-
-//   // Update the payment tab with formatted booking details
-//   updatePaymentTab(bookingData);
-
-//   // Set booking confirmation status to true
-//   isBookingConfirmed = true;
-
-//   // Switch to the Payment tab
-//   const tabs = document.querySelectorAll(".buy-tickets-tab__item");
-//   const contents = document.querySelectorAll(".buy-tickets-tab__content");
-
-//   tabs.forEach((tab) => tab.classList.remove("buy-tickets-tab__item--active"));
-//   contents.forEach((content) =>
-//     content.classList.remove("buy-tickets-tab__content--active")
-//   );
-
-//   tabs[1].classList.add("buy-tickets-tab__item--active"); // Assuming Payment tab is the second tab
-//   contents[1].classList.add("buy-tickets-tab__content--active");
-// }
-// // Event listener for the confirm button
-// document.querySelector("#confirmButton").onclick = confirmBooking;
-// Existing confirmBooking function
 function confirmBooking() {
-  // Existing confirmation logic
   const selectedSeats = Array.from(
     document.querySelectorAll(".seat.selected")
   ).map((seat) => seat.innerText);
@@ -333,13 +281,10 @@ function confirmBooking() {
   };
   localStorage.setItem("bookingData", JSON.stringify(bookingData));
 
-  // Update the payment tab with formatted booking details
   updatePaymentTab(bookingData);
 
-  // Set booking confirmation status to true
   isBookingConfirmed = true;
 
-  // Switch to the Payment tab
   const tabs = document.querySelectorAll(".buy-tickets-tab__item");
   const contents = document.querySelectorAll(".buy-tickets-tab__content");
 
@@ -348,18 +293,22 @@ function confirmBooking() {
     content.classList.remove("buy-tickets-tab__content--active")
   );
 
-  tabs[1].classList.add("buy-tickets-tab__item--active"); // Assuming Payment tab is the second tab
+  tabs[1].classList.add("buy-tickets-tab__item--active");
   contents[1].classList.add("buy-tickets-tab__content--active");
 
-  // Start the countdown in the payment tab
-  startCountdown(); // Call the startCountdown function to initiate the timer
+  // Scroll to the top of the page
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  startCountdown();
 }
+
+//========
 
 function startCountdown() {
   if (countdownStarted) return;
 
   let timeLeft = countdownDuration;
-  const countdownDisplay = document.querySelector("#countdown"); // Use the countdown element in the payment tab
+  const countdownDisplay = document.querySelector("#countdown");
   countdownDisplay.textContent = formatTime(timeLeft);
 
   timer = setInterval(() => {
@@ -380,3 +329,29 @@ function resetCountdown() {
   clearInterval(timer);
   countdownStarted = false;
 }
+/////////////////////////////
+
+document.addEventListener("DOMContentLoaded", function () {
+  const tabs = document.querySelectorAll(".buy-tickets-tab__item");
+  const background = document.createElement("div");
+  background.classList.add("buy-tickets-tab__background");
+  document.querySelector(".buy-tickets-tab__list").appendChild(background);
+
+  function updateBackgroundWidth() {
+    const activeTabIndex = Array.from(tabs).findIndex((tab) =>
+      tab.classList.contains("buy-tickets-tab__item--active")
+    );
+    background.style.width = `${(activeTabIndex + 1) * 33}%`;
+  }
+
+  updateBackgroundWidth();
+
+  const observer = new MutationObserver(updateBackgroundWidth);
+
+  tabs.forEach((tab) => {
+    observer.observe(tab, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  });
+});

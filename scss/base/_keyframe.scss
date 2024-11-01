@@ -22,10 +22,10 @@
 }
 
 @keyframes underline {
-  from {
+  0% {
     width: 0%;
   }
-  to {
+  100% {
     width: 100%;
   }
 }
@@ -57,3 +57,14 @@
     transform: rotate(-85deg); /* Xoay sang trái */
   }
 }
+////
+///
+// @keyframes {
+//   0%,
+//   100% {
+//     transform: rotate(-30deg); /* Không xoay */
+//   }
+//   50% {
+//     transform: rotate(-85deg); /* Xoay sang trái */
+//   }
+// }

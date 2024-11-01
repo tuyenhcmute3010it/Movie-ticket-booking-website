@@ -89,6 +89,10 @@
     <script src="./assets/js/review.js"></script>
     <script src="./assets/js/showtime.js"></script>
     <script src="./assets/js/buysticket.js"></script>
+    <!--  -->
+    
+
+    <!--  -->
   </head>
   <body>
     <!-- header -->
@@ -190,14 +194,16 @@
             <div class="col-9 col-xl-12 col-lg-12">
               <div class="buy-tickets-tab js-tabs">
                 <ul class="buy-tickets-tab__list">
+          
                   <li
-                    class="buy-tickets-tab__item buy-tickets-tab__item--active"
+                    class="buy-tickets-tab__item buy-tickets-tab__item--active text" data-text="Seats & Food Selection"
                   >
                     Seats & Food Selection
                   </li>
-                  <li class="buy-tickets-tab__item">Payment</li>
-                  <li class="buy-tickets-tab__item">Confirmation</li>
+                  <li class="buy-tickets-tab__item text" data-text="Payment" >Payment</li>
+                  <li class="buy-tickets-tab__item text" data-text="Confirmation">Confirmation</li>
                 </ul>
+               
                 <div class="buy-tickets-tab__contents">
                   <!-- show time -->
                   <div
@@ -1368,7 +1374,8 @@
                           <p id="bookingInfo"></p>
                          <div class="booking__confirm">
                             <div id="totalAmount"></div>
-                            <div>Time Remaining: <span id="countdown">5m 0s</span></div>
+                            <div>Time Remaining: <span id="countdown">5m 0s
+                            </span></div>
                             <button class="buy-tickets__confirm" onclick="confirmBooking()">Confirm Booking</button>
                          </div>
                         </div>
