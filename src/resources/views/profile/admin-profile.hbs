@@ -1,0 +1,99 @@
+<div class="container admin__container">
+  <div class="stars">
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+  </div>
+  <div class="admin__top">
+    <div class="admin__heading">
+      <div>Admin Management</div>
+    </div>
+    <div class="admin__add">
+      <a
+        href="/admin/createFilms"
+        class="admin__text"
+        data-text="Add New Film"
+      >Add New Film</a>
+    </div>
+  </div>
+  <div class="admin__card">
+    <div class="card-body">
+      <table class="admin__table">
+        <thead class="admin__head">
+          <tr class="admin__head-row">
+            <th></th>
+            <th>Title</th>
+            <th>Duration</th>
+            <th>Release Date</th>
+            <th>Caster</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each films}}
+            <tr class="admin__row">
+              <td>
+                <div class="admin__poster">
+                  <img
+                    class="admin__poster-img"
+                    src="{{this.poster_url}}"
+                    alt=""
+                  />
+                  <div class="admin__poster-bottom">
+                    <div class="admin__poster-blur">
+                    </div>
+                    <span class="admin__director"> {{this.director}}</span>
+                  </div>
+                </div>
+              </td>
+              <td style="text-align:center">{{this.title}}</td>
+              <td style="text-align:center">{{this.duration}}'</td>
+              <td>{{this.release_date}}</td>
+              <td>{{this.cast}}</td>
+              <td>{{this.description}}</td>
+              <td>
+                <a
+                  href="/admin/films/edit/{{this._id}}"
+                  class="btn btn-warning btn-sm"
+                >Edit</a>
+                <form
+                  action="/admin/films/delete/{{this._id}}"
+                  method="POST"
+                  style="display:inline;"
+                >
+                  <button
+                    type="submit"
+                    style="margin-top: 10px; width: 100%"
+                    class="btn btn-danger btn-sm"
+                  >Delete</button>
+                </form>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

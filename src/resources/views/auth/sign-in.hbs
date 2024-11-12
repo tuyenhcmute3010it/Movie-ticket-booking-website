@@ -1,0 +1,154 @@
+<main class="auth">
+  <!-- auth intro -->
+  <div class="auth__intro d-md-none">
+    <div class="slideshow">
+      <div class="slideshow__inner">
+        <div class="slideshow__item">
+          <a href="#!" class="slideshow__link">
+            <img
+              src="./assets/img/slide-show-films/film-1.jpg"
+              alt=""
+              class="slideshow__img"
+            />
+          </a>
+        </div>
+
+        <div class="slideshow__item">
+          <a href="#!" class="slideshow__link">
+            <img
+              src="./assets/img/slide-show-films/film-2.jpg"
+              alt=""
+              class="slideshow__img"
+            />
+          </a>
+        </div>
+        <div class="slideshow__item">
+          <a href="#!" class="slideshow__link">
+            <img
+              src="./assets/img/slide-show-films/film-3.webp"
+              alt=""
+              class="slideshow__img"
+            />
+          </a>
+        </div>
+        <div class="slideshow__item">
+          <a href="#!" class="slideshow__link">
+            <img
+              src="./assets/img/slide-show-films/film-4.jpg"
+              alt=""
+              class="slideshow__img"
+            />
+          </a>
+        </div>
+        <div class="slideshow__item">
+          <a href="#!" class="slideshow__link">
+            <img
+              src="./assets/img/slide-show-films/film-3.jpg"
+              alt=""
+              class="slideshow__img"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="slideshow__controls d-none">
+        <button class="slideshow__button slideshow__button--left">
+          &lt;
+        </button>
+        <button class="slideshow__button slideshow__button--right">
+          &gt;
+        </button>
+      </div>
+      <div class="slideshow__page">
+        <span class="slideshow__slider" data-index="0"></span>
+        <span class="slideshow__slider" data-index="1"></span>
+        <span class="slideshow__slider" data-index="2"></span>
+        <span class="slideshow__slider" data-index="3"></span>
+        <span class="slideshow__slider" data-index="4"></span>
+      </div>
+    </div>
+    <p class="auth__intro-text">
+      Pick your movie, book your seat, enjoy the show
+    </p>
+
+  </div>
+  <!-- auth content -->
+  <div class="auth__content">
+    <div class="auth__content-inner">
+      <!-- logo -->
+      <a href="./" class="logo">
+        <img
+          src="./assets/img/logo_movin.png"
+          alt="movin"
+          class="logo__img auth__logo"
+        />
+        <h2 class="logo__title">FILM-MOMENT-EXPERIENCE</h2>
+      </a>
+      <h1 class="auth__heading">Sign in to Movin</h1>
+
+      <form action="/logined" method="POST" class="form auth__form">
+        <div class="form__group">
+          <div class="form__text-input">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder=" "
+              class="form__input"
+              required
+            />
+            <span for="" class="form__holder">Email</span>
+
+            <img src="./assets/icon/mess.svg" alt="" class="form__input-icon" />
+            <img
+              src="./assets/icon/error.svg"
+              alt=""
+              class="form__input-icon--error"
+            />
+          </div>
+          <p class="form__error">Email is not correct format</p>
+        </div>
+
+        <div class="form__group">
+          <div class="form__text-input">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder=" "
+              class="form__input"
+              required
+              minlength="6"
+            />
+            <span for="" class="form__holder">Password</span>
+            <img src="./assets/icon/lock.svg" alt="" class="form__input-icon" />
+            <img
+              src="./assets/icon/error.svg"
+              alt=""
+              class="form__input-icon--error"
+            />
+          </div>
+          <p class="form__error">Password at least 6 character</p>
+        </div>
+
+        <div class="form__group form__group--inline">
+          <a
+            href="./reset-password.html"
+            class="auth__link form__pull-right"
+          >Forgot Password</a>
+        </div>
+        <div class="form__group auth__btn-group">
+          <button class="btn btn--primary auth__btn form__submit-btn">
+            Login
+          </button>
+        </div>
+      </form>
+      <p class="auth__text">
+        Don’t have an account yet?
+        <a href="./sign-up" class="auth__link auth__text-link">Sign Up</a>
+      </p>
+    </div>
+  </div>
+</main>
+<script>
+  window.dispatchEvent(new Event("template-loaded"));
+</script>

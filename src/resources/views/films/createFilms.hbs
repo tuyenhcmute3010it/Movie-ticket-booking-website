@@ -1,0 +1,167 @@
+<div class="container">
+
+  <ul class="breadcrumbs">
+    <li class="breadcrumbs__item">
+      <a href="/profile/admin" class="breadcrumbs__link">Admin Management</a>
+      <img
+        class="breadcrumbs__icon"
+        src="/assets/icon/arrow-right.svg"
+        alt=""
+      />
+    </li>
+    <li class="breadcrumbs__item">
+      <a href="#!" class="breadcrumbs__link--current">Add New Film</a>
+    </li>
+  </ul>
+  <h3 class="admin__heading">Add New Film</h3>
+
+  <form
+    method="POST"
+    action="/admin/storedFilms"
+    enctype="multipart/form-data"
+    id="profileForm"
+  >
+    <div class="row row-cols-2">
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="form__label">Title</label>
+          <input
+            type="text"
+            class="form__input"
+            id="title"
+            name="title"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="form__label">Duration (in minutes)</label>
+          <input
+            type="number"
+            class="form__input"
+            id="duration"
+            name="duration"
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="form__label">Release Date</label>
+          <input
+            type="date"
+            class="form__input"
+            id="release_date"
+            name="release_date"
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="form__label">Description</label>
+          <textarea
+            class="form__input"
+            id="description"
+            name="description"
+          ></textarea>
+        </div>
+
+      </div>
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="form__label">Director</label>
+          <input
+            type="text"
+            class="form__input"
+            id="director"
+            name="director"
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="form__label">Cast (comma-separated)</label>
+          <input type="text" class="form__input" id="cast" name="cast" />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="form__label">Poster Image</label>
+          <input
+            type="file"
+            class="form__input"
+            id="poster_url"
+            name="poster_url"
+            accept="image/*"
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="form__label">Trailer URL</label>
+          <input
+            type="url"
+            class="form__input"
+            id="trailer_url"
+            name="trailer_url"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="form__label">Language (e.g., English, subtitled)</label>
+          <input
+            type="text"
+            class="form__input"
+            id="language"
+            name="language"
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="form__label">Country</label>
+          <input type="text" class="form__input" id="country" name="country" />
+        </div>
+      </div>
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary admin__form-btn js-toggle"
+      toggle-target="#save-confirm"
+    >Add Film</button>
+  </form>
+</div>
+
+{{!  }}
+<div id="save-confirm" class="modal modal--small">
+  <button
+    class="modal__close js-toggle"
+    toggle-target="#save-confirm"
+  >&times;</button>
+  <div class="modal__content">
+    <div class="modal__text">Are you sure to save this information</div>
+    <div class="modal__bottom">
+      <button
+        class="btn btn--text modal__btn js-toggle"
+        toggle-target="#save-confirm"
+      >Cancel</button>
+      <button
+        id="modalSaveButton"
+        class="btn btn--primary modal__btn btn--no-margin btn--danger"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+  <div class="modal__overlay js-toggle" toggle-target="#save-confirm"></div>
+</div>

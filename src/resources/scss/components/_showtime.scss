@@ -1,0 +1,141 @@
+@use "../abstracts";
+.showtime {
+  margin-top: 30px;
+  width: 100%;
+  &__movie-schedule-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 0 auto;
+  }
+  &__movie-block {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    @include abstracts.screen(sm) {
+      width: 100%;
+    }
+  }
+  &__showtimes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+  }
+  &__tabs {
+    display: flex;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    flex-wrap: wrap;
+    gap: 10px;
+    @include abstracts.screen(sm) {
+      justify-content: space-between;
+    }
+  }
+
+  &__tab-button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 15px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    width: 95px;
+    color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  &__tab-button.active {
+    background-color: #ffcc00;
+    color: #222;
+  }
+  &__tab-button {
+    &:hover {
+      opacity: 0.8;
+      background-color: #ffcc00;
+    }
+  }
+  &__controls {
+    width: 95px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  &-button {
+    background-color: #ffcc00;
+    border: none;
+    padding: 10px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #222;
+    border-radius: 5px;
+    width: min(105px, 100%);
+    &:hover {
+      opacity: 0.7;
+    }
+    padding: 10px 15px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+
+    &.past {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    @include abstracts.screen(sm) {
+      width: 40%;
+    }
+  }
+}
+
+.schedule-content {
+  background-color: #fafafa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  color: var(--schedule-content-color);
+}
+
+.movie-list {
+  display: grid;
+  gap: 20px;
+}
+
+.movie-title {
+  font-size: 1.8rem;
+  color: #ff6600;
+  margin-bottom: 8px;
+}
+
+.movie-subtitle {
+  font-size: 1.6rem;
+  color: #666;
+  margin-top: 4px;
+  color: blue;
+}
+
+.movie-description {
+  font-size: 1.5rem;
+  color: #555;
+  margin-top: 4px;
+}
+
+.nav-button {
+  border-radius: 10px 0 0 10px;
+  background-color: #ebebeb;
+  border: none;
+  padding: 10px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #333;
+  &:hover {
+    background-color: rgba(129, 216, 208, 0.7);
+  }
+}
+.nav-button + .nav-button {
+  border-radius: 0 10px 10px 0;
+}

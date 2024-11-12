@@ -1,0 +1,134 @@
+<div id="home" class="container home">
+  <div class="home__container">
+    <div class="slideshow">
+      <div class="slideshow__inner">
+        <div class="slideshow__item">
+          <a href="#!" class="slideshow__link">
+            <img
+              src="./assets/img/slide-show-films/film-1.jpg"
+              alt=""
+              class="slideshow__img"
+            />
+          </a>
+        </div>
+
+        <div class="slideshow__item">
+          <a href="#!" class="slideshow__link">
+            <img
+              src="./assets/img/slide-show-films/film-2.jpg"
+              alt=""
+              class="slideshow__img"
+            />
+          </a>
+        </div>
+        <div class="slideshow__item">
+          <a href="#!" class="slideshow__link">
+            <img
+              src="./assets/img/slide-show-films/film-3.webp"
+              alt=""
+              class="slideshow__img"
+            />
+          </a>
+        </div>
+        <div class="slideshow__item">
+          <a href="#!" class="slideshow__link">
+            <img
+              src="./assets/img/slide-show-films/film-4.jpg"
+              alt=""
+              class="slideshow__img"
+            />
+          </a>
+        </div>
+        <div class="slideshow__item">
+          <a href="#!" class="slideshow__link">
+            <img
+              src="./assets/img/slide-show-films/film-3.jpg"
+              alt=""
+              class="slideshow__img"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="slideshow__controls">
+        <button class="slideshow__button slideshow__button--left">
+          &lt;
+        </button>
+        <button class="slideshow__button slideshow__button--right">
+          &gt;
+        </button>
+      </div>
+      <div class="slideshow__page">
+        <span class="slideshow__slider" data-index="0"></span>
+        <span class="slideshow__slider" data-index="1"></span>
+        <span class="slideshow__slider" data-index="2"></span>
+        <span class="slideshow__slider" data-index="3"></span>
+        <span class="slideshow__slider" data-index="4"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- browser film  -->
+  <section class="home__container">
+    <div class="row row-cols-4 row-cols-lg-2 row-cols-sm-1 g-3">
+      {{#each films}}
+        <div class="col">
+          <article class="film-card">
+            <div class="film-card__img-wrap">
+              <a href="/films/{{this.slug}}">
+                <img
+                  src="{{this.poster_url}}"
+                  alt=""
+                  class="film-card__thumb"
+                />
+              </a>
+            </div>
+            <h3 class="film-card__title">
+              <a href="/films/{{this.slug}}">{{this.title}}</a>
+            </h3>
+            <div class="film-card__row">
+              <button
+                class="film-card__trailer"
+                data-video-url="{{this.trailer_url}}"
+              >
+                <div class="film-card__play">
+                  <img
+                    src="./assets/icon/play-trailer.svg"
+                    class="film-card__trailer-icon"
+                    alt=""
+                  />
+                </div>
+                Trailer
+              </button>
+
+              <a href="./buy-tickets.html" class="film-card__book">
+                <img
+                  src="./assets/icon/book.svg"
+                  class="film-card__book-icon"
+                  alt=""
+                />
+                Book tickets
+              </a>
+            </div>
+          </article>
+          <div class="film-card__overlay"></div>
+          <div class="film-card__container" id="overlay">
+            <div class="film-card__video">
+              <iframe
+                class="film-card__iframe"
+                id="trailerVideo"
+                src=""
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+              <button class="film-card__close" id="closeButton">
+                &times;
+              </button>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </section>
+</div>
