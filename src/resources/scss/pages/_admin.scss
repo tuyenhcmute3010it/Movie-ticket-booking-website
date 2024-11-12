@@ -32,6 +32,11 @@
       font-size: 1.2em;
       filter: blur(5px);
     }
+    &-update {
+      width: 200px;
+      height: auto;
+      margin-top: 10px;
+    }
   }
   &__director {
     position: absolute;
@@ -112,6 +117,7 @@
   &__top {
     width: 100%;
   }
+
   &__add {
     border-radius: 10px;
     margin-left: auto;
@@ -128,6 +134,10 @@
     position: relative;
     z-index: 1;
   }
+  &__update {
+    width: max(100px, 90%) !important;
+    background-color: #0866ff;
+  }
   &__text {
     color: #000;
     display: inline-block;
@@ -136,6 +146,7 @@
     font-weight: 600;
     transition: color 0.5s;
     border-radius: 10px;
+
     &::before {
       position: absolute;
       top: 0;
@@ -153,6 +164,27 @@
       width: 100%;
       left: 0;
       justify-content: flex-start;
+    }
+  }
+  &__thumb-preview {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    &-img {
+      width: 160px;
+      height: 90px;
+      width: 100%;
+      object-fit: cover;
+    }
+    &-input {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 10px;
+      gap: 10px;
+    }
+    &-upload {
+      display: flex;
     }
   }
 }
@@ -193,10 +225,11 @@
       &[type="file"] {
         padding: 5px;
         font-size: 14px;
+        margin-top: 5px;
       }
     }
     textarea.form__input {
-      height: 100px;
+      height: 180px;
       resize: vertical;
     }
   }
@@ -227,9 +260,7 @@
     }
   }
 }
-
 .card-body {
-  height: 3000px;
   position: relative;
 }
 

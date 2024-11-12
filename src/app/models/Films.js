@@ -2,17 +2,18 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const slugify = require("slugify");
+
 // mongoose.plugin(slug);
 
 const Films = new Schema(
   {
     title: { type: String, require: true },
-    duration: { type: String },
+    duration: { type: String, require: true },
     description: { type: String },
-    release_date: { type: String },
+    release_date: { type: String, require: true },
     cast: { type: String },
-    director: { type: String },
-    poster_url: { type: String },
+    director: { type: String, require: true },
+    poster_url: { type: String, require: true },
     trailer_url: { type: String, require: true },
     language: { type: String },
     country: { type: String },

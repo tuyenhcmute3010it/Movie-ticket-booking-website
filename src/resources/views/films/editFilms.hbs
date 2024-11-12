@@ -10,14 +10,13 @@
       />
     </li>
     <li class="breadcrumbs__item">
-      <a href="#!" class="breadcrumbs__link--current">Add New Film</a>
+      <a href="#!" class="breadcrumbs__link--current">Update Film</a>
     </li>
   </ul>
-  <h3 class="admin__heading">Add New Film</h3>
-
+  <h3 class="admin__heading">Update Film</h3>
   <form
     method="POST"
-    action="/admin/storedFilms"
+    action="/admin/{{films._id}}?_method=PUT"
     enctype="multipart/form-data"
     id="FormAction"
   >
@@ -30,6 +29,7 @@
             class="form__input"
             id="title"
             name="title"
+            value="{{films.title}}"
             required
           />
         </div>
@@ -43,6 +43,7 @@
             class="form__input"
             id="duration"
             name="duration"
+            value="{{films.duration}}"
           />
         </div>
       </div>
@@ -51,7 +52,13 @@
 
         <div class="form__group admin__form">
           <label for="cast">Cast</label>
-          <input type="text" class="form__input" id="cast" name="cast" />
+          <input
+            type="text"
+            class="form__input"
+            id="cast"
+            name="cast"
+            value="{{films.director}}"
+          />
         </div>
         <div class="form__group admin__form">
           <label for="director">Director</label>
@@ -60,6 +67,7 @@
             class="form__input"
             id="director"
             name="director"
+            value="{{films.director}}"
           />
         </div>
       </div>
@@ -71,11 +79,11 @@
             class="form__input"
             id="description"
             name="description"
-          ></textarea>
+          >{{films.description}}</textarea>
         </div>
       </div>
 
-      <div class="col">
+      <div class="col-4">
         <div class="form__group admin__form">
           <label for="poster_url">Poster Image</label>
           <input
@@ -85,40 +93,55 @@
             name="poster_url"
             accept="image/*"
           />
+          <img src="{{films.poster_url}}" class="admin__poster-update" alt="" />
+
         </div>
       </div>
-      <div class="col">
+      <div class="col-8">
         <div class="form__group admin__form">
           <label for="language">Thumb Preview</label>
-          <input
-            type="file"
-            class="form__input"
-            id="thumb-preview-1"
-            name="thumb_preview_1"
-            accept="image/*"
-          />
+          <div class="admin__thumb-preview-input">
+            <input
+              type="file"
+              class="form__input admin__thumb-preview-upload"
+              id="thumb-preview-1"
+              name="thumb_preview_1"
+              accept="image/*"
+            />
 
-          <input
-            type="file"
-            class="form__input"
-            id="thumb-preview-2"
-            name="thumb_preview_2"
-            accept="image/*"
-          />
-          <input
-            type="file"
-            class="form__input"
-            id="thumb-preview-3"
-            name="thumb_preview_3"
-            accept="image/*"
-          />
-          <input
-            type="file"
-            class="form__input"
-            id="thumb-preview-4"
-            name="thumb_preview_4"
-            accept="image/*"
-          />
+            <input
+              type="file"
+              class="form__input admin__thumb-preview-upload"
+              id="thumb-preview-2"
+              name="thumb_preview_2"
+              accept="image/*"
+            />
+            <input
+              type="file"
+              class="form__input admin__thumb-preview-upload"
+              id="thumb-preview-3"
+              name="thumb_preview_3"
+              accept="image/*"
+            />
+
+            <input
+              type="file"
+              class="form__input admin__thumb-preview-upload"
+              id="thumb-preview-4"
+              name="thumb_preview_4"
+              accept="image/*"
+            />
+          </div>
+          <div class="admin__thumb-preview">
+            {{#each films.thumb_preview as |thumb index|}}
+              <img
+                src="{{thumb}}"
+                alt="A Wild Robot - Thumbnail"
+                class="admin__thumb-preview-img"
+              />
+            {{/each}}
+          </div>
+
         </div>
       </div>
       <div class="col">
@@ -128,6 +151,7 @@
             type="date"
             class="form__input"
             id="release_date"
+            value="{{films.release_date}}"
             name="release_date"
           />
         </div>
@@ -140,6 +164,7 @@
             class="form__input"
             id="trailer_url"
             name="trailer_url"
+            value="{{films.trailer_url}}"
             required
           />
         </div>
@@ -152,6 +177,7 @@
             type="text"
             class="form__input"
             id="language"
+            value="{{films.language}}"
             name="language"
           />
         </div>
@@ -160,7 +186,13 @@
       <div class="col">
         <div class="form__group admin__form">
           <label for="country">Country</label>
-          <input type="text" class="form__input" id="country" name="country" />
+          <input
+            type="text"
+            class="form__input"
+            id="country"
+            value="{{films.country}}"
+            name="country"
+          />
         </div>
       </div>
     </div>
@@ -168,7 +200,7 @@
       type="button"
       class="btn btn-primary admin__form-btn js-toggle"
       toggle-target="#save-confirm"
-    >Add Film</button>
+    >Update Film</button>
   </form>
 </div>
 
@@ -179,7 +211,7 @@
     toggle-target="#save-confirm"
   >&times;</button>
   <div class="modal__content">
-    <div class="modal__text">Are you sure to save this information?</div>
+    <div class="modal__text">Are you sure to update this information?</div>
     <div class="modal__bottom">
       <button
         class="btn btn--text modal__btn js-toggle"

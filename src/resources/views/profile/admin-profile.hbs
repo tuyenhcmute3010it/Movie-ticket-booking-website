@@ -42,7 +42,7 @@
       <table class="admin__table">
         <thead class="admin__head">
           <tr class="admin__head-row">
-            <th></th>
+            <th>Poster</th>
             <th>Title</th>
             <th>Duration</th>
             <th>Release Date</th>
@@ -74,10 +74,17 @@
               <td>{{this.cast}}</td>
               <td>{{this.description}}</td>
               <td>
-                <a
+                {{!-- <a
                   href="/admin/films/edit/{{this._id}}"
                   class="btn btn-warning btn-sm"
-                >Edit</a>
+                >showUpdateFilms</a> --}}
+                <div class="admin__add admin__update">
+                  <a
+                    href="/admin/{{this._id}}/UpdateFilms"
+                    class="admin__text"
+                    data-text="Update"
+                  >Update</a>
+                </div>
                 <form
                   action="/admin/films/delete/{{this._id}}"
                   method="POST"

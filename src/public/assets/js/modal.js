@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const modalSaveButton = document.getElementById("modalSaveButton");
-  const profileForm = document.getElementById("profileForm");
+  const profileForm = document.getElementById("FormAction");
   if (modalSaveButton && profileForm) {
     modalSaveButton.addEventListener("click", function (event) {
       const requiredFields = profileForm.querySelectorAll("input[required]");
