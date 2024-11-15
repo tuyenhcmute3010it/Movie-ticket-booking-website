@@ -75,7 +75,7 @@
         </div>
       </div>
 
-      <div class="col">
+      {{!-- <div class="col">
         <div class="form__group admin__form">
           <label for="poster_url">Poster Image</label>
           <input
@@ -85,6 +85,7 @@
             name="poster_url"
             accept="image/*"
           />
+          <img src="{{films.poster_url}}" class="admin__poster-update" alt="" />
         </div>
       </div>
       <div class="col">
@@ -119,6 +120,58 @@
             name="thumb_preview_4"
             accept="image/*"
           />
+        </div>
+      </div> --}}
+      <div class="col-4">
+        <div class="form__group admin__form">
+          <label for="poster_url">Poster Image</label>
+          <input
+            type="file"
+            class="form__input"
+            id="poster_url"
+            name="poster_url"
+            accept="image/*"
+          />
+          <img src="{{films.poster_url}}" class="admin__poster-update" alt="" />
+
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="form__group admin__form">
+          <label for="">Thumb Preview</label>
+          <div class="admin__thumb-preview-input">
+            <input
+              type="file"
+              class="form__input admin__thumb-preview-upload"
+              id="thumb-preview-1"
+              name="thumb_preview_1"
+              accept="image/*"
+            />
+
+            <input
+              type="file"
+              class="form__input admin__thumb-preview-upload"
+              id="thumb-preview-2"
+              name="thumb_preview_2"
+              accept="image/*"
+            />
+            <input
+              type="file"
+              class="form__input admin__thumb-preview-upload"
+              id="thumb-preview-3"
+              name="thumb_preview_3"
+              accept="image/*"
+            />
+
+            <input
+              type="file"
+              class="form__input admin__thumb-preview-upload"
+              id="thumb-preview-4"
+              name="thumb_preview_4"
+              accept="image/*"
+            />
+          </div>
+
         </div>
       </div>
       <div class="col">

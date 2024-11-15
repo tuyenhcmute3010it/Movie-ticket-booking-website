@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const Auth = new Schema(
   {
+    ticket_id: { type: mongoose.Schema.Types.ObjectId, ref: "Ticket" },
     name: { type: String },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },

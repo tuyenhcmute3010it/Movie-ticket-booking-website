@@ -39,5 +39,7 @@ route.put(
   ]),
   adminController.updateFilms
 );
+route.get("/screen", adminController.createScreen);
+route.post("/screen/stored", adminController.storeScreen);
 
 module.exports = route;

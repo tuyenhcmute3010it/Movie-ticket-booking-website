@@ -4,6 +4,7 @@ const filmsRouter = require("./films");
 const authRouter = require("./auth");
 const profileRouter = require("./profile");
 const adminRouter = require("./admin");
+const buyticketsRouter = require("./buytickets");
 function route(app) {
   app.use("/news", newsRouter);
   app.use("/films", filmsRouter);
@@ -11,5 +12,6 @@ function route(app) {
   app.use("/", authRouter);
   app.use("/profile", profileRouter);
   app.use("/admin", adminRouter);
+  app.use("/buytickets", buyticketsRouter);
 }
 module.exports = route;

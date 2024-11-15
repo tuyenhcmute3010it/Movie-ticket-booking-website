@@ -9,6 +9,30 @@
     <div class="star">Welcome Admin</div>
     <div class="star">Welcome Admin</div>
     <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star">Welcome Admin</div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
@@ -35,6 +59,14 @@
         class="admin__text"
         data-text="Add New Film"
       >Add New Film</a>
+    </div>
+
+    <div class="admin__add admin__screen">
+      <a
+        href="/admin/screen"
+        class="admin__text"
+        data-text="Add New Screen & Seat"
+      >Add New Screen & Seat</a>
     </div>
   </div>
   <div class="admin__card">
@@ -74,16 +106,20 @@
               <td>{{this.cast}}</td>
               <td>{{this.description}}</td>
               <td>
-                {{!-- <a
-                  href="/admin/films/edit/{{this._id}}"
-                  class="btn btn-warning btn-sm"
-                >showUpdateFilms</a> --}}
+
                 <div class="admin__add admin__update">
                   <a
                     href="/admin/{{this._id}}/UpdateFilms"
                     class="admin__text"
                     data-text="Update"
                   >Update</a>
+                </div>
+                <div class="admin__add admin__showtime">
+                  <a
+                    href="/admin/screen"
+                    class="admin__text-showtime"
+                    data-text="Showtime"
+                  >Showtime</a>
                 </div>
                 <form
                   action="/admin/films/delete/{{this._id}}"

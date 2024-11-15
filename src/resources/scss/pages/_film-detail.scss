@@ -55,8 +55,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 20px;
     gap: 16px;
+    @include abstracts.screen(xxl) {
+      flex-wrap: wrap;
+    }
     @include abstracts.screen(lg) {
       flex-direction: column;
       padding-left: 0;
@@ -196,16 +199,9 @@
 }
 //////////////////////////////////////
 .prod-preview {
-  &__thumbs {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    gap: 16px;
-  }
   &__thumb-img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
     border: 1px solid rgba(158, 157, 168, 0.3);
     border-radius: 8px;

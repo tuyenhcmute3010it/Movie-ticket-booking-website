@@ -47,6 +47,7 @@
     opacity: 1; /* Sáng đèn ở giữa */
   }
 }
+
 //// rotate
 @keyframes rotate {
   0%,
@@ -57,14 +58,3 @@
     transform: rotate(-85deg); /* Xoay sang trái */
   }
 }
-////
-///
-// @keyframes {
-//   0%,
-//   100% {
-//     transform: rotate(-30deg); /* Không xoay */
-//   }
-//   50% {
-//     transform: rotate(-85deg); /* Xoay sang trái */
-//   }
-// }
