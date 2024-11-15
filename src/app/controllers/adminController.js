@@ -6,15 +6,6 @@ const Profile = require("../models/Auth");
 const Screen = require("../models/Screen");
 class adminController {
   //[GET] /me/stored/courses
-  showStoredFilms(req, res, next) {
-    Films.find({})
-      .then((films) =>
-        res.render("profile/admin-profile", {
-          films: multipleMongooseToObject(films),
-        })
-      )
-      .catch(next);
-  }
 
   async createFilms(req, res, next) {
     const profile = await Profile.findById(req.session.userId);
@@ -146,7 +137,7 @@ class adminController {
     if (profile.role !== "admin") {
       return res.status(403).send("Access denied. Admins only.");
     }
-    Films.find({}).then((films) => res.render("screen/screenCreate"));
+    Screen.find({}).then((screens) => res.render("screen/screenCreate"));
   }
   ////
   async storeScreen(req, res, next) {
@@ -226,15 +217,15 @@ class adminController {
       console.log("Validated Seats Data:", updatedSeats);
 
       // Create the screen object and save to the database
-      const screen = new Screen({
+      const screens = new Screen({
         screen_number,
         seat_capacity,
         seats: updatedSeats, // Use the updated seats array with 'status'
       });
 
       // Save the screen object to the database
-      await screen.save();
-      res.redirect("/admin/screen");
+      await screens.save();
+      res.redirect("/profile/admin");
     } catch (error) {
       console.error("Error saving screen:", error.message);
       res.status(400).json({ error: "The Screen Number Is Available" });

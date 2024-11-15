@@ -15,8 +15,6 @@ const upload = multer({
   }),
 });
 
-route.get("/createFilms", adminController.createFilms);
-route.get("/:id/UpdateFilms", adminController.showUpdateFilms);
 route.post(
   "/storedFilms",
   upload.fields([
@@ -39,6 +37,9 @@ route.put(
   ]),
   adminController.updateFilms
 );
+
+route.get("/createFilms", adminController.createFilms);
+route.get("/:id/UpdateFilms", adminController.showUpdateFilms);
 route.get("/screen", adminController.createScreen);
 route.post("/screen/stored", adminController.storeScreen);
 

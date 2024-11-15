@@ -10,8 +10,8 @@ function route(app) {
   app.use("/films", filmsRouter);
   app.use("/", siteRouter);
   app.use("/", authRouter);
-  app.use("/profile", profileRouter);
   app.use("/admin", adminRouter);
+  app.use("/profile", profileRouter);
   app.use("/buytickets", buyticketsRouter);
 }
 module.exports = route;

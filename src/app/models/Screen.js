@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const Schema = mongoose.Schema;
 // const Screen = new mongoose.Schema({
 //   ticket_id: { type: mongoose.Schema.Types.ObjectId, ref: "Ticket" },
 //   seat_number: { type: Number, required: true },
@@ -10,7 +10,7 @@ const mongoose = require("mongoose");
 
 // module.exports = mongoose.model("Screen", Screen);
 
-const seatSchema = new mongoose.Schema({
+const seatSchema = new Schema({
   seat_number: { type: Number, required: true },
   row: { type: String, required: true },
   seat_price: { type: Number, required: true },
@@ -19,7 +19,7 @@ const seatSchema = new mongoose.Schema({
   updated_at: { type: Date, default: Date.now },
 });
 
-const screenSchema = new mongoose.Schema({
+const Screen = new Schema({
   ticket_id: { type: mongoose.Schema.Types.ObjectId, ref: "Ticket" },
   screen_number: { type: Number, required: true, unique: true },
   seat_capacity: { type: Number, required: true },
@@ -28,4 +28,4 @@ const screenSchema = new mongoose.Schema({
   updated_at: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("Screen", screenSchema);
+module.exports = mongoose.model("Screen", Screen);

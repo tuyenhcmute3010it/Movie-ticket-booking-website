@@ -32,15 +32,26 @@ app.use(methodOverride("_method"));
 ///
 app.use("/uploads", express.static("uploads"));
 ///
+
 app.engine(
   "hbs",
   engine({
     extname: "hbs", // doi ten hbs
     helpers: {
       sum: (a, b) => a + b,
+      generateSeatID: (row, seatNumber) => generateSeatID(row, seatNumber),
     },
   })
 );
+function generateSeatID(row, seatNumber) {
+  let rowLetter = "";
+  while (row > 0) {
+    let mod = (row - 1) % 26;
+    rowLetter = String.fromCharCode(65 + mod) + rowLetter;
+    row = Math.floor((row - 1) / 26);
+  }
+  return `${rowLetter}${seatNumber}`;
+}
 /////////
 const session = require("express-session");
 app.use(

@@ -1,5 +1,6 @@
 const Profile = require("../models/Auth");
 const Films = require("../models/Films");
+const Screen = require("../models/Screen");
 const { mongooseToObject } = require("../../util/mongoose");
 const { multipleMongooseToObject } = require("../../util/mongoose");
 // [GET]
@@ -64,7 +65,7 @@ class ProfileController {
       }
 
       const profile = await Profile.findById(req.session.userId);
-
+      const screens = await Screen.find({});
       if (profile.role !== "admin") {
         return res.status(403).send("Access denied. Admins only."); // Forbidden access if not an admin
       }
@@ -72,6 +73,7 @@ class ProfileController {
         res.render("profile/admin-profile", {
           films: multipleMongooseToObject(films),
           profile: mongooseToObject(profile), // Pass the profile to the view
+          screens: multipleMongooseToObject(screens),
           isLoggedIn: true,
         })
       );

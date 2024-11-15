@@ -6,5 +6,4 @@ route.get("/", profileController.index);
 route.get("/edit", profileController.edit);
 route.put("/edit", profileController.update);
 route.get("/admin", profileController.adminProfile);
-route.get("/admin", adminController.showStoredFilms);
 module.exports = route;

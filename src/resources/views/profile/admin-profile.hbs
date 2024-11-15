@@ -1,4 +1,4 @@
-<div class="container admin__container">
+<div class="container">
   <div class="stars">
     <div class="star">Welcome Admin</div>
     <div class="star">Welcome Admin</div>
@@ -49,10 +49,11 @@
     <div class="star"></div>
     <div class="star"></div>
   </div>
+  <div class="admin__heading">
+    <div>Admin Management</div>
+  </div>
   <div class="admin__top">
-    <div class="admin__heading">
-      <div>Admin Management</div>
-    </div>
+
     <div class="admin__add">
       <a
         href="/admin/createFilms"
@@ -69,74 +70,134 @@
       >Add New Screen & Seat</a>
     </div>
   </div>
-  <div class="admin__card">
-    <div class="card-body">
-      <table class="admin__table">
-        <thead class="admin__head">
-          <tr class="admin__head-row">
-            <th>Poster</th>
-            <th>Title</th>
-            <th>Duration</th>
-            <th>Release Date</th>
-            <th>Caster</th>
-            <th>Description</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each films}}
-            <tr class="admin__row">
-              <td>
-                <div class="admin__poster">
-                  <img
-                    class="admin__poster-img"
-                    src="{{this.poster_url}}"
-                    alt=""
-                  />
-                  <div class="admin__poster-bottom">
-                    <div class="admin__poster-blur">
-                    </div>
-                    <span class="admin__director"> {{this.director}}</span>
+  <div class="prod-tab js-tabs">
+    <ul class="prod-tab__list admin__control-tab">
+      <li class="prod-tab__item prod-tab__item--active">Films</li>
+      <li class="prod-tab__item">Screen & Seat</li>
+      <li class="prod-tab__item">Slide Show</li>
+    </ul>
+    <div class="prod-tab__contents">
+      <!-- show time -->
+      <div class="prod-tab__content prod-tab__content--active">
+        <div class="admin__container">
+
+          <div class="admin__card">
+            <div class="card-body">
+              <table class="admin__table">
+                <thead class="admin__head">
+                  <tr class="admin__head-row">
+                    <th>Poster</th>
+                    <th>Title</th>
+                    <th>Duration</th>
+                    <th>Release Date</th>
+                    <th>Caster</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each films}}
+                    <tr class="admin__row">
+                      <td>
+                        <div class="admin__poster">
+                          <img
+                            class="admin__poster-img"
+                            src="{{this.poster_url}}"
+                            alt=""
+                          />
+                          <div class="admin__poster-bottom">
+                            <div class="admin__poster-blur">
+                            </div>
+                            <span class="admin__director">
+                              {{this.director}}</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td style="text-align:center">{{this.title}}</td>
+                      <td style="text-align:center">{{this.duration}}'</td>
+                      <td>{{this.release_date}}</td>
+                      <td>{{this.cast}}</td>
+                      <td>{{this.description}}</td>
+                      <td>
+
+                        <div class="admin__add admin__update">
+                          <a
+                            href="/admin/{{this._id}}/UpdateFilms"
+                            class="admin__text"
+                            data-text="Update"
+                          >Update</a>
+                        </div>
+                        <div class="admin__add admin__showtime">
+                          <a
+                            href="/admin/screen"
+                            class="admin__text-showtime"
+                            data-text="Showtime"
+                          >Showtime</a>
+                        </div>
+                        <form
+                          action="/admin/films/delete/{{this._id}}"
+                          method="POST"
+                          style="display:inline;"
+                        >
+                          <button
+                            type="submit"
+                            style="margin-top: 10px; width: 100%"
+                            class="btn btn-danger btn-sm"
+                          >Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen & Seat -->
+      <div class="prod-tab__content">
+        <div class="prod-content">
+          <h2 class="prod-content__heading">
+            Screen & Seat
+          </h2>
+          {{#if screens.length}}
+            <!-- Render screens data -->
+            <div class="screen-list">
+              {{#each screens}}
+                <div class="screen">
+
+                  <h3 class="screen__info">Screen:
+                    <strong>{{screen_number}}</strong>
+                    / Capacity:
+                    <strong>{{seat_capacity}}</strong></h3>
+                  <div class="seat-chart">
+                    <!-- Render seats dynamically based on the number of rows and seats per row -->
+                    {{#each seats}}
+                      <div
+                        class="seat"
+                        data-seat-id="{{seat_id}}"
+                        style="grid-column: {{seat_number}}; grid-row: {{row}}"
+                      >
+                        <img
+                          src="/assets/icon/seat.png"
+                          class="seat__chair"
+                          alt="Seat"
+                        />
+                        {{generateSeatID row seat_number}}
+                      </div>
+                    {{/each}}
                   </div>
                 </div>
-              </td>
-              <td style="text-align:center">{{this.title}}</td>
-              <td style="text-align:center">{{this.duration}}'</td>
-              <td>{{this.release_date}}</td>
-              <td>{{this.cast}}</td>
-              <td>{{this.description}}</td>
-              <td>
-
-                <div class="admin__add admin__update">
-                  <a
-                    href="/admin/{{this._id}}/UpdateFilms"
-                    class="admin__text"
-                    data-text="Update"
-                  >Update</a>
-                </div>
-                <div class="admin__add admin__showtime">
-                  <a
-                    href="/admin/screen"
-                    class="admin__text-showtime"
-                    data-text="Showtime"
-                  >Showtime</a>
-                </div>
-                <form
-                  action="/admin/films/delete/{{this._id}}"
-                  method="POST"
-                  style="display:inline;"
-                >
-                  <button
-                    type="submit"
-                    style="margin-top: 10px; width: 100%"
-                    class="btn btn-danger btn-sm"
-                  >Delete</button>
-                </form>
-              </td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
+              {{/each}}
+            </div>
+          {{else}}
+            <p>No screens found.</p>
+          {{/if}}
+        </div>
+      </div>
     </div>
+
   </div>
 </div>
+{{!  }}
