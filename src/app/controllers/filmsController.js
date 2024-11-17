@@ -5,7 +5,9 @@ class FilmsController {
   show(req, res, next) {
     Films.findOne({ slug: req.params.slug })
       .then((films) =>
-        res.render("films/filmsDetail", { films: mongooseToObject(films) })
+        res.render("films/filmsDetail", {
+          films: mongooseToObject(films),
+        })
       )
       .catch(next);
   }

@@ -129,7 +129,7 @@
                         </div>
                         <div class="admin__add admin__showtime">
                           <a
-                            href="/admin/screen"
+                            href="/admin/{{this._id}}/showtimes"
                             class="admin__text-showtime"
                             data-text="Showtime"
                           >Showtime</a>
@@ -162,7 +162,6 @@
             Screen & Seat
           </h2>
           {{#if screens.length}}
-            <!-- Render screens data -->
             <div class="screen-list">
               {{#each screens}}
                 <div class="screen">
@@ -172,7 +171,6 @@
                     / Capacity:
                     <strong>{{seat_capacity}}</strong></h3>
                   <div class="seat-chart">
-                    <!-- Render seats dynamically based on the number of rows and seats per row -->
                     {{#each seats}}
                       <div
                         class="seat"

@@ -42,5 +42,7 @@ route.get("/createFilms", adminController.createFilms);
 route.get("/:id/UpdateFilms", adminController.showUpdateFilms);
 route.get("/screen", adminController.createScreen);
 route.post("/screen/stored", adminController.storeScreen);
+route.get("/:id/showtimes", adminController.createShowtimes);
+route.post("/:filmId/showtimes/stored", adminController.storedShowtimes);
 
 module.exports = route;

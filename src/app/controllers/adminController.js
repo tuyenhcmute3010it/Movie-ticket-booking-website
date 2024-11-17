@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 const Films = require("../models/Films");
 const Profile = require("../models/Auth");
 const Screen = require("../models/Screen");
+const Showtimes = require("../models/Showtimes");
+const Screen_Showtimes = require("../models/Screen_Showtime");
+const moment = require("moment"); // Đảm bảo import Moment.js
 class adminController {
   //[GET] /me/stored/courses
 
@@ -46,18 +49,11 @@ class adminController {
           thumb_preview.push("/uploads/" + req.files[field][0].filename);
         }
       });
-      const { ticket_id, review_id, showtimes_id } = req.body;
 
-      const ticketObjectId = new mongoose.Types.ObjectId(ticket_id);
-      const reviewObjectId = new mongoose.Types.ObjectId(review_id);
-      const showtimesObjectId = new mongoose.Types.ObjectId(showtimes_id);
       const formData = {
         ...req.body,
         poster_url,
         thumb_preview,
-        ticket_id: ticketObjectId,
-        review_id: reviewObjectId,
-        showtimes_id: showtimesObjectId,
       };
 
       const films = new Films(formData);
@@ -230,6 +226,132 @@ class adminController {
       console.error("Error saving screen:", error.message);
       res.status(400).json({ error: "The Screen Number Is Available" });
       next(error);
+    }
+  }
+  async createShowtimes(req, res, next) {
+    const profile = await Profile.findById(req.session.userId);
+
+    if (profile.role !== "admin") {
+      return res.status(403).send("Access denied. Admins only.");
+    }
+    const screens = await Screen.find({});
+    Films.findById(req.params.id)
+      .then((films) =>
+        res.render("showtimes/createShowtimes", {
+          films: mongooseToObject(films),
+          screens: multipleMongooseToObject(screens),
+          isLoggedIn: true,
+        })
+      )
+      .catch(next);
+  }
+
+  async storedShowtimes(req, res, next) {
+    try {
+      const { filmId } = req.params; // Lấy filmId từ URL
+      let { showtimesData } = req.body; // Dữ liệu showtimes từ form
+
+      // Kiểm tra kiểu dữ liệu của showtimesData
+      console.log("showtimesData:", showtimesData); // Log ra để kiểm tra cấu trúc
+
+      // Nếu showtimesData là chuỗi JSON, chuyển nó thành mảng
+      if (typeof showtimesData === "string") {
+        try {
+          showtimesData = JSON.parse(showtimesData); // Chuyển chuỗi JSON thành mảng nếu có thể
+        } catch (error) {
+          return res
+            .status(400)
+            .json({ error: "Invalid JSON format in showtimesData." });
+        }
+      }
+
+      // Kiểm tra nếu showtimesData không phải là mảng
+      if (!Array.isArray(showtimesData)) {
+        return res
+          .status(400)
+          .json({ error: "showtimesData is not an array." });
+      }
+
+      // Lọc bỏ những showtimes không có thông tin valid (showtimes rỗng hoặc không có thời gian)
+      const validShowtimesData = showtimesData.filter((dayShowtime) => {
+        // Chỉ giữ lại các ngày có ít nhất 1 showtime và showtime có thời gian và ít nhất 1 màn hình
+        return dayShowtime.some(
+          (movie) =>
+            movie.showtimes.length > 0 &&
+            movie.showtimes.some(
+              (showtime) => showtime.time && showtime.screens.length > 0
+            )
+        );
+      });
+
+      // Kiểm tra nếu validShowtimesData vẫn còn dữ liệu hợp lệ
+      if (validShowtimesData.length === 0) {
+        return res.status(400).json({ error: "No valid showtimes provided." });
+      }
+
+      for (let dayShowtime of validShowtimesData) {
+        for (let movie of dayShowtime) {
+          for (let showtime of movie.showtimes) {
+            // Kiểm tra nếu showtime hợp lệ
+            if (
+              !showtime.time ||
+              !showtime.screens ||
+              showtime.screens.length === 0
+            ) {
+              continue; // Bỏ qua nếu showtime không hợp lệ
+            }
+
+            // Tính toán start_time và end_time từ thời gian gửi lên (showtime.time)
+            const start_time = moment(showtime.time).toDate();
+            const end_time = moment(start_time).add(2, "hours").toDate(); // Giả sử thời gian chiếu là 2 giờ
+
+            // Tạo mới một showtime và lưu vào cơ sở dữ liệu
+            const newShowtime = new Showtimes({
+              start_time,
+              end_time,
+            });
+
+            const savedShowtime = await newShowtime.save();
+
+            // Tìm screenId từ màn hình trong dữ liệu gửi lên
+            for (let screen of showtime.screens) {
+              let screenId;
+              if (mongoose.Types.ObjectId.isValid(screen)) {
+                screenId = new mongoose.Types.ObjectId(screen);
+              } else {
+                screenId = parseInt(screen);
+              }
+
+              // Lưu thông tin showtime với màn hình tương ứng
+              const newScreenShowtime = new Screen_Showtimes({
+                screen_id: screenId,
+                showtime_id: savedShowtime._id,
+              });
+
+              await newScreenShowtime.save();
+            }
+
+            // Cập nhật showtimes_id vào film
+            const film = await Films.findByIdAndUpdate(
+              filmId,
+              { $push: { showtimes_id: savedShowtime._id } }, // Thêm showtime vào mảng showtimes_id
+              { new: true } // Trả về tài liệu đã cập nhật
+            );
+
+            if (!film) {
+              throw new Error(`Film with ID ${filmId} not found.`);
+            }
+          }
+        }
+      }
+
+      // Sau khi lưu tất cả showtimes, redirect về trang admin
+      res.redirect("/profile/admin");
+    } catch (error) {
+      console.error("Error:", error);
+      res
+        .status(500)
+        .json({ error: "Failed to add showtime", details: error.message });
     }
   }
 }

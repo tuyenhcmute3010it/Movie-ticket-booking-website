@@ -1,15 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-// const Screen = new mongoose.Schema({
-//   ticket_id: { type: mongoose.Schema.Types.ObjectId, ref: "Ticket" },
-//   seat_number: { type: Number, required: true },
-//   row: { type: String, required: true },
-//   screen_number: { type: Number, required: true },
-//   seat_capacity: { type: Number, required: true },
-// });
-
-// module.exports = mongoose.model("Screen", Screen);
-
 const seatSchema = new Schema({
   seat_number: { type: Number, required: true },
   row: { type: String, required: true },
