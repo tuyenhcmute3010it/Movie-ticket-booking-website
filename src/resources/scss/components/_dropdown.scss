@@ -1,0 +1,28 @@
+@use "../abstracts";
+.dropdown {
+  display: none;
+  width: min(300px, 100%);
+  position: absolute;
+  padding-top: 33px;
+  z-index: 5;
+  box-shadow: var(--box-shadow);
+
+  @include abstracts.screen(xl) {
+    padding-top: 0;
+  }
+  &__inner {
+    border: 2px solid var(--dropdown-inner-border);
+    background: var(--dropdown-inner-bg);
+    overflow: hidden;
+    padding: 25px 40px 10px 8px;
+    @include abstracts.screen(xl) {
+      height: 100%;
+    }
+  }
+  @include abstracts.screen(xl) {
+    display: none;
+  }
+  &.hide {
+    visibility: hidden;
+  }
+}

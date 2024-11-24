@@ -1,0 +1,101 @@
+@use "../abstracts";
+html {
+  --text-color: #676a6c;
+  --body-bg: #fff;
+  --icon-color: brightness(0) saturate(100%) invert(8%) sepia(19%)
+    saturate(2039%) hue-rotate(210deg) brightness(97%) contrast(96%);
+  // top bar
+  --top-bar-bg: #fff;
+  // button
+  --btn-primary-bg: rgb(183, 202, 209);
+  //   search-bar
+  --search-bar-bg: #ececec;
+  --search-bar-search-bg: #f2f2f2;
+
+  // navbar
+  --navbar-arrow-filter: brightness(0) saturate(100%) invert(0%) sepia(71%)
+    saturate(7463%) hue-rotate(103deg) brightness(97%) contrast(107%);
+  --navbar-hover-color: #ebebeb;
+  --navbar-side-bar-bg: #fff;
+  --navbar-return-bg: #b7cad1;
+  // 81d8d0
+  --navbar-top-filter: brightness(0) saturate(100%) invert(94%) sepia(7%)
+    saturate(511%) hue-rotate(154deg) brightness(96%) contrast(80%);
+  //  dropdown
+  --dropdown-inner-bg: url(../img/dropdown/bg-themes-light.jpg) repeat scroll
+    center center rgba(0, 0, 0, 0);
+  --dropdown-inner-border: #c4d6dc;
+  // footer
+  --footer-bg: #fbfbfb;
+  --footer-heading-color: #020000;
+  //
+  --box-shadow: 0px 17px 55px 0px rgba(96, 100, 100, 0.05);
+  // act dropdown
+  --act-dropdown-bg: #fff;
+  --act-dropdown-shadow: rgba(200, 200, 200, 0.4);
+  --act-dropdown-title-color: #1a162e;
+  --act-dropdown-bottom-border: #d2d1d6;
+  --act-dropdown-arrow-filter: brightness(0) saturate(100%) invert(100%)
+    sepia(1%) saturate(521%) hue-rotate(156deg) brightness(111%) contrast(84%);
+  //separate
+  --separate-color: #292e39;
+  // film card
+  --film-card-bg: #ebebeb;
+  --film-card-color: #1a162e;
+  --film-card-more-color: #000;
+  // breadcrumb
+  @include abstracts.screen(md) {
+    --breadcrumb-detail-bg: #fff;
+  }
+  --breadcrumb-shadow: rgba(237, 237, 246, 0.2);
+  --breadcrumb-link-current-color: #1a162e;
+
+  @include abstracts.screen(md) {
+    --breadcrumb-detail-bg: #fff;
+  }
+  --breadcrumb-shadow: rgba(237, 237, 246, 0.2);
+  --breadcrumb-link-current-color: #1a162e;
+  // pro-info
+
+  --prod-prop-sub-title-color: #000;
+  --prod-info-heading-color: #1a162e;
+  --prod-prop-color: #201b1b;
+  --prod-info-color: #000;
+  --prod-prop-title-color: #000;
+  --prod-prop-tag-color: red;
+  --prod-content-heading: #171c28;
+  --prod-prop-filter: brightness(0) saturate(100%) invert(18%) sepia(93%)
+    saturate(5866%) hue-rotate(357deg) brightness(105%) contrast(117%);
+  // review card
+  --review-card-bg: #fafafd;
+  --comment-item-bg: #ccc;
+  --comment-content: #f0f0f0;
+  --comment-input-bg: #fff;
+  //booking
+  --booking-doorleave-filter: brightness(0) saturate(100%) invert(11%)
+    sepia(98%) saturate(6409%) hue-rotate(0deg) brightness(115%) contrast(107%);
+  //screen top
+  --screen-top-filter: brightness(0) saturate(100%) invert(89%) sepia(5%)
+    saturate(2573%) hue-rotate(119deg) brightness(88%) contrast(97%);
+  --screen-inner-bg: url(../img/dropdown/bg-themes-light.jpg) repeat scroll
+    center center rgba(0, 0, 0, 0);
+  // profile
+  --account-info-bg: #f6f6f6;
+  --account-info-icon-bg: #fff;
+  --profile-sidebar-bg: #ccc;
+  --profile-sidebar-shadow: rgba(237, 237, 246, 0.2);
+  // cart info
+  --cart-info-bg: #fff;
+  --cart-info-shadow: rgba(237, 237, 246, 0.2);
+  --card-item-border-color: #d2d1d6;
+  --checkout-page-bg: #fff;
+  --cart-info-bg: #fff;
+  --cart-item-title-color: #1a162e;
+  --cart-item-select-border: #d2d1d6;
+  // auto fill
+  --auto-fill: #fff;
+  --auto-fill-color: #000;
+  // dialog
+  --modal-bg: #fff;
+  --modal-shadow: rgba(237, 237, 246, 0.2);
+}

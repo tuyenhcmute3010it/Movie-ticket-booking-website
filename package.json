@@ -1,0 +1,39 @@
+{
+  "name": "it-project-backend",
+  "version": "1.0.0",
+  "description": "Movin-Website(It-Project-Hcmute-K1-2024-2025-HoangVanDung-FIE4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass -w src/resources/scss -o src/public/assets/css",
+    "sass": "sass --watch src/resources/scss:src/public/assets/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuyenhcmute3010it/Movie-ticket-booking-website.git"
+  },
+  "author": "Tuyen-Trung-Trieu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuyenhcmute3010it/Movie-ticket-booking-website/issues"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.21.1",
+    "express-handlebars": "^8.0.1",
+    "express-session": "^1.18.1",
+    "method-override": "^3.0.0",
+    "moment": "^2.30.1",
+    "mongoose": "^8.8.1",
+    "mongoose-slug-generator": "^1.0.4",
+    "multer": "^1.4.5-lts.1",
+    "sass": "^1.80.6",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "node-sass": "^9.0.0",
+    "nodemon": "^3.1.7"
+  },
+  "homepage": "https://github.com/tuyenhcmute3010it/Movie-ticket-booking-website#readme"
+}

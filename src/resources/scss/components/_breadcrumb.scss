@@ -1,0 +1,54 @@
+@use "../abstracts";
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 64px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 20px 60px 10px var(--breadcrumb-shadow);
+  gap: 20px;
+  @include abstracts.screen(md) {
+    gap: 16px;
+    border-radius: 20px;
+  }
+  &__link,
+  &__link--current {
+    color: #9e9da8;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 8px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.5;
+
+    position: relative;
+    white-space: nowrap;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: #81d8d0;
+      transition: width 0.5s ease-in-out;
+    }
+    &:hover::after {
+      animation: underline 0.5s forwards;
+      width: 100%;
+    }
+    &--current {
+      color: var(--breadcrumb-link-current-color);
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+  &__icon {
+    padding-left: 5px;
+  }
+}
