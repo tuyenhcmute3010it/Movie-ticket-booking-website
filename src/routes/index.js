@@ -13,5 +13,6 @@ function route(app) {
   app.use("/admin", adminRouter);
   app.use("/profile", profileRouter);
   app.use("/buytickets", buyticketsRouter);
+
 }
 module.exports = route;

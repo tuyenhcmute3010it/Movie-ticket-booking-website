@@ -47,3 +47,7 @@ route.post("/:filmId/showtimes/stored", adminController.storedShowtimes);
 route.delete("/:id", adminController.delete);
 
 module.exports = route;
+
+
+
+
