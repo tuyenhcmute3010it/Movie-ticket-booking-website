@@ -1,0 +1,232 @@
+<div class="container">
+
+  <ul class="breadcrumbs">
+    <li class="breadcrumbs__item">
+      <a href="/profile/admin" class="breadcrumbs__link">Admin Management</a>
+      <img
+        class="breadcrumbs__icon"
+        src="/assets/icon/arrow-right.svg"
+        alt=""
+      />
+    </li>
+    <li class="breadcrumbs__item">
+      <a
+        href="/admin/{{films._id}}/UpdateFilms"
+        class="breadcrumbs__link--current"
+      >Update Film ({{films.title}})</a>
+    </li>
+  </ul>
+  <h3 class="admin__heading">Update Film</h3>
+  <form
+    method="POST"
+    action="/admin/{{films._id}}?_method=PUT"
+    enctype="multipart/form-data"
+    id="FormAction"
+  >
+    <div class="row row-cols-2">
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form__input"
+            id="title"
+            name="title"
+            value="{{films.title}}"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="duration">Duration (in minutes)</label>
+          <input
+            type="number"
+            class="form__input"
+            id="duration"
+            name="duration"
+            value="{{films.duration}}"
+          />
+        </div>
+      </div>
+
+      <div class="col">
+
+        <div class="form__group admin__form">
+          <label for="cast">Cast</label>
+          <input
+            type="text"
+            class="form__input"
+            id="cast"
+            name="cast"
+            value="{{films.director}}"
+          />
+        </div>
+        <div class="form__group admin__form">
+          <label for="director">Director</label>
+          <input
+            type="text"
+            class="form__input"
+            id="director"
+            name="director"
+            value="{{films.director}}"
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="description">Description</label>
+          <textarea
+            class="form__input"
+            id="description"
+            name="description"
+          >{{films.description}}</textarea>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="form__group admin__form">
+          <label for="poster_url">Poster Image</label>
+          <input
+            type="file"
+            class="form__input"
+            id="poster_url"
+            name="poster_url"
+            accept="image/*"
+          />
+          <img src="{{films.poster_url}}" class="admin__poster-update" alt="" />
+
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="form__group admin__form">
+          <label for="language">Thumb Preview</label>
+          <div class="admin__thumb-preview-input">
+            <input
+              type="file"
+              class="form__input admin__thumb-preview-upload"
+              id="thumb-preview-1"
+              name="thumb_preview_1"
+              accept="image/*"
+            />
+
+            <input
+              type="file"
+              class="form__input admin__thumb-preview-upload"
+              id="thumb-preview-2"
+              name="thumb_preview_2"
+              accept="image/*"
+            />
+            <input
+              type="file"
+              class="form__input admin__thumb-preview-upload"
+              id="thumb-preview-3"
+              name="thumb_preview_3"
+              accept="image/*"
+            />
+
+            <input
+              type="file"
+              class="form__input admin__thumb-preview-upload"
+              id="thumb-preview-4"
+              name="thumb_preview_4"
+              accept="image/*"
+            />
+          </div>
+          <div class="admin__thumb-preview">
+            {{#each films.thumb_preview as |thumb index|}}
+              <img
+                src="{{thumb}}"
+                alt="A Wild Robot - Thumbnail"
+                class="admin__thumb-preview-img"
+              />
+            {{/each}}
+          </div>
+
+        </div>
+      </div>
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="release_date">Release Date</label>
+          <input
+            type="date"
+            class="form__input"
+            id="release_date"
+            value="{{films.release_date}}"
+            name="release_date"
+          />
+        </div>
+      </div>
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="trailer_url">Trailer URL</label>
+          <input
+            type="url"
+            class="form__input"
+            id="trailer_url"
+            name="trailer_url"
+            value="{{films.trailer_url}}"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="language">Language (e.g., English, subtitled)</label>
+          <input
+            type="text"
+            class="form__input"
+            id="language"
+            value="{{films.language}}"
+            name="language"
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form__group admin__form">
+          <label for="country">Country</label>
+          <input
+            type="text"
+            class="form__input"
+            id="country"
+            value="{{films.country}}"
+            name="country"
+          />
+        </div>
+      </div>
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary admin__form-btn js-toggle"
+      toggle-target="#save-confirm"
+    >Update Film</button>
+  </form>
+</div>
+
+{{!  }}
+<div id="save-confirm" class="modal modal--small">
+  <button
+    class="modal__close js-toggle"
+    toggle-target="#save-confirm"
+  >&times;</button>
+  <div class="modal__content">
+    <div class="modal__text">Are you sure to update this information?</div>
+    <div class="modal__bottom">
+      <button
+        class="btn btn--text modal__btn js-toggle"
+        toggle-target="#save-confirm"
+      >Cancel</button>
+      <button
+        id="modalSaveButton"
+        class="btn btn--primary modal__btn btn--no-margin btn--danger"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+  <div class="modal__overlay js-toggle" toggle-target="#save-confirm"></div>
+</div>

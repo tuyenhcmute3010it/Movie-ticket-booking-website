@@ -1,0 +1,425 @@
+.privacy {
+  &__list {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  &__heading {
+    text-align: center;
+    display: block;
+    margin-top: 30px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  &__item {
+    background-color: #ccc;
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #eee;
+    white-space: nowrap;
+    & a {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    &.active a {
+      transition: transform 0.3s ease;
+    }
+
+    &.active {
+      transform: translateX(30px);
+      background-color: #e71a0f;
+      animation: slideBg 3s ease;
+    }
+
+    @keyframes slideBg {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(30px);
+      }
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+    & span {
+      margin-left: 30px;
+    }
+    position: relative;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 0;
+      left: -1px;
+      border: 25px solid;
+      border-color: transparent transparent transparent #fff;
+    }
+  }
+}
+///////// introduce
+.about-us {
+  padding: 30px 20px;
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 10px;
+}
+
+.about-us__title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.about-us__intro {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-us__content {
+  margin: 0 auto;
+}
+
+.about-us__heading {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e71a0f;
+  margin: 20px 0;
+}
+
+.about-us__text {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about-us__list {
+  list-style: disc;
+  padding-left: 40px;
+  margin-bottom: 20px;
+}
+
+.about-us__item {
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+/// transaction
+/* Transaction Privacy Section */
+.transaction-privacy {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Description Styles */
+.desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.desc a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.desc a:hover {
+  text-decoration: underline;
+}
+
+/* Section Styles */
+.section {
+  margin-bottom: 20px;
+}
+
+.section ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.section li {
+  margin-bottom: 8px;
+}
+//// payment privacy
+.payment-policy {
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-policy h2 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.payment-policy section {
+  margin-bottom: 20px;
+}
+
+.payment-policy h3 {
+  font-size: 1.4em;
+  color: #16a085;
+  margin-bottom: 10px;
+}
+
+.payment-policy ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.payment-policy ul li {
+  margin-bottom: 8px;
+}
+
+.payment-policy p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+/// privacy
+.private-policy {
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Section */
+.private-policy header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.private-policy header h1 {
+  color: #2980b9;
+  font-size: 2.5rem;
+}
+
+.private-policy header p {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+/* Section Titles */
+.private-policy h2 {
+  color: #2980b9;
+  font-size: 1.8rem;
+  margin-top: 20px;
+}
+
+/* Section Content */
+.private-policy section {
+  margin-bottom: 20px;
+}
+
+.private-policy section p {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Bold Text for Important Information */
+.private-policy strong {
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+/* Footer */
+.private-policy footer {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #555;
+  margin-top: 40px;
+}
+
+/* Styling for links */
+.private-policy a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.private-policy a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .private-policy {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .private-policy header h1 {
+    font-size: 2rem;
+  }
+
+  .private-policy header p {
+    font-size: 1.5rem;
+  }
+
+  .private-policy h2 {
+    font-size: 1.5rem;
+  }
+
+  .private-policy section p {
+    font-size: 1.6rem;
+  }
+}
+#data-storage-protection {
+  border-top: 4px solid #4caf50;
+}
+
+#sensitive-data-processing {
+  border-top: 4px solid #ffc107;
+}
+
+#rights-obligations {
+  border-top: 4px solid #2196f3;
+  & li {
+    margin-top: 10px;
+  }
+}
+
+#marketing-consent {
+  border-top: 4px solid #ff5722;
+}
+
+#withdraw-consent {
+  border-top: 4px solid #9c27b0;
+}
+/////////////////////////////////////////////////faq
+@import url("https://fonts.googleapis.com/css?family=Hind:300,400&display=swap");
+
+$bg: #fff;
+$text: #7288a2;
+$gray: #4d5974;
+$lightgray: #e5e5e5;
+$blue: #03b5d2;
+
+.accordion {
+  .accordion-item {
+    border-bottom: 1px solid $lightgray;
+    button[aria-expanded="true"] {
+      border-bottom: 1px solid $blue;
+    }
+  }
+  button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: $text;
+    font-size: 2.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      color: $blue;
+      &::after {
+        cursor: pointer;
+        color: $blue;
+        border: 1px solid $blue;
+      }
+    }
+    .accordion-title {
+      padding: 1em 1.5em 1em 0;
+    }
+    .icon {
+      display: inline-block;
+      position: absolute;
+      top: 18px;
+      right: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid;
+      border-radius: 22px;
+      &::before {
+        display: block;
+        position: absolute;
+        content: "";
+        top: 9px;
+        left: 5px;
+        width: 10px;
+        height: 2px;
+        background: currentColor;
+      }
+      &::after {
+        display: block;
+        position: absolute;
+        content: "";
+        top: 5px;
+        left: 9px;
+        width: 2px;
+        height: 10px;
+        background: currentColor;
+      }
+    }
+  }
+  button[aria-expanded="true"] {
+    color: $blue;
+    .icon {
+      &::after {
+        width: 0;
+      }
+    }
+    + .accordion-content {
+      opacity: 1;
+      max-height: 9em;
+      transition: all 200ms linear;
+      will-change: opacity, max-height;
+    }
+  }
+  .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+    p {
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin: 2em 0;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.seatContainer {
+  position: relative;
+}
+.seat {
+  width: 100%;
+  margin: 0 auto;
+  &-table {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    border: 1px solid orange;
+    margin: 10px 0 30px;
+    border-radius: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #ccc;
+    padding: 10px;
+  }
+  &-input-group {
+    height: auto;
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+  &__heading {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  &__add {
+    width: 200px;
+    background-color: #b7cad1;
+    margin-bottom: 30px;
+    &:hover {
+      background-color: blue;
+      color: #fff;
+    }
+  }
+  &__submit {
+    margin: 0 auto !important;
+  }
+}
+.seat-input-group {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ebebeb;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% / 6);
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    background-color: #ccc;
+    cursor: pointer;
+  }
+}
+
+.seat-input-group label {
+  margin-bottom: 5px;
+}
+
+.seat-input-group input {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.seat-input-group button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-remove-seat {
+  background-color: #f44336 !important;
+  margin-top: 10px;
+}
+
+.btn-remove-seat:hover {
+  background-color: rgb(229, 57, 53, 0.6) !important;
+}
+
+.btn-save-seat {
+  background-color: #2196f3 !important;
+}
+
+.btn-save-seat:hover {
+  background-color: rgb(30, 136, 229, 0.6) !important;
+}
