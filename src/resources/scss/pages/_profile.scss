@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     background: linear-gradient(180deg, rgba(26, 22, 46, 0) 0%, #1a162e 100%),
-      url(../img/avatar/avatar-1.jpg) no-repeat center / cover;
+      url(/assets/img/logo_movin.png) no-repeat center / cover;
     padding: 40px 20px 20px;
 
     box-shadow: 0px 20px 60px 10px var(--profile-sidebar-shadow);
@@ -93,4 +93,3 @@
     margin-bottom: 16px;
   }
 }
-
