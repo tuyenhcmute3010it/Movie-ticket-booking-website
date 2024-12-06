@@ -1,0 +1,984 @@
+<main class="film-page">
+    <div class="container">
+        <!-- film info -->
+        <div class="film-container">
+          <!-- breadcrumbs -->
+          <ul class="breadcrumbs">
+            <li class="breadcrumbs__item">
+              <a href="/" class="breadcrumbs__link">Home </a>
+              <img
+                class="breadcrumbs__icon"
+                src="/assets/icon/arrow-right.svg"
+                alt=""
+              />
+            </li>
+            <li class="breadcrumbs__item">
+              <a href="#!" class="breadcrumbs__link">Buy tickets</a>
+              <img
+                class="breadcrumbs__icon"
+                src="/assets/icon/arrow-right.svg"
+                alt=""
+              />
+            </li>
+            <li class="breadcrumbs__item">
+              <a href="#!" class="breadcrumbs__link--current" id="nameFilm"
+                >{{films.title}}
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- film info -->
+        <div class="film-container buy-tickets-info-content">
+         <img src="{{films.poster_url}}" class="prod-info-content__img">
+              <div class="row">
+                <div class="col-3 col-xl-8 offset-xl-2 col-lg-12 offset-lg-0">
+                  <div class="prod-preview">
+                  <div class="prod-preview__list">
+                    <div class="prod-preview__item">
+                      <img
+                        src="{{films.poster_url}}"
+                        alt=""
+                        class="prod-preview__img"
+                      />
+                    </div>
+                  </div>
+                  <div class="prod-preview__thumbs">
+                 {{#each films.thumb_preview as |thumb index|}}
+                    <img
+                      src="{{thumb}}"
+                      alt="A Wild Robot - Thumbnail"
+                      class="prod-preview__thumb-img"
+                      onclick="showImage({{index}})"
+                    />
+                  {{/each}}
+                </div>
+                  <!-- Overlay for the enlarged image -->
+                  <div class="overlay-thumb" id="imageOverlay">
+                    <div class="overlay-container">
+                      <img id="overlay-thumb-img" src="" alt="Enlarged Thumbnail" />
+                      <button class="overlay-thumb__close">✖</button>
+                      <button class="overlay-thumb__prev">❮</button>
+                      <button class="overlay-thumb__next">❯</button>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-9 col-xl-12 col-lg-12">
+                  <div class="buy-tickets-tab js-tabs">
+                    <ul class="buy-tickets-tab__list">
+              
+                      <li
+                        class="buy-tickets-tab__item buy-tickets-tab__item--active text" data-text="Seats & Food Selection"
+                      >
+                        Seats & Food Selection
+                      </li>
+                      <li class="buy-tickets-tab__item text" data-text="Payment" >Payment</li>
+                      <li class="buy-tickets-tab__item text" data-text="Confirmation">Confirmation</li>
+                    </ul>
+                   
+                    <div class="buy-tickets-tab__contents">
+                      <!-- show time -->
+                      <div
+                        class="buy-tickets-tab__content buy-tickets-tab__content--active"
+                      >
+                        <div class="row">
+                          <div class="col-12">
+                            <!--  -->
+      
+
+
+
+
+                       <div class="showtime__choose">
+                            <div class="date-buttons">
+                            {{#each showtimesByDate}}
+                              <button class="date-button" data-date="{{@key}}">
+                                {{@key}}
+                              </button>
+                            {{/each}}
+                          </div>
+  
+                          <div class="showtimes-list">
+                            <!-- Hiển thị showtimes của các ngày -->
+                            {{#each showtimesByDate}}
+                              {{#each this}}
+                                <div class="showtime__book" data-date="{{@../key}}">
+                                  <div class="showtime__time-showtime">
+                                    <strong class="showtime__start-time">{{start_time}}</strong>
+                                    <strong class="showtime__end-time">{{end_time}}</strong>
+                                  </div>
+                                  <strong class="showtime__screen">Screen: {{screen_id}}</strong>
+                                    <span style="opacity: 0;" class="showtime__showtime-id">{{showtime_id}}</span>
+
+                                </div>
+                              {{/each}}
+                            {{/each}}
+                          </div>
+                       </div>
+                            <div class="booking">
+                              <div class="booking__inner">
+                                <h1 class="booking__title booking__title-screen"><span class="screenId"></span></h1>
+                                <div class="booking__screen">
+                                {{!-- stage--}}
+                                  <svg
+                                    width="100%"
+                                    height="100%"
+                                    viewBox="0 0 552 100"
+                                    class="seat-map__screen-image"
+                                  >
+                                    <g
+                                      opacity="0.91"
+                                      filter="url(#filter0_f_2284_34995)"
+                                    >
+                                      <path
+                                        class="light"
+                                        d="M276.5 88.5347C375.116 88.5347 441 71.2976 441 50.0347C441 28.7717 375.116 11.5347 276.5 11.5347C177.884 11.5347 112 28.7717 112 50.0347C112 71.2976 177.884 88.5347 276.5 88.5347Z"
+                                        fill="#F3EBE8"
+                                      ></path>
+                                    </g>
+                                    <path
+                                      d="M91.6985 45H458.171L488 18H64L91.6985 45Z"
+                                      fill="url(#paint0_linear_2284_34995)"
+                                    ></path>
+                                    <path
+                                      d="M64 15H488V17H64V15Z"
+                                      fill="white"
+                                    ></path>
+                                    <g filter="url(#filter1_i_2284_34995)">
+                                      <path
+                                        d="M91.6985 45H458.171L488 18H64L91.6985 45Z"
+                                        fill="#D8D8D8"
+                                      ></path>
+                                    </g>
+                                    <g
+                                      opacity="0.95"
+                                      class="light"
+                                      filter="url(#filter2_f_2284_34995)"
+                                    >
+                                      <path
+                                        d="M92.7306 45H457.151L508 75H44L92.7306 45Z"
+                                        fill="url(#paint1_linear_2284_34995)"
+                                      ></path>
+                                    </g>
+                                    <g
+                                      opacity="0.65"
+                                      class="light"
+                                      filter="url(#filter3_f_2284_34995)"
+                                    >
+                                      <path
+                                        d="M92.9807 45H456.903L550 75H2L92.9807 45Z"
+                                        fill="url(#paint2_linear_2284_34995)"
+                                      ></path>
+                                    </g>
+                                    <g filter="url(#filter4_f_2284_34995)">
+                                      <path
+                                        class="light"
+                                        d="M92.5678 45H457.312L487 75H65L92.5678 45Z"
+                                        fill="url(#paint3_linear_2284_34995)"
+                                      ></path>
+                                    </g>
+                                    <path
+                                      class="light"
+                                      opacity="0.69933"
+                                      d="M149 45.5347V44.5347H402V45.5347H149Z"
+                                      fill="url(#paint4_linear_2284_34995)"
+                                    ></path>
+                                    <defs>
+                                      <filter
+                                        id="filter0_f_2284_34995"
+                                        x="101"
+                                        y="0.534668"
+                                        width="351"
+                                        height="99"
+                                        filterUnits="userSpaceOnUse"
+                                        color-interpolation-filters="sRGB"
+                                      >
+                                        <feFlood
+                                          flood-opacity="0"
+                                          result="BackgroundImageFix"
+                                        ></feFlood>
+                                        <feBlend
+                                          mode="normal"
+                                          in="SourceGraphic"
+                                          in2="BackgroundImageFix"
+                                          result="shape"
+                                        ></feBlend>
+                                        <feGaussianBlur
+                                          stdDeviation="5.5"
+                                          result="effect1_foregroundBlur_2284_34995"
+                                        ></feGaussianBlur>
+                                      </filter>
+                                      <filter
+                                        id="filter1_i_2284_34995"
+                                        x="64"
+                                        y="17"
+                                        width="424"
+                                        height="28"
+                                        filterUnits="userSpaceOnUse"
+                                        color-interpolation-filters="sRGB"
+                                      >
+                                        <feFlood
+                                          flood-opacity="0"
+                                          result="BackgroundImageFix"
+                                        ></feFlood>
+                                        <feBlend
+                                          mode="normal"
+                                          in="SourceGraphic"
+                                          in2="BackgroundImageFix"
+                                          result="shape"
+                                        ></feBlend>
+                                        <feColorMatrix
+                                          in="SourceAlpha"
+                                          type="matrix"
+                                          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                          result="hardAlpha"
+                                        ></feColorMatrix>
+                                        <feOffset dy="-1"></feOffset>
+                                        <feGaussianBlur
+                                          stdDeviation="1.5"
+                                        ></feGaussianBlur>
+                                        <feComposite
+                                          in2="hardAlpha"
+                                          operator="arithmetic"
+                                          k2="-1"
+                                          k3="1"
+                                        ></feComposite>
+                                        <feColorMatrix
+                                          type="matrix"
+                                          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0681612 0"
+                                        ></feColorMatrix>
+                                        <feBlend
+                                          mode="normal"
+                                          in2="shape"
+                                          result="effect1_innerShadow_2284_34995"
+                                        ></feBlend>
+                                      </filter>
+                                      <filter
+                                        id="filter2_f_2284_34995"
+                                        x="42.9"
+                                        y="43.9"
+                                        width="466.2"
+                                        height="32.2"
+                                        filterUnits="userSpaceOnUse"
+                                        color-interpolation-filters="sRGB"
+                                      >
+                                        <feFlood
+                                          flood-opacity="0"
+                                          result="BackgroundImageFix"
+                                        ></feFlood>
+                                        <feBlend
+                                          mode="normal"
+                                          in="SourceGraphic"
+                                          in2="BackgroundImageFix"
+                                          result="shape"
+                                        ></feBlend>
+                                        <feGaussianBlur
+                                          stdDeviation="0.55"
+                                          result="effect1_foregroundBlur_2284_34995"
+                                        ></feGaussianBlur>
+                                      </filter>
+                                      <filter
+                                        id="filter3_f_2284_34995"
+                                        x="0.9"
+                                        y="43.9"
+                                        width="550.2"
+                                        height="32.2"
+                                        filterUnits="userSpaceOnUse"
+                                        color-interpolation-filters="sRGB"
+                                      >
+                                        <feFlood
+                                          flood-opacity="0"
+                                          result="BackgroundImageFix"
+                                        ></feFlood>
+                                        <feBlend
+                                          mode="normal"
+                                          in="SourceGraphic"
+                                          in2="BackgroundImageFix"
+                                          result="shape"
+                                        ></feBlend>
+                                        <feGaussianBlur
+                                          stdDeviation="0.55"
+                                          result="effect1_foregroundBlur_2284_34995"
+                                        ></feGaussianBlur>
+                                      </filter>
+                                      <filter
+                                        id="filter4_f_2284_34995"
+                                        x="63.9"
+                                        y="43.9"
+                                        width="424.2"
+                                        height="32.2"
+                                        filterUnits="userSpaceOnUse"
+                                        color-interpolation-filters="sRGB"
+                                      >
+                                        <feFlood
+                                          flood-opacity="0"
+                                          result="BackgroundImageFix"
+                                        ></feFlood>
+                                        <feBlend
+                                          mode="normal"
+                                          in="SourceGraphic"
+                                          in2="BackgroundImageFix"
+                                          result="shape"
+                                        ></feBlend>
+                                        <feGaussianBlur
+                                          stdDeviation="0.55"
+                                          result="effect1_foregroundBlur_2284_34995"
+                                        ></feGaussianBlur>
+                                      </filter>
+                                      <linearGradient
+                                        id="paint0_linear_2284_34995"
+                                        x1="276"
+                                        y1="45"
+                                        x2="276"
+                                        y2="18"
+                                        gradientUnits="userSpaceOnUse"
+                                      >
+                                        <stop stop-color="#9C9898"></stop>
+                                        <stop
+                                          offset="1"
+                                          stop-color="#D0CCCB"
+                                        ></stop>
+                                      </linearGradient>
+                                      <linearGradient
+                                        id="paint1_linear_2284_34995"
+                                        x1="276"
+                                        y1="75"
+                                        x2="276"
+                                        y2="45.8095"
+                                        gradientUnits="userSpaceOnUse"
+                                      >
+                                        <stop
+                                          stop-color="#D3D0D0"
+                                          stop-opacity="0"
+                                        ></stop>
+                                        <stop
+                                          offset="1"
+                                          stop-color="#C5C1C0"
+                                          stop-opacity="0.340636"
+                                        ></stop>
+                                      </linearGradient>
+                                      <linearGradient
+                                        id="paint2_linear_2284_34995"
+                                        x1="276"
+                                        y1="75"
+                                        x2="276"
+                                        y2="45.8095"
+                                        gradientUnits="userSpaceOnUse"
+                                      >
+                                        <stop
+                                          stop-color="#D3D0D0"
+                                          stop-opacity="0"
+                                        ></stop>
+                                        <stop
+                                          offset="1"
+                                          stop-color="#C5C1C0"
+                                          stop-opacity="0.340636"
+                                        ></stop>
+                                      </linearGradient>
+                                      <linearGradient
+                                        id="paint3_linear_2284_34995"
+                                        x1="276"
+                                        y1="75"
+                                        x2="276"
+                                        y2="45.8095"
+                                        gradientUnits="userSpaceOnUse"
+                                      >
+                                        <stop
+                                          stop-color="#D3D0D0"
+                                          stop-opacity="0"
+                                        ></stop>
+                                        <stop
+                                          offset="1"
+                                          stop-color="#C5C1C0"
+                                          stop-opacity="0.340636"
+                                        ></stop>
+                                      </linearGradient>
+                                      <linearGradient
+                                        id="paint4_linear_2284_34995"
+                                        x1="149"
+                                        y1="45.5347"
+                                        x2="402"
+                                        y2="45.5347"
+                                        gradientUnits="userSpaceOnUse"
+                                      >
+                                        <stop
+                                          stop-color="#AFAEAE"
+                                          stop-opacity="0"
+                                        ></stop>
+                                        <stop
+                                          offset="0.0270686"
+                                          stop-color="#AFAEAE"
+                                        ></stop>
+                                        <stop
+                                          offset="0.969667"
+                                          stop-color="#AFAEAE"
+                                        ></stop>
+                                        <stop
+                                          offset="1"
+                                          stop-color="#AFAEAE"
+                                          stop-opacity="0"
+                                        ></stop>
+                                      </linearGradient>
+                                    </defs>
+                                  </svg>
+                                  {{!--  --}}
+                                </div>
+                                <div class="screen__top"></div>
+                                <img
+                                  class="projection booking__light booking__light-1"
+                                  src="/assets/img/screen-light/light-projector.png"
+                                  alt="Máy đèn"
+                                />
+                                <img
+                                  class="projection booking__light booking__light-2"
+                                  src="/assets/img/screen-light/light-projector.png"
+                                  alt="Máy đèn"
+                                />
+                                <img
+                                  class="projection booking__light booking__light-3"
+                                  src="/assets/img/screen-light/light-projector.png"
+                                  alt="Máy đèn"
+                                />
+                                <img
+                                  class="projection booking__light booking__light-4"
+                                  src="/assets/img/screen-light/light-projector.png"
+                                  alt="Máy đèn"
+                                />
+                                <div class="booking__doorleave">
+                                  <img
+                                    src="/assets/icon/leave-cinema.png"
+                                    class="booking__doorleave-img"
+                                    alt=""
+                                  />
+                                  <img
+                                    src="/assets/icon/leave-cinema.png"
+                                    alt=""
+                                    class="booking__doorleave-img"
+                                  />
+                                </div>
+                               <span class="screenId-2" style="opacity : 0"></span>
+                                <div class="screen-list">
+                                  {{!-- {{#if screens.length}}
+                                    {{#each screens}}
+                                      <div class="screen" data-screen-id="{{screen_number}}">
+                                        <div class="seat-chart">
+                                          {{#each seats}}
+                                            <div
+                                              class="seat"
+                                              data-seat-id="{{_id}}"
+                                              price-seat = "{{seat_price}}"
+                                              seat-status ="{{status}}"
+                                              style="grid-column: {{seat_number}}; grid-row: {{row}}"
+                                            >
+                                              <img src="/assets/icon/seat.png" class="seat__chair" alt="Seat" />
+                                              {{generateSeatID row seat_number}}
+                                            </div>
+                                          {{/each}}
+                                        </div>
+                                      </div>
+                                    {{/each}}
+                                  {{else}}
+                                    <p>No screens found.</p>
+                                  {{/if}} --}}
+                                  {{#if screens.length}}
+                                  {{#each screens}} 
+                                    <div class="screen" data-screen-id="{{screen_number}}">
+                                      <div class="seat-chart">
+                                        {{#each seats}}
+                                          <div
+                                            class="seat {{#if status}}seat--disabled{{/if}}"
+                                            data-seat-id="{{_id}}"
+                                            price-seat="{{seat_price}}"
+                                            seat-status="{{status}}"
+                                            style="grid-column: {{seat_number}}; grid-row: {{row}}; {{#if status}}pointer-events: none; opacity: 0.5;{{/if}}"
+                                          >
+                                            <img src="/assets/icon/seat.png" class="seat__chair" alt="Seat" />
+                                            {{generateSeatID row seat_number}}
+                                          </div>
+                                        {{/each}}
+                                      </div>
+                                    </div>
+                                  {{/each}}
+                                {{else}}
+                                  <p>No screens found.</p>
+                                {{/if}}
+                                </div>
+                                
+                              <script>
+                               document.addEventListener('DOMContentLoaded', function() {
+                                  const screens = document.querySelectorAll('.screen');
+                                  screens.forEach(screen => screen.style.display = 'none'); 
+                                     
+                               }
+                               ) 
+                                document.addEventListener('click', function() {
+                                  // Initially, hide all screens
+                                 const screens = document.querySelectorAll('.screen');
+                                  screens.forEach(screen => screen.style.display = 'none'); 
+                                     
+                                  const screenToShowId = document.querySelector('.screenId-2').innerText; // Dynamically set the screen ID you want to show
+                                  const screenToShow = document.querySelector(`[data-screen-id="${screenToShowId}"]`);
+                                  if (screenToShow) {
+                                    screenToShow.style.display = 'block';
+                                  }
+
+                                  screens.forEach(screen => {
+                                    screen.addEventListener('click', function() {
+                                      const screenNumber = document.querySelector('.screenId-2').innerText;
+
+                                      screens.forEach(s => {
+                                        if (s.querySelector('.screenId').innerText === screenNumber) {
+                                          s.style.display = 'block'; 
+                                        } else {
+                                          s.style.display = 'none'; 
+                                        }
+                                      });
+
+                                    });
+                                  });
+                                });
+                              </script>
+                              <img
+                                src="/assets/icon/screen-top.png"
+                                class="screen__top"
+                                alt=""
+                              />
+                            </div>
+                            <div class="food-menu">
+                              <h2 class="food-menu-title">     
+                                Food & Drinks</h2>
+                            <div class="row row-cols-2 g-3 row-cols-md-1">
+                              
+                              <div class="col">
+                                  <div class="food-item" data-price="209000">
+                                    <img src="/assets/img/food/food-1.png" alt="Popcorn" class="food-image">
+                                    <div class="food-details">
+                                      <label class="food-label">
+                                        <span class="food-name">Combo Party(2 Bắp Ngọt 60oz + 4 Coke 22oz)</span>
+                                        <span class="food-price">209,000 VND</span>
+                                      </label>
+                                      <div class="quantity-controls">
+                                        <button class="quantity-btn minus" onclick="changeQuantity(event, -1)">-</button>
+                                        <span class="food-quantity">0</span>
+                                        <button class="quantity-btn plus" onclick="changeQuantity(event, 1)">+</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                              
+                               <div class="col">
+                                  <div class="food-item" data-price="94000">
+                                    <img src="/assets/img/food/food-2.png" alt="Soda" class="food-image">
+                                    <div class="food-details">
+                                      <label class="food-label">
+                                        <span class="food-name">Combo Solo
+    
+                                          (1 Bắp Ngọt 60oz + 1 Coke 32oz)</span>
+                                        <span class="food-price">94,000 VND</span>
+                                      </label>
+                                      <div class="quantity-controls">
+                                        <button class="quantity-btn minus" onclick="changeQuantity(event, -1)">-</button>
+                                        <span class="food-quantity">0</span>
+                                        <button class="quantity-btn plus" onclick="changeQuantity(event, 1)">+</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                               </div>
+                             <div class="col">
+                                
+                                  <div class="food-item" data-price="115000">
+                                    <img src="/assets/img/food/food-3.png" alt="Nachos" class="food-image">
+                                    <div class="food-details">
+                                      <label class="food-label">
+                                        <span class="food-name">
+                                          Combo Couple
+                                          
+                                          (1 Bắp Ngọt 60oz + 2 Coke 32oz)</span>
+                                        <span class="food-price">115,000 VND</span>
+                                      </label>
+                                      <div class="quantity-controls">
+                                        <button class="quantity-btn minus" onclick="changeQuantity(event, -1)">-</button>
+                                        <span class="food-quantity">0</span>
+                                        <button class="quantity-btn plus" onclick="changeQuantity(event, 1)">+</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                             </div>
+                              <div class="col">
+                                  <div class="food-item" data-price="259000">
+                                    <img src="/assets/img/food/food-4.png" alt="Popcorn" class="food-image">
+                                    <div class="food-details">
+                                      <label class="food-label">
+                                        <span class="food-name">Combo Nhà Bear
+    
+                                          (4 Coke 22oz + 2 Bắp 2 Ngăn 64OZ Phô Mai + Caramel)</span>
+                                        <span class="food-price">259,000 VND</span>
+                                      </label>
+                                      <div class="quantity-controls">
+                                        <button class="quantity-btn minus" onclick="changeQuantity(event, -1)">-</button>
+                                        <span class="food-quantity">0</span>
+                                        <button class="quantity-btn plus" onclick="changeQuantity(event, 1)">+</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                              
+                               <div class="col">
+                                  <div class="food-item" data-price="37000">
+                                    <img src="/assets/img/food/food-5.png" alt="Soda" class="food-image">
+                                    <div class="food-details">
+                                      <label class="food-label">
+                                        <span class="food-name">Coke 32oz</span>
+                                        <span class="food-price">37,000 VND</span>
+                                      </label>
+                                      <div class="quantity-controls">
+                                        <button class="quantity-btn minus" onclick="changeQuantity(event, -1)">-</button>
+                                        <span class="food-quantity">0</span>
+                                        <button class="quantity-btn plus" onclick="changeQuantity(event, 1)">+</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                               </div>
+                             <div class="col">
+                                  <div class="food-item" data-price="37000">
+                                    <img src="/assets/img/food/food-6.png" alt="Nachos" class="food-image">
+                                    <div class="food-details">
+                                      <label class="food-label">
+                                        <span class="food-name">Sprite 32oz</span>
+                                        <span class="food-price">37,000 VND</span>
+                                      </label>
+                                      <div class="quantity-controls">
+                                        <button class="quantity-btn minus" onclick="changeQuantity(event, -1)">-</button>
+                                        <span class="food-quantity">0</span>
+                                        <button class="quantity-btn plus" onclick="changeQuantity(event, 1)">+</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                             </div>
+                            </div>
+                            </div>
+                     <!-- booking details -->
+                            <div class="booking-details" id="bookingDetails" style="display:none;">
+                              <p id="bookingInfo"></p>
+                             <div class="booking__confirm">
+                                <div id="totalAmount"></div>
+                                <div>Time Remaining: <span id="countdown">5m 0s
+                                </span></div>
+                                <button class="buy-tickets__confirm" id="scrollToTopBtn" onclick="confirmBooking()">Confirm Booking</button>
+                             </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <!-- review tag -->
+                    </div>
+                    <div class="buy-tickets-tab__content">
+                      <div class="buy-tickets-content">
+                           <div class="row row-cols-xl-1">
+                            <div class="col">
+                              <div id="paymentInfo"></div>
+                              <div class="booking__confirm-payment">
+                                <!-- <button class="buy-tickets__confirm" onclick="confirmBooking()">Confirm Booking</button> -->
+                              </div>
+                           </div>
+                            <div class="col">
+                              <div id="auth-content" class="auth__content payment__content">
+                                <div class="auth__content-inner payment__inner">
+                                  <!-- logo -->
+
+
+                                  <form action="/buytickets/create-payment" method="POST" class="form payment__form">
+                                    <!-- Thông tin cơ bản -->
+                                    <input
+                                          type="text"
+                                          name="idFilm"
+                                          placeholder=""
+                                          class="form__input"
+                                          value="{{films._id}}"
+                                          hidden
+                                        />
+                                        {{!--  --}}
+                                        <input
+                                          type="text"
+                                          id ="date_film" 
+                                          name="date_film"
+                                          placeholder=""
+                                          class="form__input"
+                                          value=""
+                                          hidden
+                                        /> 
+                                        {{!--  --}}
+
+                                          <input
+                                          type="text"
+                                          name="time_film"
+                                          id="time_film"
+                                          placeholder=""
+                                          class="form__input"
+                                          value=""
+                                          hidden
+                                        />
+                                        {{!--  --}}
+                                              <input
+                                          type="text"
+                                          name="seat_film"
+                                          id="seat_film"
+                                          placeholder=""
+                                          class="form__input"
+                                          value=""
+                                          hidden
+                                        />
+                                              <input
+                                          type="text"
+                                          name="screen_film"
+                                          id="screen_film"
+                                          placeholder=""
+                                          class="form__input"
+                                          value=""
+                                          hidden
+                                        />
+                                              <input
+                                          type="text"
+                                          name="food_film"
+                                          id="food_film"
+                                          placeholder=""
+                                          class="form__input"
+                                          value=""
+                                              hidden
+                                        />
+                                              <input
+                                          type="text"
+                                          name="showtime_Id"
+                                          id="showtime_Id"
+                                          placeholder=""
+                                          class="form__input"
+                                          value=""
+                                          hidden
+                                        />
+                                        
+                                        {{!--  --}}
+                                    <div class="form__group payment__form-group">
+                                      <div class="form__text-input">
+                                        
+                                        <input
+                                          type="text"
+                                          name="orderInfo"
+                                          placeholder=""
+                                          class="form__input"
+                                          required
+                                          minlength="1"
+                                        />
+                                        <span class="form__holder">Name</span>
+                                      </div>
+                                      <p class="form__error">Please Input Your Name</p>
+                                    </div>
+                                  
+                          
+                                    <div class="form__group form__group-1">
+                                    <div class="form__text-input">
+                                      <input
+                                        type="text"
+                                        name="email"
+                                        id="email-1"
+                                        placeholder=" "
+                                        class="form__input-1"
+                                        required
+                                      />
+                                      <span class="form__holder-1">Email</span>
+                                    </div>
+                                    <p class="form__error-1">Please enter a valid Gmail address (e.g., example@gmail.com)</p>
+                                  </div>
+                                    <div class="form__group">
+                                      <div class="form__text-input">
+                                        <input
+                                          type="text"
+                                          name="phone"
+                                          placeholder=" "
+                                          class="form__input"
+                                          required
+                                        />
+                                        <span class="form__holder">Phone</span>
+                                      </div>
+                                      <p class="form__error">Phone Not Correct</p>
+                                    </div>
+
+                                      <div class="form__group" style="display : none">
+                                      <div class="form__text-input">
+                                       <input
+                                          type="number"
+                                          name="amount"
+                                          id="amountForm"
+                                          placeholder=" "
+                                          class="form__input"
+                                          value=""
+                                        />
+                                        <span class="form__holder">amount</span>
+                                      </div>
+                                      <p class="form__error">amout Not Correct</p>
+                                    </div>
+                                         
+                                    <!-- Thông tin thanh toán -->
+                                       
+
+                                    <!-- Chọn phương thức thanh toán -->
+                                    <div class="payment-methods">
+                                      <div class="payment-option">
+                                        <input type="radio" id="vnpay" name="payment_method" value="vnpay" class="payment-checkbox" required />
+                                        <label for="vnpay">
+                                          <div class="payment-info">
+                                            <h4>Thanh toán qua VNPAY</h4>
+                                            <ul>
+                                              <li>QR Pay qua ứng dụng Mobile Banking</li>
+                                              <li>Thẻ quốc tế Visa, MasterCard, JCB...</li>
+                                              <li>Thẻ ATM nội địa</li>
+                                            </ul>
+                                          </div>
+                                        </label>
+                                      </div>
+                                      <div class="payment-option">
+                                        <input type="radio" id="momo" name="payment_method" value="momo" class="payment-checkbox" />
+                                        <label for="momo">
+                                          <div class="payment-info">
+                                            <h4>Thanh toán qua ví điện tử MoMo</h4>
+                                          </div>
+                                        </label>
+                                      </div>
+                                    </div>
+
+                                    <!-- Điều khoản -->
+                                    <div class="form__group form__group--inline">
+                                      <label for="checked" class="form__checkbox">
+                                        <input
+                                          type="checkbox"
+                                          name="agree"
+                                          id="checked"
+                                          class="form__checkbox-input d-none"
+                                          required
+                                        />
+                                        <span class="form__checkbox-label">
+                                          I have read and agree to the
+                                          <a class="form__group-term">Terms & Conditions</a> and
+                                          <a class="form__group-term">Privacy Policy</a>
+                                        </span>
+                                      </label>
+                                    </div>
+
+                                    <!-- Submit -->
+                                    <div class="form__group auth__btn-group">
+                                      <button type="submit" class="btn btn--primary auth__btn form__submit-btn">
+                                        Payment
+                                      </button>
+                                    </div>
+                                  </form>
+
+                                </div>
+                              </div>
+                            </div>
+                         
+                           </div>
+                        </div>
+                    </div>
+                    <!-- /review tag -->
+                    <!-- also showing -->
+                    <div class="buy-tickets-tab__content">
+                      <div class="buy-tickets-content">
+                        <h2 class="buy-tickets-content__heading">
+                          In Ve Dien Tu 
+                        </h2>
+                        <div
+                          class="row row-cols-6 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-3"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+         </img>
+        <!-- footer -->
+      </div>
+    </main>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Lấy tất cả các nút ngày
+    const dateButtons = document.querySelectorAll(".date-button");
+    const showtimes = document.querySelectorAll(".showtime__book");
+
+    // Hàm để ẩn tất cả showtimes
+    function hideAllShowtimes() {
+      showtimes.forEach((showtime) => {
+        showtime.style.display = "none";
+      });
+    }
+
+    // Hàm để hiển thị showtimes của ngày được chọn
+    function showShowtimesForDate(date) {
+      const showtimesForDate = document.querySelectorAll(
+        `.showtime__book[data-date="${date}"]`
+      );
+      showtimesForDate.forEach((showtime) => {
+        showtime.style.display = "block";
+      });
+    }
+
+    // Hàm để set màu nền cho các nút ngày
+    function setActiveButton(date) {
+      // Loại bỏ class 'active' khỏi tất cả các nút
+      dateButtons.forEach((button) => {
+        button.classList.remove("active");
+      });
+
+      // Thêm class 'active' vào nút được chọn
+      const activeButton = document.querySelector(
+        `.date-button[data-date="${date}"]`
+      );
+      if (activeButton) {
+        activeButton.classList.add("active");
+      }
+    }
+
+    // Lắng nghe sự kiện khi người dùng bấm vào nút ngày
+    dateButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const selectedDate = this.getAttribute("data-date");
+
+        // Ẩn tất cả showtimes và hiển thị showtimes của ngày đã chọn
+        hideAllShowtimes();
+        showShowtimesForDate(selectedDate);
+
+        // Đổi màu nền của nút được chọn
+        setActiveButton(selectedDate);
+      });
+    });
+
+    // Khi trang load, hiển thị showtimes của ngày đầu tiên và đổi màu nền cho nút đầu tiên
+    if (dateButtons.length > 0) {
+      const firstDate = dateButtons[0].getAttribute("data-date");
+
+      // Ẩn tất cả showtimes và chỉ hiển thị showtimes của ngày đầu tiên
+      hideAllShowtimes();
+      showShowtimesForDate(firstDate);
+
+      // Đổi màu nền cho nút đầu tiên
+      setActiveButton(firstDate);
+    }
+  });
+</script>
+
+<script>
+document.querySelector('#email-1').addEventListener('input', function() {
+  var emailInput = document.querySelector('#email-1');
+  var errorElement = document.querySelector('.form__error-1');
+  
+  // Regular expression để kiểm tra email với @gmail.com
+  var emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+  
+  // Kiểm tra email có đúng định dạng không
+  if (!emailPattern.test(emailInput.value)) {
+    errorElement.style.display = 'block';  // Hiển thị lỗi
+  } else {
+    errorElement.style.display = 'none';  // Ẩn lỗi nếu đúng
+  }
+});
+</script>

@@ -1,0 +1,394 @@
+@use "../abstracts";
+.prod-content {
+  &__heading {
+    color: var(--prod-content-heading);
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.44;
+    margin-bottom: 30px;
+  }
+}
+.film-page {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 33px;
+}
+.film-container {
+  @include abstracts.screen(md) {
+    margin-top: 20px;
+  }
+}
+.prod-preview {
+  @include abstracts.screen(lg) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  @include abstracts.screen(lg) {
+    padding: 16px;
+  }
+  &__list {
+    display: flex;
+    overflow: hidden;
+    @include abstracts.screen(lg) {
+      flex: 1;
+    }
+    border-radius: 10px 0 0 0 !important;
+  }
+  &__item {
+    width: calc(100%);
+    flex-shrink: 0;
+    padding-top: 150%;
+    position: relative;
+    left: -12px;
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__thumbs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 16px;
+    @include abstracts.screen(xxl) {
+      flex-wrap: wrap;
+    }
+    @include abstracts.screen(lg) {
+      flex-direction: column;
+      padding-left: 0;
+    }
+    @include abstracts.screen(md) {
+      display: none;
+    }
+  }
+  &__thumb-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border: 1px solid rgb(158, 157, 168, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity border-color;
+    transition-duration: 0.3s;
+    &:hover {
+      opacity: 1;
+      border-color: #9e9da8;
+    }
+    &--current {
+      opacity: 1;
+      border-color: #ffb700;
+    }
+  }
+}
+
+.prod-info {
+  background: var(--prod-info-bg);
+  padding: 30px 60px;
+  @include abstracts.screen(xxl) {
+    padding: 30px;
+  }
+  @include abstracts.screen(lg) {
+    margin-top: 30px;
+  }
+  @include abstracts.screen(md) {
+    border-radius: 20px;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  &__heading {
+    color: var(--prod-info-heading-color);
+    font-family: "Clash Display";
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.38;
+    margin-bottom: 40px;
+  }
+
+  &-content {
+    position: relative;
+    margin: 0;
+
+    &__img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.2;
+      z-index: -1;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+  }
+}
+.prod-prop {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  @include abstracts.screen(md) {
+    margin-top: 20px;
+  }
+  &__icon {
+    align-self: flex-start;
+    width: 25px;
+    height: 25px;
+    filter: var(--prod-prop-filter);
+  }
+  &__title {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.44;
+    color: var(--prod-prop-title-color);
+  }
+  &__sub-title {
+    font-family: "Clash Display";
+    color: var(--prod-prop-color);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.44;
+    align-self: flex-start;
+    width: 100px;
+    flex-shrink: 0;
+    &--content {
+      color: var(--prod-prop-sub-title-color);
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1.44;
+    }
+  }
+  &__desc {
+    margin-top: 4px;
+    color: var(--prod-prop-color);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.42;
+  }
+  &__tag {
+    margin-top: 40px;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.44;
+    color: #f3ea28;
+    color: var(--prod-prop-tag-color);
+  }
+}
+
+.prod-info-content {
+  border-radius: 20px;
+  background-color: var(--prod-info-content);
+}
+
+.prod-preview__thumbs {
+  display: flex;
+  gap: 10px;
+}
+
+.prod-preview__thumb-img {
+  width: 100px;
+  cursor: pointer;
+}
+//////////////////////////////////////
+.prod-preview {
+  &__thumb-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border: 1px solid rgba(158, 157, 168, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.3s, border-color 0.3s;
+
+    &:hover {
+      opacity: 1;
+      border-color: #9e9da8;
+    }
+  }
+}
+.prod-tab {
+  margin-top: 30px;
+  &__list {
+    display: flex;
+    align-items: center;
+    margin: 0 -30px;
+    @include abstracts.screen(sm) {
+      margin: 0 -20px;
+    }
+  }
+  &__item {
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 30px;
+    color: #9e9da8;
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: 1.45;
+    &--active {
+      color: inherit;
+    }
+    @include abstracts.screen(lg) {
+      font-size: 1.8rem;
+    }
+    @include abstracts.screen(sm) {
+      font-size: 1.3rem;
+      padding: 0 20px;
+    }
+  }
+  &__contents {
+    padding-top: 30px;
+  }
+  &__content {
+    display: none;
+    &--active {
+      display: block;
+    }
+  }
+}
+/////////////////////////
+.overlay {
+  &-thumb {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  &-thumb img {
+    width: 1066px;
+    height: 600px;
+    object-fit: cover;
+    @include abstracts.screen(xl) {
+      width: 711px;
+      height: 400px;
+    }
+    @include abstracts.screen(md) {
+      width: 444px;
+      height: 250px;
+    }
+    @include abstracts.screen(sm) {
+      width: 266px;
+      height: 150px;
+    }
+  }
+
+  &-thumb__close,
+  &-thumb__prev,
+  &-thumb__next {
+    position: absolute;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 4rem;
+    z-index: 1001;
+    &:hover {
+      opacity: 0.9;
+    }
+
+    @include abstracts.screen(lg) {
+      font-size: 3rem;
+    }
+  }
+  &-container {
+    position: relative;
+
+    @include abstracts.screen(lg) {
+      max-width: 90%;
+      max-height: 90%;
+    }
+    @include abstracts.screen(md) {
+      max-width: 80%;
+      max-height: 80%;
+    }
+  }
+  &-thumb__close {
+    top: -40px;
+    right: -40px;
+  }
+
+  &-thumb__prev {
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &-thumb__next {
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+// ////////////////////////
+// .movie-showtime__tabs {
+//   display: flex;
+//   gap: 10px;
+//   margin-bottom: 20px;
+// }
+
+// .movie-showtime__tab-button {
+//   padding: 10px 20px;
+//   background-color: #ddd;
+//   border: none;
+//   cursor: pointer;
+//   border-radius: 5px;
+// }
+
+// .movie-showtime__tab-button.active {
+//   background-color: #007bff;
+//   color: white;
+// }
+
+// #movie-schedule-list {
+//   margin-top: 20px;
+// }
+
+// .movie-schedule-item {
+//   background-color: white;
+//   padding: 15px;
+//   margin-bottom: 15px;
+//   border-radius: 5px;
+//   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+// }
+
+// .movie-schedule-item h3 {
+//   margin: 0;
+//   font-size: 1.5em;
+// }
+
+// .movie-schedule-item p {
+//   margin: 5px 0;
+// }
+
+// .showtime-button {
+//   background-color: #28a745;
+//   color: white;
+//   padding: 5px 10px;
+//   border: none;
+//   border-radius: 5px;
+//   cursor: pointer;
+// }
+
+// .showtime-button:hover {
+//   background-color: #218838;
+// }
+
+// #no-schedule-message {
+//   color: red;
+// }

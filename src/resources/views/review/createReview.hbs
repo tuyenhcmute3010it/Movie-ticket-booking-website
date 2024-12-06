@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="feedback-modal">
+    <h2 class="review-Page__heading">Review</h2>
+    <h3 class="review-Page__sub-title">Star For The Movie</h3>
+
+    <fieldset class="rating">
+      <input type="radio" id="star5" name="rating" value="5" /><label
+        class="full"
+        for="star5"
+        title="Awesome - 5 stars"
+      ></label>
+      <input
+        type="radio"
+        id="star4half"
+        name="rating"
+        value="4 and a half"
+      /><label
+        class="half"
+        for="star4half"
+        title="Pretty good - 4.5 stars"
+      ></label>
+      <input type="radio" id="star4" name="rating" value="4" /><label
+        class="full"
+        for="star4"
+        title="Pretty good - 4 stars"
+      ></label>
+      <input
+        type="radio"
+        id="star3half"
+        name="rating"
+        value="3 and a half"
+      /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+      <input type="radio" id="star3" name="rating" value="3" /><label
+        class="full"
+        for="star3"
+        title="Meh - 3 stars"
+      ></label>
+      <input
+        type="radio"
+        id="star2half"
+        name="rating"
+        value="2 and a half"
+      /><label
+        class="half"
+        for="star2half"
+        title="Kinda bad - 2.5 stars"
+      ></label>
+      <input type="radio" id="star2" name="rating" value="2" /><label
+        class="full"
+        for="star2"
+        title="Kinda bad - 2 stars"
+      ></label>
+      <input
+        type="radio"
+        id="star1half"
+        name="rating"
+        value="1 and a half"
+      /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+      <input type="radio" id="star1" name="rating" value="1" /><label
+        class="full"
+        for="star1"
+        title="Sucks big time - 1 star"
+      ></label>
+      <input type="radio" id="starhalf" name="rating" value="half" /><label
+        class="half"
+        for="starhalf"
+        title="Sucks big time - 0.5 stars"
+      ></label>
+    </fieldset>
+
+    <h3 class="review-Page__sub-title">Review For The Movie</h3>
+    <textarea id="feedback-reason"></textarea>
+    <p class="review-Page__desc">Are you satisfied with the service staff's
+      attitude?</p>
+    <div class="rating-options">
+      <label for="Terrible" class="border">
+        <input type="radio" id="Terrible" name="rating" value="Terrible" />
+        <span class="emoji"><i class="fa-regular fa-face-sad-tear"></i></span>
+        <span>Terrible</span>
+      </label>
+      <label for="Bad" class="border">
+        <input type="radio" id="Bad" name="rating" value="Bad" />
+        <span class="emoji"><i class="fa-regular fa-face-frown"></i></span>
+        <span>Bad</span>
+      </label>
+      <label for="Okay" class="border">
+        <input type="radio" id="Okay" name="rating" value="Okay" />
+        <span class="emoji"><i class="fa-regular fa-face-meh"></i></span>
+        <span>Okay</span>
+      </label>
+      <label for="Good" class="border">
+        <input type="radio" id="Good" name="rating" value="Good" checked />
+        <span class="emoji"><i class="fa-regular fa-face-smile"></i></span>
+        <span>Good</span>
+      </label>
+      <label for="Amazing" class="border">
+        <input type="radio" id="Amazing" name="rating" value="Amazing" />
+        <span class="emoji"><i class="fa-regular fa-face-laugh"></i></span>
+        <span>Amazing</span>
+      </label>
+    </div>
+    <div class="options">
+      <label class="checkbox">
+        <input type="checkbox" id="contact-consent" checked />
+        I may be contacted about this feedback.
+        <a class="form__group-term">Privacy Policy</a>
+      </label>
+      <p id="contact-consent-error">Error: You must consent to be contacted.</p>
+    </div>
+    <p id="success-message">Thank you for your feedback! Your response has been
+      submitted.</p>
+    <div class="actions">
+      <button class="review-Page__button" id="submit">Submit</button>
+      <button class="review-Page__button" id="cancel">Cancel</button>
+    </div>
+
+  </div>
+</div>

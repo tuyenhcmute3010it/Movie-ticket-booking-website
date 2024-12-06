@@ -1,0 +1,127 @@
+<main class="film-page">
+    <div class="container">
+        <!-- film info -->
+        <div class="film-container">
+          <!-- breadcrumbs -->
+          <ul class="breadcrumbs">
+            <li class="breadcrumbs__item">
+              <a href="/home-logined" class="breadcrumbs__link">Home </a>
+              <img
+                class="breadcrumbs__icon"
+                src="/assets/icon/arrow-right.svg"
+                alt=""
+            />
+            </li>
+            <li class="breadcrumbs__item">
+              <a href="#!" class="breadcrumbs__link">Buy tickets</a>
+              <img
+                class="breadcrumbs__icon"
+                src="/assets/icon/arrow-right.svg"
+                alt=""
+              />
+            </li>
+            <li class="breadcrumbs__item">
+              <a href="#!" class="breadcrumbs__link--current" id="nameFilm"
+                >{{films.title}}
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- film info -->
+        <div class="film-container buy-tickets-info-content">
+         <img src="{{films.poster_url}}" class="prod-info-content__img">
+              <div class="row">
+                <div class="col-3 col-xl-8 offset-xl-2 col-lg-12 offset-lg-0">
+                  <div class="prod-preview">
+                  <div class="prod-preview__list">
+                    <div class="prod-preview__item">
+                      <img
+                        src="{{films.poster_url}}"
+                        alt=""
+                        class="prod-preview__img"
+                      />
+                    </div>
+                  </div>
+                  <div class="prod-preview__thumbs">
+                 {{#each films.thumb_preview as |thumb index|}}
+                    <img
+                      src="{{thumb}}"
+                      alt="A Wild Robot - Thumbnail"
+                      class="prod-preview__thumb-img"
+                      onclick="showImage({{index}})"
+                    />
+                  {{/each}}
+                </div>
+                  <!-- Overlay for the enlarged image -->
+                  <div class="overlay-thumb" id="imageOverlay">
+                    <div class="overlay-container">
+                      <img id="overlay-thumb-img" src="" alt="Enlarged Thumbnail" />
+                      <button class="overlay-thumb__close">✖</button>
+                      <button class="overlay-thumb__prev">❮</button>
+                      <button class="overlay-thumb__next">❯</button>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-9 col-xl-12 col-lg-12">
+                  <div class="buy-tickets-tab js-tabs">
+                    <ul class="buy-tickets-tab__list">
+              
+                      <li
+                        class="buy-tickets-tab__item " data-text="Seats & Food Selection"
+                      >
+                        Seats & Food Selection
+                     </li>
+                      <li class="buy-tickets-tab__item text" data-text="Payment" >Payment</li>
+                      <li class="buy-tickets-tab__item text buy-tickets-tab__item--active text" data-text="Confirmation">Confirmation</li>
+                    </ul>
+                   
+                    <div class="buy-tickets-tab__contents">
+                      <!-- show time -->
+                      <div
+                        class="buy-tickets-tab__content "
+                      >
+                      <!-- review tag -->
+                    </div>
+                    <div class="buy-tickets-tab__content">
+                      <div class="buy-tickets-content ">
+                    
+                        </div>
+                    </div>
+                    <!-- /review tag -->
+                    <!-- also showing -->
+                    <div class="buy-tickets-tab__content buy-tickets-tab__content--active">
+                      <div class="buy-tickets-content">
+                        <h2 class="buy-tickets-content__heading">
+                        </h2>
+                        <div class="confirmation-page">
+                            <div id="ticket" class="tickets-confirm">
+                              <h1 style="text-align: center">Movin Cinemas</h1>
+                               <img src="/assets/img/logo_movin.png" alt="MOVIN" class="logo__img ticket-logo">
+                                 <div class="ticket-purchased">
+                                <div class="ticket-purchased__item">
+                              <p><strong class="tickets__pur-title">Film Title:</strong> {{films.title}}</p>
+                              <p><strong class="tickets__pur-title">Email:</strong> {{email}}</p>
+                              <p><strong class="tickets__pur-title">Amount:</strong> {{amount}} VND</p>
+                              <p><strong class="tickets__pur-title">Seat(s):</strong> {{seat_film}}</p>
+                              <p><strong class="tickets__pur-title">Date:</strong> {{date_film}}</p>
+                              <p><strong class="tickets__pur-title">Time:</strong> {{time_film}}</p>
+                              <p><strong class="tickets__pur-title">Screen:</strong> {{screen_film}}</p>
+                                </div>
+                              </div>
+                            </div>
+                            <button class="print-button" onclick="printTicket()">Print Ticket</button>
+                          </div>
+                        <div
+                          class="row row-cols-6 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-3"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+         </img>
+        <!-- footer -->
+      </div>
+    </main>

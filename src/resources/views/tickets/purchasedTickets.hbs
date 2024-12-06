@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="tickets-pur">
+    <div class="row row-cols-2">
+      {{#each ticket}}
+        <div class="col">
+          <div class="ticket-purchased">
+            <div class="ticket-purchased__item">
+              <p><strong class="tickets__pur-title">Film Title : </strong>
+                {{idFilm.title}}</p>
+              <p><strong class="tickets__pur-title">Screen : </strong>
+                {{this.screen_film}}</p>
+              <p><strong class="tickets__pur-title">Email Send : </strong>
+                {{this.email}}</p>
+              <p><strong class="tickets__pur-title">Amount : </strong>
+                {{this.amount}}VND</p>
+              <p><strong class="tickets__pur-title">Seat(s) : </strong>
+                {{this.seat_film}}</p>
+              <p><strong class="tickets__pur-title">Date : </strong>
+                {{this.date_film}}</p>
+              <p><strong class="tickets__pur-title">Time : </strong>
+                {{this.time_film}}</p>
+              <p><strong class="tickets__pur-title">Buy Tickets At : </strong>
+                {{this.create_at}}</p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="container">
+  <ul class="breadcrumbs">
+    <li class="breadcrumbs__item">
+      <a href="/profile/admin" class="breadcrumbs__link">Admin Management</a>
+      <img
+        class="breadcrumbs__icon"
+        src="/assets/icon/arrow-right.svg"
+        alt=""
+      />
+    </li>
+    <li class="breadcrumbs__item">
+      <a
+        href="/admin/{{films._id}}/showtimes"
+        class="breadcrumbs__link--current"
+      >Showtime ({{films.title}})</a>
+    </li>
+  </ul>
+
+  <form action="/admin/{{films._id}}/showtimes/stored" method="POST">
+    <div class="movie-item">
+      <h3 class="movie-title">{{films.title}}</h3>
+      <p class="movie-subtitle">Release Date: {{films.release_date}}</p>
+      <p class="movie-description">Duration: {{films.duration}}'</p>
+    </div>
+
+    <input type="hidden" id="showtimesData" name="showtimesData" value="[]" />
+    <div class="showtime">
+      <div class="showtime__movie-schedule-container">
+        <div class="showtime__tabs">
+          <!-- Các tab ngày sẽ được tạo tự động -->
+        </div>
+        <div class="schedule-content">
+          <div class="movie-list" id="movie-list"></div>
+          <div id="no-sessions-message"></div>
+        </div>
+      </div>
+
+      <!-- Section for adding showtimes -->
+      <div class="screen-selector">
+        <label for="screenDropdown" class="showtime__add-label">Select Screen:</label>
+        <select id="screenDropdown" name="screen_number">
+          {{#each screens}}
+            <option
+              class="screen-dropdown__option"
+              value="{{screen_number}}"
+            >{{screen_number}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <div class="add-showtime-section">
+        <div class="showtime__add-showtime">
+          <label for="new-showtime" class="showtime__add-label">Add Showtime:</label>
+          <input type="time" id="new-showtime" name="new_showtime" />
+          <button
+            type="button"
+            id="addShowtimeButton"
+            class="showtime__add-showtime-button"
+          >Add Showtime +</button>
+        </div>
+      </div>
+    </div>
+    <div class="showtime__submit-control admin__add">
+      <button
+        type="submit"
+        id="submitShowtimes"
+        class="admin__text"
+        data-text="Submit Showtime"
+      >Submit Showtime</button>
+    </div>
+  </form>
+
+</div>

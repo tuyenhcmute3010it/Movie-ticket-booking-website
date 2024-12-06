@@ -1,0 +1,21 @@
+@use "../abstracts";
+.logo {
+  &__img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    @include abstracts.screen(md) {
+      width: 40px;
+      height: 40px;
+    }
+    @include abstracts.screen(sm) {
+      margin-left: -10px;
+    }
+  }
+  &__header {
+    margin-right: 30px;
+    @include abstracts.screen(xxl) {
+      margin-right: 20px;
+    }
+  }
+}

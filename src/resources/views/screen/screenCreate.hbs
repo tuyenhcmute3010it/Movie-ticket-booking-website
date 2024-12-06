@@ -1,0 +1,104 @@
+<div class="container">
+  <ul class="breadcrumbs">
+    <li class="breadcrumbs__item">
+      <a href="/profile/admin" class="breadcrumbs__link">Admin Management</a>
+      <img
+        class="breadcrumbs__icon"
+        src="/assets/icon/arrow-right.svg"
+        alt=""
+      />
+    </li>
+    <li class="breadcrumbs__item">
+      <a href="#!" class="breadcrumbs__link--current">Add New Screen & Seats</a>
+    </li>
+  </ul>
+  <h3 class="admin__heading">Add New Screen & Seats</h3>
+  <div id="seatLayout" class="mt-5">
+    <h4 class="seat__heading">Screen Information</h4>
+    <div id="seatTable" class="row"></div>
+  </div>
+  <form method="POST" action="/admin/screen/stored" id="FormAction">
+
+    <div class="row">
+      <!-- Screen Details -->
+      <div class="col-6">
+
+        <div class="form__group admin__form">
+          <label for="screen_number">Screen Number</label>
+          <input
+            type="number"
+            class="form__input"
+            id="screen_number"
+            name="screen_number"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form__group admin__form">
+          <label for="seat_capacity">Seat Capacity</label>
+          <input
+            type="number"
+            class="form__input"
+            id="seat_capacity"
+            name="seat_capacity"
+            required
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Seats Section -->
+    <div id="seatContainer" class="row">
+      <div class="col-12">
+        <h4 class="seat__heading">Add Seats</h4>
+      </div>
+    </div>
+    <!-- Add Seat Button -->
+    <div class="col-12">
+      <button
+        type="button"
+        id="addSeatButton"
+        class="btn btn-primary seat__add"
+      >
+        Add Seat +
+      </button>
+    </div>
+
+    <!-- Submit Button -->
+  </form>
+  <div class="col-12 admin__add seat__submit">
+    <button
+      type="submit"
+      class="admin__text js-toggle"
+      toggle-target="#save-confirm"
+      data-text="Save Screen & Seats"
+    >
+      Save Screen & Seats
+    </button>
+  </div>
+</div>
+{{!  }}
+<div id="save-confirm" class="modal modal--small">
+  <button
+    class="modal__close js-toggle"
+    toggle-target="#save-confirm"
+  >&times;</button>
+  <div class="modal__content">
+    <div class="modal__text">Are you sure to save this Screen & Seats
+      information?</div>
+    <div class="modal__bottom">
+      <button
+        class="btn btn--text modal__btn js-toggle"
+        toggle-target="#save-confirm"
+      >Cancel</button>
+      <button
+        id="modalSaveButton"
+        class="btn btn--primary modal__btn btn--no-margin btn--danger"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+  <div class="modal__overlay js-toggle" toggle-target="#save-confirm"></div>
+</div>

@@ -1,0 +1,207 @@
+@use "../abstracts";
+.auth {
+  min-height: 100vh;
+  display: flex;
+  @supports (-webkit-touch-callout: none) {
+    min-height: -webkit-fill-available;
+  }
+  &__message {
+    margin-top: 60px;
+  }
+  &__intro,
+  &__content {
+    flex: 1;
+    padding: 0 30px;
+  }
+  &__intro {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--auth-intro-bg);
+    gap: 50px;
+    &-text {
+      color: var(--auth-intro-text-color);
+      max-width: 412px;
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 1.44;
+      text-align: center;
+      @include abstracts.screen(md) {
+        font-size: 1.5rem;
+      }
+    }
+    &-img {
+      max-width: 100%;
+      width: var(--width);
+    }
+    &-logo {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      translate: -50% 0;
+    }
+    &-next {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      translate: -50% 0;
+    }
+  }
+  &__content {
+    @include abstracts.screen(md) {
+      &.hide {
+        translate: 100%;
+      }
+    }
+    background-color: var(--auth-content-bg);
+    @include abstracts.screen(md) {
+      // position: fixed;
+      inset: 0;
+      z-index: 1;
+      // translate: 100%;
+      transition: translate 0.3s;
+      overflow-y: auto;
+      &.hide {
+        translate: 100%;
+      }
+      &.show {
+        translate: 0;
+      }
+    }
+    &-inner {
+      width: min(460px, 100%);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 22px 0;
+      @include abstracts.screen(md) {
+        padding: 32px 0;
+      }
+    }
+  }
+  &__heading {
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.46;
+    margin-top: 30px;
+    color: var(--auth-heading-color);
+    @include abstracts.screen(md) {
+      font-size: 2.2rem;
+      margin-top: 40px;
+    }
+  }
+  &__desc {
+    color: #9e9da8;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.46;
+    padding: 0 20px;
+    @include abstracts.screen(md) {
+      font-size: 1.4rem;
+    }
+  }
+  &__form {
+    margin-top: 30px;
+    width: 100%;
+    &-forgot {
+      margin-top: 10px;
+    }
+  }
+  &__link {
+    color: #0071dc;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.46;
+    @include abstracts.screen(md) {
+      font-size: 1.4rem;
+    }
+  }
+  &__btn-group {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @include abstracts.screen(md) {
+      margin-top: 15px;
+      gap: 20px;
+    }
+  }
+  &__btn {
+    width: 100%;
+    background-color: #0071dc !important;
+    color: #fff;
+  }
+
+  &__text {
+    color: #9e9da8;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.44;
+    @include abstracts.screen(md) {
+      font-size: 1.4rem;
+      margin-top: 20px;
+    }
+    margin-top: 30px;
+    &-link {
+      font-size: inherit;
+      @include abstracts.screen(md) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+  &__logo {
+    @include abstracts.screen(md) {
+      width: 60px !important;
+      height: 60px !important;
+    }
+  }
+}
+////////////////
+.form__input-1 {
+  background-color: transparent !important;
+  height: 100%;
+  flex: 1;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.44;
+  outline: none;
+  width: 100%;
+  color: var(--auto-fill-color) !important;
+}
+
+.form__holder-1 {
+  position: absolute;
+  color: #9e9da8;
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 1.46;
+  transition-property: translate color;
+  transition-duration: 0.3s;
+  top: 50%;
+  translate: 0 -50%;
+  pointer-events: none;
+}
+.form__group-1 {
+  margin-bottom: 60px;
+}
+.form__input-1:focus + .form__holder-1,
+.form__input-1:not(:placeholder-shown) + .form__holder-1 {
+  top: 10px;
+  left: 10px;
+  font-size: 1.6rem;
+  color: #bbb;
+}
+
+.form__error-1 {
+  display: none;
+  color: red;
+  text-align: left;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 10px;
+}

@@ -1,0 +1,39 @@
+<body>
+  <ul class="breadcrumbs">
+    <li class="breadcrumbs__item">
+      <a href="/profile/admin" class="breadcrumbs__link">Admin Management</a>
+      <img
+        class="breadcrumbs__icon"
+        src="/assets/icon/arrow-right.svg"
+        alt=""
+      />
+    </li>
+    <li class="breadcrumbs__item">
+      <a href="#!" class="breadcrumbs__link--current">Add New Film</a>
+    </li>
+  </ul>
+  <h1>Update Showtime</h1>
+  <form action="/showtime/<%= showtime._id %>" method="POST">
+    <div>
+      <label for="start_time">Start Time:</label>
+      <input
+        type="time"
+        name="start_time"
+        id="start_time"
+        value="<%= showtime.start_time %>"
+        required
+      />
+    </div>
+    <div>
+      <label for="end_time">End Time:</label>
+      <input
+        type="time"
+        name="end_time"
+        id="end_time"
+        value="<%= showtime.end_time %>"
+        required
+      />
+    </div>
+    <button type="submit">Update Showtime</button>
+  </form>
+</body>

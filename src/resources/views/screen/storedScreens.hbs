@@ -1,0 +1,32 @@
+<h1>Stored Screens</h1>
+
+{{#if message}}
+  <p>{{message}}</p>
+{{else}}
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Screen Number</th>
+        <th>Seat Capacity</th>
+        <th>Seats</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each screens}}
+        <tr>
+          <td>{{screen_number}}</td>
+          <td>{{seat_capacity}}</td>
+          <td>
+            {{#each seats}}
+              Row:
+              {{row}}, Number:
+              {{seat_number}}, Price:
+              {{seat_price}}
+              <br />
+            {{/each}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{/if}}

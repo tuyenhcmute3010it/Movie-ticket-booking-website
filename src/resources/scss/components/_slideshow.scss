@@ -1,0 +1,101 @@
+@use "../abstracts";
+.slideshow {
+  --color: #fff;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  &__inner {
+    display: flex;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+  }
+  &__item {
+    position: relative;
+    flex-shrink: 0;
+    padding-top: 34%;
+    min-width: 100%;
+    display: none;
+
+    @include abstracts.screen(md) {
+      padding-top: 50%;
+    }
+  }
+  &__item.active {
+    display: block;
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    @include abstracts.screen(md) {
+      object-fit: contain;
+    }
+  }
+  &__page {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 31px;
+    width: 16%;
+    translate: -50% 0;
+    @include abstracts.screen(md) {
+      gap: 10px;
+    }
+  }
+
+  &__slider {
+    width: 50%;
+    height: 4px;
+    background: var(--color);
+    flex-shrink: 0;
+
+    &::before {
+      left: 0;
+      translate: 195% -50%;
+    }
+    &::after {
+      right: 0;
+      translate: 386% -50%;
+    }
+  }
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+  }
+  &__button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  &__button {
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      opacity: 0.9;
+    }
+    @include abstracts.screen(md) {
+      width: 20px;
+      height: 30px;
+    }
+  }
+}
