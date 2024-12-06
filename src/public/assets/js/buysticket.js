@@ -230,6 +230,14 @@ function updateBookingInfo() {
       - [Seats]: ${selectedSeats}<br>
       - [Food]: ${foodItems}<br>
   `;
+  const dateFields = document.getElementById("date_film");
+  const timeFields = document.getElementById("time_film");
+  const seatFields = document.getElementById("seat_film");
+
+  // Cập nhật giá trị cho từng input field
+  dateFields.value = formattedDate;
+  timeFields.value = selectedTime;
+  seatFields.value = selectedSeats;
 
   document.querySelector("#bookingInfo").innerHTML = info;
 }

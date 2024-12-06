@@ -1,5 +1,5 @@
 const Films = require("../models/Films");
-const mongooseToObject = require("../../util/mongoose");
+const { mongooseToObject } = require("../../util/mongoose");
 const { multipleMongooseToObject } = require("../../util/mongoose");
 // const Screen = require("../models/Screen");
 const ScreenShowtimes = require("../models/Screen_Showtime");
@@ -99,26 +99,37 @@ class BuyticketsController {
       showtimesByDate,
       today: today.toISOString().split("T")[0], // Ngày hôm nay
       screens: multipleMongooseToObject(screens),
+      isLoggedIn: true,
     });
   }
   async createPayment(req, res, next) {
     try {
-      const { amount, orderInfo = "Thanh toán đơn hàng vé và combo" } =
-        req.body;
+      const {
+        amount,
+        orderInfo = "Thanh toán đơn hàng vé và combo",
+        idFilm,
+        email,
+        date_film,
+        time_film,
+        seat_film,
+      } = req.body;
 
-      // Kiểm tra `amount`
+      // Kiểm tra dữ liệu
       if (!amount || isNaN(amount) || amount <= 0) {
         return res.status(400).json({ error: "Invalid amount" });
       }
+      if (!email) {
+        return res.status(400).json({ error: "Email is required" });
+      }
 
-      const tmnCode = "U2XWC1UC"; // Mã Website VNPAY
-      const secretKey = "H13FCAHLKVP4JFFAQHM4UMVLJWWVEQT8"; // Chuỗi bí mật
+      const tmnCode = "U2XWC1UC";
+      const secretKey = "H13FCAHLKVP4JFFAQHM4UMVLJWWVEQT8";
       const vnpUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-      const returnUrl = "http://localhost:3000/buytickets/vnpay-return"; // URL callback sau thanh toán
+      const returnUrl = "http://localhost:3000/buytickets/vnpay-return";
 
       const date = new Date();
       const createDate = moment(date).format("YYYYMMDDHHmmss");
-      const orderId = date.getTime(); // Mã đơn hàng duy nhất
+      const orderId = date.getTime();
 
       const params = {
         vnp_Version: "2.1.0",
@@ -127,7 +138,9 @@ class BuyticketsController {
         vnp_Locale: "vn",
         vnp_CurrCode: "VND",
         vnp_TxnRef: orderId,
-        vnp_OrderInfo: encodeURIComponent(orderInfo), // Mã hóa giá trị
+        vnp_OrderInfo: encodeURIComponent(
+          `${orderInfo}|${email}|${amount}|${seat_film}|${date_film}|${time_film}|${idFilm}`
+        ),
         vnp_OrderType: "billpayment",
         vnp_Amount: amount * 100,
         vnp_ReturnUrl: returnUrl,
@@ -135,19 +148,14 @@ class BuyticketsController {
         vnp_CreateDate: createDate,
       };
 
-      // Sắp xếp tham số
       const sortedParams = sortObject(params);
-
-      // Tạo query string
       const signData = querystring.stringify(sortedParams, { encode: false });
       const secureHash = crypto
         .createHmac("sha512", secretKey)
         .update(signData)
         .digest("hex");
-
       sortedParams["vnp_SecureHash"] = secureHash;
 
-      // Tạo URL thanh toán
       const paymentUrl = `${vnpUrl}?${querystring.stringify(sortedParams, {
         encode: false,
       })}`;
@@ -167,7 +175,6 @@ class BuyticketsController {
       const vnpParams = req.query;
       const secureHash = vnpParams.vnp_SecureHash;
 
-      // Loại bỏ vnp_SecureHash khỏi tham số để so sánh
       delete vnpParams.vnp_SecureHash;
       delete vnpParams.vnp_SecureHashType;
 
@@ -177,40 +184,43 @@ class BuyticketsController {
           acc[key] = vnpParams[key];
           return acc;
         }, {});
-      
-      const secretKey = "H13FCAHLKVP4JFFAQHM4UMVLJWWVEQT8"; // Chuỗi bí mật của bạn
+
+      const secretKey = "H13FCAHLKVP4JFFAQHM4UMVLJWWVEQT8";
       const query = querystring.stringify(sortedParams);
       const signData = crypto
         .createHmac("sha512", secretKey)
         .update(query)
         .digest("hex");
-        
+
       if (secureHash === signData) {
-        // Kiểm tra mã phản hồi từ VNPAY
-        
         if (vnpParams.vnp_ResponseCode === "00") {
-          // Thanh toán thành công
-          
-          const orderId = vnpParams.vnp_TxnRef; // Mã đơn hàng (có thể là `slug` hoặc `id` trong CSDL của bạn)
-          const email = vnpParams.vnp_OrderInfo; // Đảm bảo bạn lấy đúng thông tin từ orderInfo
-          const film = await Films.findOne({ slug: orderId }).lean(); // Lấy thông tin phim từ CSDL bằng slug hoặc mã đơn hàng
-          // const showtime = await Showtimes.findById(
-          //   vnpParams.vnp_TransactionNo
-          // ); // Lấy thông tin thời gian chiếu từ CSDL
-          const seats = ["A1", "A2"]; // Giả sử bạn có một mảng ghế ngồi đã chọn, hoặc bạn có thể lấy từ cơ sở dữ liệu.
+          const orderInfoDecoded = decodeURIComponent(vnpParams.vnp_OrderInfo);
+          const [
+            orderInfo,
+            email,
+            amount,
+            seat_film,
+            date_film,
+            time_film,
+            idFilm,
+          ] = orderInfoDecoded.split("|");
 
-          // Gửi email với thông tin vé
-          
-          // await sendticket(
-          //   film,
-          //   email,
-          //   vnpParams.vnp_OrderInfo,
-          //   showtime,
-          //   seats
-          // );
+          const film = await Films.findOne({ _id: idFilm }).lean();
+          if (!film) {
+            return res.status(404).send("Film not found");
+          }
+          // Gửi email
+          await sendticket(
+            film.title,
+            email,
+            amount,
+            seat_film,
+            date_film,
+            time_film
+          );
 
-          // Chuyển hướng về trang chủ hoặc trang xác nhận thanh toán thành công
-          res.redirect("/");
+          // res.redirect("/");
+          res.redirect(`/buytickets/${film._id}/confirmation`);
         } else {
           res.send(
             `Thanh toán không thành công. Lỗi: ${vnpParams.vnp_ResponseCode}`
@@ -225,6 +235,18 @@ class BuyticketsController {
         .status(500)
         .send("An error occurred while processing the VNPAY return");
     }
+  }
+
+  async showConfirmation(req, res, next) {
+    // const film = Films.findOne({_id : });
+    Films.findById(req.params.id)
+      .then((films) =>
+        res.render("tickets/confirmation", {
+          films: mongooseToObject(films),
+          isLoggedIn: true,
+        })
+      )
+      .catch(next);
   }
 }
 function sortObject(obj) {

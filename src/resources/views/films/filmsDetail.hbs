@@ -201,13 +201,13 @@
                 <!-- Hiển thị showtimes của các ngày -->
                 {{#each showtimesByDate}}
                   {{#each this}}
-                    <div class="showtime__book" data-date="{{@../key}}">
-                      <div class="showtime__time-showtime">
-                        <strong class="showtime__start-time">{{start_time}}</strong>
-                        <strong class="showtime__end-time">{{end_time}}</strong>
+                      <div class="showtime__book" data-date="{{@../key}}" >
+                        <div class="showtime__time-showtime">
+                          <strong class="showtime__start-time">{{start_time}}</strong>
+                          <strong class="showtime__end-time">{{end_time}}</strong>
+                        </div>
+                        <strong class="showtime__screen">Screen: {{screen_id}}</strong>
                       </div>
-                      <strong class="showtime__screen">Screen: {{screen_id}}</strong>
-                    </div>
                   {{/each}}
                 {{/each}}
               </div>
@@ -1084,347 +1084,68 @@
               <div
                 class="row row-cols-6 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-3"
               >
-                <div class="col">
-                  <article class="film-card">
-                    <div class="film-card__img-wrap">
-                      <a href="./film-detail.html">
-                        <img
-                          src="/assets/img/films/film-6.webp"
-                          alt=""
-                          class="film-card__thumb"
-                        />
-                      </a>
-                    </div>
-                    <h3 class="film-card__title">
-                      <a href="./film-detail.html">The Apprentice</a>
-                    </h3>
-                    <div class="film-card__row film-card__similar">
-                      <button
-                        class="film-card__trailer"
-                        data-video-url="https://www.youtube.com/embed/0tXEN0WNJUg?si=Phbt7cxbuWCqzKzc"
-                      >
-                        <div class="film-card__play">
-                          <img
-                            src="/assets/icon/play-trailer.svg"
-                            class="film-card__trailer-icon"
-                            alt=""
-                          />
+               {{#each Films1}}
+                      <div class="col">
+                        <article class="film-card">
+                          <div class="film-card__img-wrap">
+                            <a href="/films/{{this.slug}}">
+                              <img
+                                src="{{this.poster_url}}"
+                                alt=""
+                                class="film-card__thumb"
+                              />
+                            </a>
+                          </div>
+                          <h3 class="film-card__title">
+                            <a href="/films/{{this.slug}}">{{this.title}}</a>
+                          </h3>
+                          <div class="film-card__row film-card__row--small">
+                            <button
+                              class="film-card__trailer"
+                              data-video-url="{{this.trailer_url}}"
+                            >
+                              <div class="film-card__play">
+                                <img
+                                  src="/assets/icon/play-trailer.svg"
+                                  class="film-card__trailer-icon"
+                                  alt=""
+                                />
+                              </div>
+                              Trailer
+                            </button>
+                            <a
+                              href="/buytickets/{{this.slug}}/booking"
+                              class="film-card__book"
+                            >
+                              <img
+                                src="/assets/icon/book.svg"
+                                class="film-card__book-icon"
+                                alt=""
+                              />
+                              Book tickets
+                            </a>
+                          </div>
+                        </article>
+                        <div class="film-card__overlay"></div>
+                        <div class="film-card__container" id="overlay">
+                          <div class="film-card__video">
+                            <iframe
+                              class="film-card__iframe"
+                              id="trailerVideo"
+                              src=""
+                              frameborder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowfullscreen
+                              referrerpolicy="strict-origin-when-cross-origin"
+                            ></iframe>
+                            <button class="film-card__close" id="closeButton">
+                              &times;
+                            </button>
+                          </div>
                         </div>
-                        Trailer
-                      </button>
-                      <button class="film-card__book">
-                        <img
-                          src="/assets/icon/book.svg"
-                          class="film-card__book-icon"
-                          alt=""
-                        />
-                        Book tickets
-                      </button>
-                    </div>
-                  </article>
-                  <div class="film-card__overlay"></div>
-                  <div class="film-card__container" id="overlay">
-                    <div class="film-card__video">
-                      <iframe
-                        class="film-card__iframe"
-                        id="trailerVideo"
-                        src=""
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        referrerpolicy="strict-origin-when-cross-origin"
-                      ></iframe>
-                      <button class="film-card__close" id="closeButton">
-                        &times;
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                      </div>
+                    {{/each}}
                 <!-- film 4  -->
-                <div class="col">
-                  <article class="film-card">
-                    <div class="film-card__img-wrap">
-                      <a href="./film-detail.html">
-                        <img
-                          src="/assets/img/films/film-7.webp"
-                          alt=""
-                          class="film-card__thumb"
-                        />
-                      </a>
-                    </div>
-                    <h3 class="film-card__title">
-                      <a href="./film-detail.html">Despicable Me 4</a>
-                    </h3>
-                    <div class="film-card__row film-card__similar">
-                      <button
-                        class="film-card__trailer"
-                        data-video-url="https://www.youtube.com/embed/qQlr9-rF32A?si=r2XIgquO1QxWGCHr"
-                      >
-                        <div class="film-card__play">
-                          <img
-                            src="/assets/icon/play-trailer.svg"
-                            class="film-card__trailer-icon"
-                            alt=""
-                          />
-                        </div>
-                        Trailer
-                      </button>
-                      <button class="film-card__book">
-                        <img
-                          src="/assets/icon/book.svg"
-                          class="film-card__book-icon"
-                          alt=""
-                        />
-                        Book tickets
-                      </button>
-                    </div>
-                  </article>
-                  <div class="film-card__overlay"></div>
-                  <div class="film-card__container" id="overlay">
-                    <div class="film-card__video">
-                      <iframe
-                        class="film-card__iframe"
-                        id="trailerVideo"
-                        src=""
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        referrerpolicy="strict-origin-when-cross-origin"
-                      ></iframe>
-                      <button class="film-card__close" id="closeButton">
-                        &times;
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <!-- film 1 -->
-                <div class="col">
-                  <article class="film-card">
-                    <div class="film-card__img-wrap">
-                      <a href="./film-detail.html">
-                        <img
-                          src="/assets/img/films/film-8.webp"
-                          alt=""
-                          class="film-card__thumb"
-                        />
-                      </a>
-                    </div>
-                    <h3 class="film-card__title">
-                      <a href="./film-detail.html">Hey Duggee Is 10</a>
-                    </h3>
-                    <div class="film-card__row film-card__similar">
-                      <button
-                        class="film-card__trailer"
-                        data-video-url="https://www.youtube.com/embed/7y0G4ZTVzhw?si=qxTSF_6JxZo4aYL4"
-                      >
-                        <div class="film-card__play">
-                          <img
-                            src="/assets/icon/play-trailer.svg"
-                            class="film-card__trailer-icon"
-                            alt=""
-                          />
-                        </div>
-                        Trailer
-                      </button>
-                      <button class="film-card__book">
-                        <img
-                          src="/assets/icon/book.svg"
-                          class="film-card__book-icon"
-                          alt=""
-                        />
-                        Book tickets
-                      </button>
-                    </div>
-                  </article>
-                  <div class="film-card__overlay"></div>
-                  <div class="film-card__container" id="overlay">
-                    <div class="film-card__video">
-                      <iframe
-                        class="film-card__iframe"
-                        id="trailerVideo"
-                        src=""
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        referrerpolicy="strict-origin-when-cross-origin"
-                      ></iframe>
-                      <button class="film-card__close" id="closeButton">
-                        &times;
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <!-- film 2 -->
-                <div class="col">
-                  <article class="film-card">
-                    <div class="film-card__img-wrap">
-                      <a href="./film-detail.html">
-                        <img
-                          src="/assets/img/films/film-9.webp"
-                          alt=""
-                          class="film-card__thumb"
-                        />
-                      </a>
-                    </div>
-                    <h3 class="film-card__title">
-                      <a href="./film-detail.html">Joker: Folie à Deux</a>
-                    </h3>
-                    <div class="film-card__row film-card__similar">
-                      <button
-                        class="film-card__trailer"
-                        data-video-url="https://www.youtube.com/embed/_OKAwz2MsJs?si=mfNrE0QIlUvivcWm"
-                      >
-                        <div class="film-card__play">
-                          <img
-                            src="/assets/icon/play-trailer.svg"
-                            class="film-card__trailer-icon"
-                            alt=""
-                          />
-                        </div>
-                        Trailer
-                      </button>
-                      <button class="film-card__book">
-                        <img
-                          src="/assets/icon/book.svg"
-                          class="film-card__book-icon"
-                          alt=""
-                        />
-                        Book tickets
-                      </button>
-                    </div>
-                  </article>
-                  <div class="film-card__overlay"></div>
-                  <div class="film-card__container" id="overlay">
-                    <div class="film-card__video">
-                      <iframe
-                        class="film-card__iframe"
-                        id="trailerVideo"
-                        src=""
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        referrerpolicy="strict-origin-when-cross-origin"
-                      ></iframe>
-                      <button class="film-card__close" id="closeButton">
-                        &times;
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <!-- film 3 -->
-                <div class="col">
-                  <article class="film-card">
-                    <div class="film-card__img-wrap">
-                      <a href="./film-detail.html">
-                        <img
-                          src="/assets/img/films/film-10.webp"
-                          alt=""
-                          class="film-card__thumb"
-                        />
-                      </a>
-                    </div>
-                    <h3 class="film-card__title">
-                      <a href="./film-detail.html">Smile 2</a>
-                    </h3>
-                    <div class="film-card__row film-card__similar">
-                      <button
-                        class="film-card__trailer"
-                        data-video-url="https://www.youtube.com/embed/FU_bAopCcSE?si=kcwPmy3rRFeUqpCC"
-                      >
-                        <div class="film-card__play">
-                          <img
-                            src="/assets/icon/play-trailer.svg"
-                            class="film-card__trailer-icon"
-                            alt=""
-                          />
-                        </div>
-                        Trailer
-                      </button>
-                      <button class="film-card__book">
-                        <img
-                          src="/assets/icon/book.svg"
-                          class="film-card__book-icon"
-                          alt=""
-                        />
-                        Book tickets
-                      </button>
-                    </div>
-                  </article>
-                  <div class="film-card__overlay"></div>
-                  <div class="film-card__container" id="overlay">
-                    <div class="film-card__video">
-                      <iframe
-                        class="film-card__iframe"
-                        id="trailerVideo"
-                        src=""
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        referrerpolicy="strict-origin-when-cross-origin"
-                      ></iframe>
-                      <button class="film-card__close" id="closeButton">
-                        &times;
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <!-- film 4  -->
-                <div class="col">
-                  <article class="film-card">
-                    <div class="film-card__img-wrap">
-                      <a href="./film-detail.html">
-                        <img
-                          src="/assets/img/films/film-11.avif"
-                          alt=""
-                          class="film-card__thumb"
-                        />
-                      </a>
-                    </div>
-                    <h3 class="film-card__title">
-                      <a href="./film-detail.html">Lee</a>
-                    </h3>
-                    <div class="film-card__row film-card__similar">
-                      <button
-                        class="film-card__trailer"
-                        data-video-url="https://www.youtube.com/embed/DmFYkiUAAA8?si=x3uRogXitOU0U4tR"
-                      >
-                        <div class="film-card__play">
-                          <img
-                            src="/assets/icon/play-trailer.svg"
-                            class="film-card__trailer-icon"
-                            alt=""
-                          />
-                        </div>
-                        Trailer
-                      </button>
-                      <button class="film-card__book">
-                        <img
-                          src="/assets/icon/book.svg"
-                          class="film-card__book-icon"
-                          alt=""
-                        />
-                        Book tickets
-                      </button>
-                    </div>
-                  </article>
-                  <div class="film-card__overlay"></div>
-                  <div class="film-card__container" id="overlay">
-                    <div class="film-card__video">
-                      <iframe
-                        class="film-card__iframe"
-                        id="trailerVideo"
-                        src=""
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        referrerpolicy="strict-origin-when-cross-origin"
-                      ></iframe>
-                      <button class="film-card__close" id="closeButton">
-                        &times;
-                      </button>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

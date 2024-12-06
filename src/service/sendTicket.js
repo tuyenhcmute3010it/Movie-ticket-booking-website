@@ -10,20 +10,21 @@ const transporter = nodemailer.createTransport({
 });
 
 // Hàm gửi email
-async function sendTicketEmail(film, email, orderInfo, showtime, seats) {
+async function sendTicketEmail(title,email,amount,seat,date,time) {
   const mailOptions = {
     from: '"Movin Cinema""dinhtrung0012@gmail.com"',  // Địa chỉ gửi email
-    to: "dinhtrung0012@gmail.com",                    // Địa chỉ nhận email (email người dùng)
+    to: email,                    // Địa chỉ nhận email (email người dùng)
     subject: "Thông tin vé đã đặt", // Tiêu đề email
     text: `
       Xin chào,
 
       Cảm ơn bạn đã đặt vé tại rạp chiếu phim của chúng tôi. Dưới đây là thông tin vé của bạn:
 
-      - Phim: ${film.name}
-      - Thời gian chiếu: ${showtime.start_time}
-      - Ghế ngồi: ${seats.join(", ")}
-      - Mã đơn hàng: ${orderInfo}
+      - Phim: ${title}
+      - Thời gian chiếu: ngày ${date},vào lúc ${time}
+      - Ghế ngồi: ${seat}
+      - Giá vé: ${amount} VND
+
 
       Chúc bạn có một buổi xem phim vui vẻ!
 

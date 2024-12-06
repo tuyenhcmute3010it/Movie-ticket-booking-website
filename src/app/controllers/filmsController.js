@@ -3,7 +3,9 @@ const mongooseToObject = require("../../util/mongoose");
 // const Screen = require("../models/Screen");
 const ScreenShowtimes = require("../models/Screen_Showtime");
 const Showtimes = require("../models/Showtimes");
+const Profile = require("../models/Auth");
 const moment = require("moment");
+const { multipleMongooseToObject } = require("../../util/mongoose");
 class FilmsController {
   // [GET] /courses/:slug
 
@@ -85,12 +87,17 @@ class FilmsController {
       );
       return acc;
     }, {});
-
-    // Render view và truyền dữ liệu showtimes theo ngày
+const profile = await Profile.findById(req.session.userId);
+    if (!profile) {
+      res.redirect("/sign-in");
+    }
+    const films1 = await Films.find({});
     res.render("films/filmsDetail", {
       films: film,
       showtimesByDate,
       today: today.toISOString().split("T")[0], // Ngày hôm nay
+      isLoggedIn: true,
+      Films1: multipleMongooseToObject(films1),
     });
   }
 }

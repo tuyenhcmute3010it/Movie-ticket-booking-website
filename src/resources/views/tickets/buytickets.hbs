@@ -665,8 +665,49 @@
 
                                   <form action="/buytickets/create-payment" method="POST" class="form payment__form">
                                     <!-- Thông tin cơ bản -->
+                                    <input
+                                          type="text"
+                                          name="idFilm"
+                                          placeholder=""
+                                          class="form__input"
+                                          value="{{films._id}}"
+                                          hidden
+                                        />
+                                        {{!--  --}}
+                                        <input
+                                          type="text"
+                                          id ="date_film" 
+                                          name="date_film"
+                                          placeholder=""
+                                          class="form__input"
+                                          value=""
+                                          hidden
+                                        /> 
+                                        {{!--  --}}
+
+                                          <input
+                                          type="text"
+                                          name="time_film"
+                                          id="time_film"
+                                          placeholder=""
+                                          class="form__input"
+                                          value=""
+                                          hidden
+                                        />
+                                        {{!--  --}}
+                                              <input
+                                          type="text"
+                                          name="seat_film"
+                                          id="seat_film"
+                                          placeholder=""
+                                          class="form__input"
+                                          value=""
+                                          hidden
+                                        />
+                                        {{!--  --}}
                                     <div class="form__group payment__form-group">
                                       <div class="form__text-input">
+                                        
                                         <input
                                           type="text"
                                           name="orderInfo"
