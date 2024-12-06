@@ -394,4 +394,18 @@ scrollToTopBtn.addEventListener("click", function () {
     behavior: "smooth", // Thêm hiệu ứng mượt mà khi cuộn
   });
 });
-/////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////// printf
+function printTicket() {
+  const ticket = document.getElementById("ticket").innerHTML;
+  const originalContent = document.body.innerHTML;
+
+  // Replace body content with ticket content
+  document.body.innerHTML = ticket;
+
+  // Print the page
+  window.print();
+
+  // Restore original content
+  document.body.innerHTML = originalContent;
+  location.reload(); // Reload the page to restore event listeners
+}

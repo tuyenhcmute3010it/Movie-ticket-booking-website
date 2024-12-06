@@ -7,6 +7,7 @@ const adminRouter = require("./admin");
 const buyticketsRouter = require("./buytickets");
 const reviewRouter = require("./review");
 const privacyRouter = require("./privacy");
+const purchaseTicketsRouter = require("./tickets");
 function route(app) {
   app.use("/news", newsRouter);
   app.use("/films", filmsRouter);
@@ -17,5 +18,6 @@ function route(app) {
   app.use("/buytickets", buyticketsRouter);
   app.use("/review", reviewRouter);
   app.use("/privacy", privacyRouter);
+  app.use("/tickets", purchaseTicketsRouter);
 }
 module.exports = route;

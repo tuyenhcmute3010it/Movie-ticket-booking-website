@@ -5927,304 +5927,304 @@ html {
   }
 }
 .star:nth-child(1) {
-  --star-tail-length: 7em;
-  --top-offset: 29.32vh;
-  --fall-duration: 11.249s;
-  --fall-delay: 9.957s;
-}
-.star:nth-child(2) {
-  --star-tail-length: 6.15em;
-  --top-offset: 81.6vh;
-  --fall-duration: 6.155s;
-  --fall-delay: 3.543s;
-}
-.star:nth-child(3) {
-  --star-tail-length: 7.24em;
-  --top-offset: 50.74vh;
-  --fall-duration: 9.415s;
-  --fall-delay: 6.831s;
-}
-.star:nth-child(4) {
-  --star-tail-length: 5.74em;
-  --top-offset: 31.75vh;
-  --fall-duration: 9.402s;
-  --fall-delay: 6.982s;
-}
-.star:nth-child(5) {
-  --star-tail-length: 7.48em;
-  --top-offset: 0.23vh;
-  --fall-duration: 10.411s;
-  --fall-delay: 3.162s;
-}
-.star:nth-child(6) {
-  --star-tail-length: 6.14em;
-  --top-offset: 22.95vh;
-  --fall-duration: 8.061s;
-  --fall-delay: 5.3s;
-}
-.star:nth-child(7) {
-  --star-tail-length: 7.15em;
-  --top-offset: 33.43vh;
-  --fall-duration: 7.182s;
-  --fall-delay: 8.996s;
-}
-.star:nth-child(8) {
-  --star-tail-length: 5.11em;
-  --top-offset: 89vh;
-  --fall-duration: 11.913s;
-  --fall-delay: 0.217s;
-}
-.star:nth-child(9) {
-  --star-tail-length: 5.9em;
-  --top-offset: 19.66vh;
-  --fall-duration: 8.799s;
-  --fall-delay: 7.854s;
-}
-.star:nth-child(10) {
-  --star-tail-length: 6.49em;
-  --top-offset: 68.03vh;
-  --fall-duration: 8.413s;
-  --fall-delay: 9.379s;
-}
-.star:nth-child(11) {
-  --star-tail-length: 5.5em;
-  --top-offset: 59.49vh;
-  --fall-duration: 10.137s;
-  --fall-delay: 4.355s;
-}
-.star:nth-child(12) {
-  --star-tail-length: 6.51em;
-  --top-offset: 42.75vh;
-  --fall-duration: 7.934s;
-  --fall-delay: 8.965s;
-}
-.star:nth-child(13) {
-  --star-tail-length: 5.08em;
-  --top-offset: 46.33vh;
-  --fall-duration: 7.611s;
-  --fall-delay: 9.184s;
-}
-.star:nth-child(14) {
-  --star-tail-length: 6.59em;
-  --top-offset: 99.11vh;
-  --fall-duration: 10.013s;
-  --fall-delay: 3.105s;
-}
-.star:nth-child(15) {
-  --star-tail-length: 6.78em;
-  --top-offset: 33.4vh;
-  --fall-duration: 11.693s;
-  --fall-delay: 0.947s;
-}
-.star:nth-child(16) {
-  --star-tail-length: 6.83em;
-  --top-offset: 59.62vh;
-  --fall-duration: 9.996s;
-  --fall-delay: 7.143s;
-}
-.star:nth-child(17) {
-  --star-tail-length: 6.89em;
-  --top-offset: 76.87vh;
-  --fall-duration: 7.163s;
-  --fall-delay: 1.7s;
-}
-.star:nth-child(18) {
-  --star-tail-length: 6.64em;
-  --top-offset: 83.98vh;
-  --fall-duration: 10.233s;
-  --fall-delay: 3.582s;
-}
-.star:nth-child(19) {
-  --star-tail-length: 5em;
-  --top-offset: 82.79vh;
-  --fall-duration: 11.164s;
-  --fall-delay: 8.939s;
-}
-.star:nth-child(20) {
-  --star-tail-length: 6.45em;
-  --top-offset: 27.05vh;
-  --fall-duration: 10.412s;
-  --fall-delay: 6.367s;
-}
-.star:nth-child(21) {
-  --star-tail-length: 7.3em;
-  --top-offset: 52.74vh;
-  --fall-duration: 6.487s;
-  --fall-delay: 4.661s;
-}
-.star:nth-child(22) {
-  --star-tail-length: 5.37em;
-  --top-offset: 57.52vh;
-  --fall-duration: 7.19s;
-  --fall-delay: 5.604s;
-}
-.star:nth-child(23) {
-  --star-tail-length: 6.34em;
-  --top-offset: 6.47vh;
-  --fall-duration: 7.87s;
-  --fall-delay: 3.716s;
-}
-.star:nth-child(24) {
-  --star-tail-length: 7.12em;
-  --top-offset: 41.32vh;
-  --fall-duration: 8.978s;
-  --fall-delay: 2.394s;
-}
-.star:nth-child(25) {
-  --star-tail-length: 5.42em;
-  --top-offset: 94.4vh;
-  --fall-duration: 9.494s;
-  --fall-delay: 3.139s;
-}
-.star:nth-child(26) {
-  --star-tail-length: 5.7em;
-  --top-offset: 8.51vh;
-  --fall-duration: 9.059s;
-  --fall-delay: 8.517s;
-}
-.star:nth-child(27) {
-  --star-tail-length: 6.32em;
-  --top-offset: 59.29vh;
-  --fall-duration: 8.192s;
-  --fall-delay: 5.762s;
-}
-.star:nth-child(28) {
-  --star-tail-length: 5.41em;
-  --top-offset: 27.57vh;
-  --fall-duration: 6.361s;
-  --fall-delay: 1.694s;
-}
-.star:nth-child(29) {
-  --star-tail-length: 5.43em;
-  --top-offset: 36.99vh;
-  --fall-duration: 9.769s;
-  --fall-delay: 7.54s;
-}
-.star:nth-child(30) {
-  --star-tail-length: 5.29em;
-  --top-offset: 54.33vh;
-  --fall-duration: 10.431s;
-  --fall-delay: 2.403s;
-}
-.star:nth-child(31) {
-  --star-tail-length: 6.11em;
-  --top-offset: 70.06vh;
-  --fall-duration: 7.183s;
-  --fall-delay: 3.129s;
-}
-.star:nth-child(32) {
-  --star-tail-length: 7.06em;
-  --top-offset: 41.1vh;
-  --fall-duration: 10.615s;
-  --fall-delay: 8.801s;
-}
-.star:nth-child(33) {
-  --star-tail-length: 6.52em;
-  --top-offset: 77.27vh;
-  --fall-duration: 7.296s;
-  --fall-delay: 2.86s;
-}
-.star:nth-child(34) {
-  --star-tail-length: 5.05em;
-  --top-offset: 79.4vh;
-  --fall-duration: 10.149s;
-  --fall-delay: 4.443s;
-}
-.star:nth-child(35) {
-  --star-tail-length: 5.18em;
-  --top-offset: 49.89vh;
-  --fall-duration: 9.273s;
-  --fall-delay: 1.326s;
-}
-.star:nth-child(36) {
-  --star-tail-length: 5.92em;
-  --top-offset: 30.6vh;
-  --fall-duration: 11.767s;
-  --fall-delay: 4.257s;
-}
-.star:nth-child(37) {
-  --star-tail-length: 5.71em;
-  --top-offset: 64.74vh;
-  --fall-duration: 8.498s;
-  --fall-delay: 2.447s;
-}
-.star:nth-child(38) {
-  --star-tail-length: 6.95em;
-  --top-offset: 78.66vh;
-  --fall-duration: 9.083s;
-  --fall-delay: 6.171s;
-}
-.star:nth-child(39) {
-  --star-tail-length: 6.23em;
-  --top-offset: 25.96vh;
-  --fall-duration: 8.185s;
+  --star-tail-length: 7.2em;
+  --top-offset: 52.34vh;
+  --fall-duration: 9.755s;
   --fall-delay: 0.447s;
 }
+.star:nth-child(2) {
+  --star-tail-length: 6.51em;
+  --top-offset: 58.77vh;
+  --fall-duration: 10.288s;
+  --fall-delay: 9.324s;
+}
+.star:nth-child(3) {
+  --star-tail-length: 7.18em;
+  --top-offset: 93.06vh;
+  --fall-duration: 7.158s;
+  --fall-delay: 3.964s;
+}
+.star:nth-child(4) {
+  --star-tail-length: 6.09em;
+  --top-offset: 8.93vh;
+  --fall-duration: 9.472s;
+  --fall-delay: 5.123s;
+}
+.star:nth-child(5) {
+  --star-tail-length: 5.22em;
+  --top-offset: 17.77vh;
+  --fall-duration: 10.507s;
+  --fall-delay: 2.082s;
+}
+.star:nth-child(6) {
+  --star-tail-length: 6.13em;
+  --top-offset: 73.78vh;
+  --fall-duration: 7.256s;
+  --fall-delay: 9.895s;
+}
+.star:nth-child(7) {
+  --star-tail-length: 7.37em;
+  --top-offset: 87.66vh;
+  --fall-duration: 8.463s;
+  --fall-delay: 4.002s;
+}
+.star:nth-child(8) {
+  --star-tail-length: 6.59em;
+  --top-offset: 76.91vh;
+  --fall-duration: 6.395s;
+  --fall-delay: 3.409s;
+}
+.star:nth-child(9) {
+  --star-tail-length: 5.18em;
+  --top-offset: 38.73vh;
+  --fall-duration: 11.363s;
+  --fall-delay: 2.687s;
+}
+.star:nth-child(10) {
+  --star-tail-length: 5.37em;
+  --top-offset: 71.84vh;
+  --fall-duration: 8.028s;
+  --fall-delay: 1.869s;
+}
+.star:nth-child(11) {
+  --star-tail-length: 6.97em;
+  --top-offset: 43.12vh;
+  --fall-duration: 6.776s;
+  --fall-delay: 9.311s;
+}
+.star:nth-child(12) {
+  --star-tail-length: 7.03em;
+  --top-offset: 38.63vh;
+  --fall-duration: 7.343s;
+  --fall-delay: 8.381s;
+}
+.star:nth-child(13) {
+  --star-tail-length: 5.81em;
+  --top-offset: 2.21vh;
+  --fall-duration: 10.552s;
+  --fall-delay: 0.436s;
+}
+.star:nth-child(14) {
+  --star-tail-length: 5.23em;
+  --top-offset: 18.77vh;
+  --fall-duration: 6.723s;
+  --fall-delay: 2.444s;
+}
+.star:nth-child(15) {
+  --star-tail-length: 7.1em;
+  --top-offset: 65.92vh;
+  --fall-duration: 7.481s;
+  --fall-delay: 7.638s;
+}
+.star:nth-child(16) {
+  --star-tail-length: 5.02em;
+  --top-offset: 83.34vh;
+  --fall-duration: 9.189s;
+  --fall-delay: 2.173s;
+}
+.star:nth-child(17) {
+  --star-tail-length: 6.62em;
+  --top-offset: 43.83vh;
+  --fall-duration: 10.753s;
+  --fall-delay: 6.459s;
+}
+.star:nth-child(18) {
+  --star-tail-length: 7.35em;
+  --top-offset: 30.68vh;
+  --fall-duration: 7.19s;
+  --fall-delay: 6.772s;
+}
+.star:nth-child(19) {
+  --star-tail-length: 5.77em;
+  --top-offset: 45.39vh;
+  --fall-duration: 10.436s;
+  --fall-delay: 2.817s;
+}
+.star:nth-child(20) {
+  --star-tail-length: 6.33em;
+  --top-offset: 58.99vh;
+  --fall-duration: 7.988s;
+  --fall-delay: 5.69s;
+}
+.star:nth-child(21) {
+  --star-tail-length: 5.44em;
+  --top-offset: 87.91vh;
+  --fall-duration: 10.817s;
+  --fall-delay: 9.733s;
+}
+.star:nth-child(22) {
+  --star-tail-length: 5.97em;
+  --top-offset: 43.22vh;
+  --fall-duration: 11.487s;
+  --fall-delay: 5.068s;
+}
+.star:nth-child(23) {
+  --star-tail-length: 6.8em;
+  --top-offset: 32.79vh;
+  --fall-duration: 6.515s;
+  --fall-delay: 2.565s;
+}
+.star:nth-child(24) {
+  --star-tail-length: 5.48em;
+  --top-offset: 36.58vh;
+  --fall-duration: 9.158s;
+  --fall-delay: 0.396s;
+}
+.star:nth-child(25) {
+  --star-tail-length: 6.48em;
+  --top-offset: 47.94vh;
+  --fall-duration: 9.139s;
+  --fall-delay: 7.735s;
+}
+.star:nth-child(26) {
+  --star-tail-length: 5.85em;
+  --top-offset: 36.4vh;
+  --fall-duration: 10.131s;
+  --fall-delay: 9.783s;
+}
+.star:nth-child(27) {
+  --star-tail-length: 6.11em;
+  --top-offset: 84.88vh;
+  --fall-duration: 6.132s;
+  --fall-delay: 8.417s;
+}
+.star:nth-child(28) {
+  --star-tail-length: 5.43em;
+  --top-offset: 47.34vh;
+  --fall-duration: 7.298s;
+  --fall-delay: 5.118s;
+}
+.star:nth-child(29) {
+  --star-tail-length: 7.5em;
+  --top-offset: 21.79vh;
+  --fall-duration: 6.098s;
+  --fall-delay: 1.75s;
+}
+.star:nth-child(30) {
+  --star-tail-length: 6.05em;
+  --top-offset: 80.25vh;
+  --fall-duration: 7.193s;
+  --fall-delay: 8.406s;
+}
+.star:nth-child(31) {
+  --star-tail-length: 6.67em;
+  --top-offset: 36.84vh;
+  --fall-duration: 7.603s;
+  --fall-delay: 9.956s;
+}
+.star:nth-child(32) {
+  --star-tail-length: 5.25em;
+  --top-offset: 13.63vh;
+  --fall-duration: 10.928s;
+  --fall-delay: 8.838s;
+}
+.star:nth-child(33) {
+  --star-tail-length: 5.96em;
+  --top-offset: 15.95vh;
+  --fall-duration: 6.316s;
+  --fall-delay: 3.419s;
+}
+.star:nth-child(34) {
+  --star-tail-length: 7.19em;
+  --top-offset: 18.67vh;
+  --fall-duration: 9.861s;
+  --fall-delay: 3.961s;
+}
+.star:nth-child(35) {
+  --star-tail-length: 6.48em;
+  --top-offset: 64.49vh;
+  --fall-duration: 6.848s;
+  --fall-delay: 4.943s;
+}
+.star:nth-child(36) {
+  --star-tail-length: 6.29em;
+  --top-offset: 5.83vh;
+  --fall-duration: 6.215s;
+  --fall-delay: 2.084s;
+}
+.star:nth-child(37) {
+  --star-tail-length: 7.21em;
+  --top-offset: 80.89vh;
+  --fall-duration: 7.619s;
+  --fall-delay: 1.747s;
+}
+.star:nth-child(38) {
+  --star-tail-length: 6.13em;
+  --top-offset: 28.85vh;
+  --fall-duration: 10.883s;
+  --fall-delay: 7.213s;
+}
+.star:nth-child(39) {
+  --star-tail-length: 5.83em;
+  --top-offset: 31.54vh;
+  --fall-duration: 11.216s;
+  --fall-delay: 8.74s;
+}
 .star:nth-child(40) {
-  --star-tail-length: 5.93em;
-  --top-offset: 59.87vh;
-  --fall-duration: 9.448s;
-  --fall-delay: 8.241s;
+  --star-tail-length: 5.88em;
+  --top-offset: 5.8vh;
+  --fall-duration: 8.373s;
+  --fall-delay: 1.097s;
 }
 .star:nth-child(41) {
-  --star-tail-length: 6.54em;
-  --top-offset: 0.86vh;
-  --fall-duration: 6.41s;
-  --fall-delay: 1.766s;
+  --star-tail-length: 6.52em;
+  --top-offset: 90.87vh;
+  --fall-duration: 6.854s;
+  --fall-delay: 0.986s;
 }
 .star:nth-child(42) {
-  --star-tail-length: 5.61em;
-  --top-offset: 64.67vh;
-  --fall-duration: 10.433s;
-  --fall-delay: 0.498s;
+  --star-tail-length: 7.11em;
+  --top-offset: 45.65vh;
+  --fall-duration: 9.38s;
+  --fall-delay: 0.981s;
 }
 .star:nth-child(43) {
-  --star-tail-length: 5.17em;
-  --top-offset: 51.36vh;
-  --fall-duration: 10.495s;
-  --fall-delay: 8.465s;
+  --star-tail-length: 5.67em;
+  --top-offset: 19.26vh;
+  --fall-duration: 11.501s;
+  --fall-delay: 0.746s;
 }
 .star:nth-child(44) {
-  --star-tail-length: 5.98em;
-  --top-offset: 53.93vh;
-  --fall-duration: 11.757s;
-  --fall-delay: 6.591s;
+  --star-tail-length: 6.52em;
+  --top-offset: 9.2vh;
+  --fall-duration: 11.255s;
+  --fall-delay: 6.185s;
 }
 .star:nth-child(45) {
-  --star-tail-length: 7.12em;
-  --top-offset: 73.7vh;
-  --fall-duration: 8.15s;
-  --fall-delay: 4.53s;
+  --star-tail-length: 7.41em;
+  --top-offset: 26.6vh;
+  --fall-duration: 11.661s;
+  --fall-delay: 7.804s;
 }
 .star:nth-child(46) {
-  --star-tail-length: 5.71em;
-  --top-offset: 84.07vh;
-  --fall-duration: 7.01s;
-  --fall-delay: 2.14s;
+  --star-tail-length: 6.48em;
+  --top-offset: 57.06vh;
+  --fall-duration: 11.505s;
+  --fall-delay: 2.932s;
 }
 .star:nth-child(47) {
-  --star-tail-length: 5.97em;
-  --top-offset: 8.91vh;
-  --fall-duration: 6.999s;
-  --fall-delay: 5.691s;
+  --star-tail-length: 5.08em;
+  --top-offset: 41.7vh;
+  --fall-duration: 10.733s;
+  --fall-delay: 5.268s;
 }
 .star:nth-child(48) {
-  --star-tail-length: 6.74em;
-  --top-offset: 86.22vh;
-  --fall-duration: 6.51s;
-  --fall-delay: 5.712s;
+  --star-tail-length: 5.86em;
+  --top-offset: 89.34vh;
+  --fall-duration: 9.919s;
+  --fall-delay: 1.483s;
 }
 .star:nth-child(49) {
-  --star-tail-length: 7.35em;
-  --top-offset: 18.79vh;
-  --fall-duration: 7.728s;
-  --fall-delay: 1.887s;
+  --star-tail-length: 6.6em;
+  --top-offset: 48.16vh;
+  --fall-duration: 8.96s;
+  --fall-delay: 9.642s;
 }
 .star:nth-child(50) {
-  --star-tail-length: 5.89em;
-  --top-offset: 90.59vh;
-  --fall-duration: 11.912s;
-  --fall-delay: 9.961s;
+  --star-tail-length: 7.39em;
+  --top-offset: 26.13vh;
+  --fall-duration: 10.164s;
+  --fall-delay: 5.517s;
 }
 .star::before, .star::after {
   position: absolute;
@@ -6999,6 +6999,73 @@ fieldset {
   font-size: 1.8rem;
   font-weight: 300;
   margin: 2em 0;
+}
+
+.ticket-purchased {
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 10px;
+  background-image: url(/assets/img/tickets/tickets.png);
+  background-size: cover; /* Ensures the image covers the entire div */
+  background-position: center;
+  height: 320px;
+  padding: 10px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ticket-purchased__item p {
+  margin-top: 10px;
+  color: #ccc;
+}
+
+.tickets__pur-title {
+  color: #fff;
+  font-weight: 600;
+}
+
+.print-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.print-button:hover {
+  background-color: #e55a4d;
+}
+
+.confirmation-page {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.tickets-confirm {
+  width: 80%;
+}
+
+.ticket-logo {
+  width: 150px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 120px;
+}
+
+@media print {
+  .ticket-logo {
+    display: block; /* Ensure the logo is displayed */
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

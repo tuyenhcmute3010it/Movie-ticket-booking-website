@@ -71,7 +71,7 @@
                         class="buy-tickets-tab__item " data-text="Seats & Food Selection"
                       >
                         Seats & Food Selection
-</li>
+                     </li>
                       <li class="buy-tickets-tab__item text" data-text="Payment" >Payment</li>
                       <li class="buy-tickets-tab__item text buy-tickets-tab__item--active text" data-text="Confirmation">Confirmation</li>
                     </ul>
@@ -93,8 +93,25 @@
                     <div class="buy-tickets-tab__content buy-tickets-tab__content--active">
                       <div class="buy-tickets-content">
                         <h2 class="buy-tickets-content__heading">
-                          In Ve Dien Tu 
                         </h2>
+                        <div class="confirmation-page">
+                            <div id="ticket" class="tickets-confirm">
+                              <h1 style="text-align: center">Movin Cinemas</h1>
+                               <img src="/assets/img/logo_movin.png" alt="MOVIN" class="logo__img ticket-logo">
+                                 <div class="ticket-purchased">
+                                <div class="ticket-purchased__item">
+                              <p><strong class="tickets__pur-title">Film Title:</strong> {{films.title}}</p>
+                              <p><strong class="tickets__pur-title">Email:</strong> {{email}}</p>
+                              <p><strong class="tickets__pur-title">Amount:</strong> {{amount}} VND</p>
+                              <p><strong class="tickets__pur-title">Seat(s):</strong> {{seat_film}}</p>
+                              <p><strong class="tickets__pur-title">Date:</strong> {{date_film}}</p>
+                              <p><strong class="tickets__pur-title">Time:</strong> {{time_film}}</p>
+                              <p><strong class="tickets__pur-title">Screen:</strong> {{screen_film}}</p>
+                                </div>
+                              </div>
+                            </div>
+                            <button class="print-button" onclick="printTicket()">Print Ticket</button>
+                          </div>
                         <div
                           class="row row-cols-6 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-3"
                         ></div>

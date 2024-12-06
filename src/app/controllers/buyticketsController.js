@@ -298,7 +298,20 @@ class BuyticketsController {
           await newTicket.save();
           console.log("Ticket saved successfully!");
           // res.redirect("/");
-          res.redirect(`/buytickets/${film._id}/confirmation`);
+          // res.redirect(`/buytickets/${film._id}/confirmation`);
+          res.redirect(
+            `/buytickets/${idFilm}/confirmation?email=${encodeURIComponent(
+              email
+            )}&amount=${amount}&seat_film=${encodeURIComponent(
+              seat_film
+            )}&date_film=${encodeURIComponent(
+              date_film
+            )}&time_film=${encodeURIComponent(
+              time_film
+            )}&screen_film=${encodeURIComponent(
+              screen_film
+            )}&showtime_Id=${showtime_Id}`
+          );
         } else {
           res.send(
             `Thanh toán không thành công. Lỗi: ${vnpParams.vnp_ResponseCode}`
@@ -317,9 +330,27 @@ class BuyticketsController {
 
   async showConfirmation(req, res, next) {
     // const film = Films.findOne({_id : });
+    const {
+      email,
+      amount,
+      seat_film,
+      date_film,
+      time_film,
+      screen_film,
+      showtime_Id,
+    } = req.query;
+
     Films.findById(req.params.id)
       .then((films) =>
         res.render("tickets/confirmation", {
+          email,
+          amount,
+          seat_film,
+          date_film,
+          time_film,
+          screen_film,
+          showtime_Id,
+          filmId: req.params.id, // The `id` from the URL parameter
           films: mongooseToObject(films),
           isLoggedIn: true,
         })

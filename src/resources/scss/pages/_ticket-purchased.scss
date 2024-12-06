@@ -1,0 +1,62 @@
+.ticket-purchased {
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 10px;
+  background-image: url(/assets/img/tickets/tickets.png);
+  background-size: cover; /* Ensures the image covers the entire div */
+  background-position: center;
+  height: 320px;
+  padding: 10px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__item p {
+    margin-top: 10px;
+    color: #ccc;
+  }
+}
+.tickets__pur-title {
+  color: #fff;
+  font-weight: 600;
+}
+
+/////////////
+.print-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.print-button:hover {
+  background-color: #e55a4d;
+}
+.confirmation-page {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.tickets-confirm {
+  width: 80%;
+}
+.ticket-logo {
+  width: 150px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 120px;
+}
+@media print {
+  .ticket-logo {
+    display: block; /* Ensure the logo is displayed */
+  }
+}
