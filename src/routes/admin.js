@@ -45,9 +45,5 @@ route.post("/screen/stored", adminController.storeScreen);
 route.get("/:id/showtimes", adminController.createShowtimes);
 route.post("/:filmId/showtimes/stored", adminController.storedShowtimes);
 route.delete("/:id", adminController.delete);
-
+route.patch("/:id/toggle-delete", adminController.toggleFilmDelete);
 module.exports = route;
-
-
-
-

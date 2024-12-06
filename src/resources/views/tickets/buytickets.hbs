@@ -108,6 +108,8 @@
                                     <strong class="showtime__end-time">{{end_time}}</strong>
                                   </div>
                                   <strong class="showtime__screen">Screen: {{screen_id}}</strong>
+                                    <span style="opacity: 0;" class="showtime__showtime-id">{{showtime_id}}</span>
+
                                 </div>
                               {{/each}}
                             {{/each}}
@@ -456,15 +458,16 @@
                                 </div>
                                <span class="screenId-2" style="opacity : 0"></span>
                                 <div class="screen-list">
-                                  {{#if screens.length}}
+                                  {{!-- {{#if screens.length}}
                                     {{#each screens}}
                                       <div class="screen" data-screen-id="{{screen_number}}">
                                         <div class="seat-chart">
                                           {{#each seats}}
                                             <div
                                               class="seat"
-                                              data-seat-id="{{seat_id}}"
+                                              data-seat-id="{{_id}}"
                                               price-seat = "{{seat_price}}"
+                                              seat-status ="{{status}}"
                                               style="grid-column: {{seat_number}}; grid-row: {{row}}"
                                             >
                                               <img src="/assets/icon/seat.png" class="seat__chair" alt="Seat" />
@@ -476,7 +479,29 @@
                                     {{/each}}
                                   {{else}}
                                     <p>No screens found.</p>
-                                  {{/if}}
+                                  {{/if}} --}}
+                                  {{#if screens.length}}
+                                  {{#each screens}} 
+                                    <div class="screen" data-screen-id="{{screen_number}}">
+                                      <div class="seat-chart">
+                                        {{#each seats}}
+                                          <div
+                                            class="seat {{#if status}}seat--disabled{{/if}}"
+                                            data-seat-id="{{_id}}"
+                                            price-seat="{{seat_price}}"
+                                            seat-status="{{status}}"
+                                            style="grid-column: {{seat_number}}; grid-row: {{row}}; {{#if status}}pointer-events: none; opacity: 0.5;{{/if}}"
+                                          >
+                                            <img src="/assets/icon/seat.png" class="seat__chair" alt="Seat" />
+                                            {{generateSeatID row seat_number}}
+                                          </div>
+                                        {{/each}}
+                                      </div>
+                                    </div>
+                                  {{/each}}
+                                {{else}}
+                                  <p>No screens found.</p>
+                                {{/if}}
                                 </div>
                                 
                               <script>
@@ -704,6 +729,34 @@
                                           value=""
                                           hidden
                                         />
+                                              <input
+                                          type="text"
+                                          name="screen_film"
+                                          id="screen_film"
+                                          placeholder=""
+                                          class="form__input"
+                                          value=""
+                                          hidden
+                                        />
+                                              <input
+                                          type="text"
+                                          name="food_film"
+                                          id="food_film"
+                                          placeholder=""
+                                          class="form__input"
+                                          value=""
+                                              hidden
+                                        />
+                                              <input
+                                          type="text"
+                                          name="showtime_Id"
+                                          id="showtime_Id"
+                                          placeholder=""
+                                          class="form__input"
+                                          value=""
+                                          hidden
+                                        />
+                                        
                                         {{!--  --}}
                                     <div class="form__group payment__form-group">
                                       <div class="form__text-input">
@@ -720,19 +773,22 @@
                                       </div>
                                       <p class="form__error">Please Input Your Name</p>
                                     </div>
-                                    <div class="form__group">
-                                      <div class="form__text-input">
-                                        <input
-                                          type="email"
-                                          name="email"
-                                          placeholder=" "
-                                          class="form__input"
-                                          required
-                                        />
-                                        <span class="form__holder">Email</span>
-                                      </div>
-                                      <p class="form__error">Email is not correct format</p>
+                                  
+                          
+                                    <div class="form__group form__group-1">
+                                    <div class="form__text-input">
+                                      <input
+                                        type="text"
+                                        name="email"
+                                        id="email-1"
+                                        placeholder=" "
+                                        class="form__input-1"
+                                        required
+                                      />
+                                      <span class="form__holder-1">Email</span>
                                     </div>
+                                    <p class="form__error-1">Please enter a valid Gmail address (e.g., example@gmail.com)</p>
+                                  </div>
                                     <div class="form__group">
                                       <div class="form__text-input">
                                         <input
@@ -747,20 +803,23 @@
                                       <p class="form__error">Phone Not Correct</p>
                                     </div>
 
-                                    <!-- Thông tin thanh toán -->
-                                    <div class="form__group">
+                                      <div class="form__group" style="display : none">
                                       <div class="form__text-input">
-                                        <input
+                                       <input
                                           type="number"
                                           name="amount"
+                                          id="amountForm"
                                           placeholder=" "
                                           class="form__input"
-                                          required
+                                          value=""
                                         />
-                                        <span class="form__holder">Amount</span>
+                                        <span class="form__holder">amount</span>
                                       </div>
-                                      <p class="form__error">Please input the amount</p>
+                                      <p class="form__error">amout Not Correct</p>
                                     </div>
+                                         
+                                    <!-- Thông tin thanh toán -->
+                                       
 
                                     <!-- Chọn phương thức thanh toán -->
                                     <div class="payment-methods">
@@ -905,4 +964,21 @@
       setActiveButton(firstDate);
     }
   });
+</script>
+
+<script>
+document.querySelector('#email-1').addEventListener('input', function() {
+  var emailInput = document.querySelector('#email-1');
+  var errorElement = document.querySelector('.form__error-1');
+  
+  // Regular expression để kiểm tra email với @gmail.com
+  var emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+  
+  // Kiểm tra email có đúng định dạng không
+  if (!emailPattern.test(emailInput.value)) {
+    errorElement.style.display = 'block';  // Hiển thị lỗi
+  } else {
+    errorElement.style.display = 'none';  // Ẩn lỗi nếu đúng
+  }
+});
 </script>

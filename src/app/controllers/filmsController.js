@@ -87,11 +87,12 @@ class FilmsController {
       );
       return acc;
     }, {});
-const profile = await Profile.findById(req.session.userId);
+
+    const films1 = await Films.find({});
+    const profile = await Profile.findById(req.session.userId);
     if (!profile) {
       res.redirect("/sign-in");
     }
-    const films1 = await Films.find({});
     res.render("films/filmsDetail", {
       films: film,
       showtimesByDate,

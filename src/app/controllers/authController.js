@@ -47,7 +47,7 @@ class AuthController {
         if (!profile) {
           return res.status(404).send("Profile not found");
         }
-        Films.find({})
+        Films.find({ is_deleted: false })
           .then((films) => {
             res.render("home", {
               isLoggedIn: true,
@@ -66,13 +66,14 @@ class AuthController {
   }
   async index(req, res, next) {
     const profile = await Profile.findById(req.session.userId);
+    if (!profile) {
+      res.redirect("/sign-in");
+    }
     if (!profile.name && profile.email) {
       profile.name = profile.email.split("@")[0];
     }
-    if (!profile) {
-      return res.status(404).send("Profile not found");
-    }
-    Films.find({})
+
+    Films.find({ is_deleted: false })
       .then((films) => {
         res.render("home", {
           isLoggedIn: true,

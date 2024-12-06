@@ -177,6 +177,9 @@ class="footer__address payment__address"
 </div>
   `;
   document.querySelector("#paymentInfo").innerHTML = info;
+  ////////////////
+  const amountFields = document.getElementById("amountForm");
+  amountFields.value = totalAmount;
 }
 
 // Function to display the booking details section
@@ -197,7 +200,7 @@ function updateBookingInfo() {
   const selectedDate = localStorage.getItem("selectedDate");
   const selectedTime = localStorage.getItem("selectedTime");
   const selectedScreen = localStorage.getItem("selectedScreen");
-
+  const selectedShowtimeId = localStorage.getItem("selectedShowtimeId");
   document.querySelector(".screenId").innerText = selectedScreen;
 
   let data = selectedScreen;
@@ -226,19 +229,24 @@ function updateBookingInfo() {
       - [Movie]: ${movieTitle}<br>
       - [Date]: ${formattedDate}<br>
       - [Time]: ${selectedTime || "Not selected"}<br>
-      - [Screen]: ${selectedScreen || "Not selected"}<br>
+      - [Screen]: ${selectedScreen_1 || "Not selected"}<br>
       - [Seats]: ${selectedSeats}<br>
       - [Food]: ${foodItems}<br>
   `;
   const dateFields = document.getElementById("date_film");
   const timeFields = document.getElementById("time_film");
   const seatFields = document.getElementById("seat_film");
+  const screenFields = document.getElementById("screen_film");
+  const foodFields = document.getElementById("food_film");
+  const showtimeIdFields = document.getElementById("showtime_Id");
 
   // Cập nhật giá trị cho từng input field
   dateFields.value = formattedDate;
   timeFields.value = selectedTime;
   seatFields.value = selectedSeats;
-
+  screenFields.value = selectedScreen_1;
+  foodFields.value = foodItems;
+  showtimeIdFields.value = selectedShowtimeId;
   document.querySelector("#bookingInfo").innerHTML = info;
 }
 
@@ -251,12 +259,16 @@ function selectShowtime(event) {
   const startTime = showtimeElement.querySelector(
     ".showtime__start-time"
   ).textContent;
+  const showtimeId = showtimeElement.querySelector(
+    ".showtime__showtime-id"
+  ).textContent;
   const screen = showtimeElement.querySelector(".showtime__screen").textContent;
 
   // Save the selected showtime details in localStorage
   localStorage.setItem("selectedDate", date);
   localStorage.setItem("selectedTime", startTime);
   localStorage.setItem("selectedScreen", screen);
+  localStorage.setItem("selectedShowtimeId", showtimeId);
 
   // Update the booking info
   updateBookingInfo();

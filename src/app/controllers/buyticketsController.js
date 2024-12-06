@@ -7,6 +7,9 @@ const sendticket = require("../../service/sendTicket"); // Import file dịch v�
 const Showtimes = require("../models/Showtimes");
 const moment = require("moment");
 const Screen = require("../models/Screen");
+const Profile = require("../models/Auth");
+const Ticket = require("../models/Tickets");
+
 const querystring = require("qs");
 const crypto = require("crypto");
 
@@ -78,6 +81,7 @@ class BuyticketsController {
           start_time: formattedStartTime,
           end_time: formattedEndTime,
           screen_id: screenShowtime ? screenShowtime.screen_id : null,
+          showtime_id: showtimeId,
           date: formattedDate,
         };
       })
@@ -94,6 +98,12 @@ class BuyticketsController {
     const screens = await Screen.find({});
     /////
     // Render view và truyền dữ liệu showtimes theo ngày
+
+    const profile = await Profile.findById(req.session.userId);
+    if (!profile) {
+      res.redirect("/sign-in");
+    }
+    ////////////
     res.render("tickets/buytickets", {
       films: film,
       showtimesByDate,
@@ -112,6 +122,8 @@ class BuyticketsController {
         date_film,
         time_film,
         seat_film,
+        screen_film,
+        showtime_Id,
       } = req.body;
 
       // Kiểm tra dữ liệu
@@ -139,7 +151,7 @@ class BuyticketsController {
         vnp_CurrCode: "VND",
         vnp_TxnRef: orderId,
         vnp_OrderInfo: encodeURIComponent(
-          `${orderInfo}|${email}|${amount}|${seat_film}|${date_film}|${time_film}|${idFilm}`
+          `${orderInfo}|${email}|${amount}|${seat_film}|${date_film}|${time_film}|${idFilm}|${screen_film}|${showtime_Id}`
         ),
         vnp_OrderType: "billpayment",
         vnp_Amount: amount * 100,
@@ -203,6 +215,8 @@ class BuyticketsController {
             date_film,
             time_film,
             idFilm,
+            screen_film,
+            showtime_Id,
           ] = orderInfoDecoded.split("|");
 
           const film = await Films.findOne({ _id: idFilm }).lean();
@@ -216,9 +230,73 @@ class BuyticketsController {
             amount,
             seat_film,
             date_film,
-            time_film
+            time_film,
+            screen_film
           );
+          const screenShowtime = await ScreenShowtimes.findOne({
+            screen_id: screen_film,
+            showtime_id: showtime_Id,
+          });
 
+          if (!screenShowtime) {
+            throw new Error("Screen or Showtime not found");
+          }
+
+          // Tìm màn hình dựa trên screen_id
+          const screen = await Screen.findOne({
+            screen_number: screenShowtime.screen_id,
+          });
+
+          if (!screen) {
+            throw new Error("Screen not found");
+          }
+          console.log(seat_film);
+
+          const seatArray = seat_film.split(", ").map((seat) => seat.trim());
+
+          for (const seat_film of seatArray) {
+            // Chuyển đổi từ chuỗi ghế sang row và seat_number
+            const row = seat_film[0].charCodeAt(0) - "A".charCodeAt(0) + 1;
+            const seat_number = parseInt(seat_film.slice(1));
+
+            // Tìm ghế trong cơ sở dữ liệu
+            const seat = screen.seats.find(
+              (s) => s.row === String(row) && s.seat_number === seat_number
+            );
+
+            if (seat) {
+              // Đánh dấu ghế là đã được đặt
+              seat.status = true;
+              console.log(`Seat ${seat_film} status updated to booked.`);
+              screen.markModified("seats"); // Báo cho Mongoose biết rằng mảng seats đã được sửa đổi
+            } else {
+              console.error(`Seat ${seat_film} not found`);
+            }
+          }
+          /////////////
+
+          // Lưu tài liệu Screen
+          await screen.save();
+
+          console.log("Seat status updated successfully!");
+          ///////////////////////////
+
+          const profile = await Profile.findById(req.session.userId);
+
+          const newTicket = new Ticket({
+            email: email,
+            amount: parseFloat(amount), // Chuyển giá trị amount sang kiểu số
+            seat_film: seat_film,
+            date_film: new Date(date_film), // Chuyển ngày tháng sang định dạng Date
+            time_film: time_film,
+            idFilm: idFilm, // Đảm bảo idFilm là ObjectId hợp lệ
+            screen_film: screen_film,
+            idUser: profile._id,
+            idShowtime: showtime_Id,
+          });
+
+          await newTicket.save();
+          console.log("Ticket saved successfully!");
           // res.redirect("/");
           res.redirect(`/buytickets/${film._id}/confirmation`);
         } else {

@@ -18,6 +18,7 @@ const Films = new Schema(
     language: { type: String },
     country: { type: String },
     thumb_preview: { type: Array },
+    is_deleted: { type: Boolean, default: false }, // Thêm trường xóa mềm
     ticket_id: { type: mongoose.Schema.Types.ObjectId, ref: "Tickets" }, // Reference to tickets
     review_id: { type: mongoose.Schema.Types.ObjectId, ref: "Reviews" }, // Reference to reviews
     showtimes_id: [{ type: mongoose.Schema.Types.ObjectId, ref: "Showtimes" }], // Reference to showtimes

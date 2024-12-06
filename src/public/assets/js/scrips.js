@@ -278,3 +278,54 @@ document
       filmCards.forEach((card) => (card.style.display = ""));
     }
   });
+////////////////////
+document.addEventListener("DOMContentLoaded", function () {
+  let selectedFilmId; // ID của phim
+  let isDeleted; // Trạng thái xóa/hiển thị
+
+  // Mở modal khi nhấn nút "Hide/Show"
+  jQuery("#delete-film-modal").on("show.bs.modal", function (event) {
+    const button = jQuery(event.relatedTarget); // Lấy nút được nhấn
+    selectedFilmId = button.data("id"); // ID phim
+    isDeleted =
+      button.data("deleted") === true || button.data("deleted") === "true"; // Đổi thành boolean
+
+    // Cập nhật nội dung modal
+    const modalMessage = document.querySelector("#modal-message");
+    const modalTitle = document.querySelector("#modal-title");
+    const confirmButton = document.querySelector("#btn-hide-film");
+
+    if (isDeleted) {
+      modalMessage.textContent = "Are you sure to show this film?";
+      modalTitle.textContent = "Show Film";
+      confirmButton.textContent = "Show";
+    } else {
+      modalMessage.textContent = "Are you sure to hide this film?";
+      modalTitle.textContent = "Hide Film";
+      confirmButton.textContent = "Hide";
+    }
+  });
+
+  // Xử lý sự kiện xác nhận
+  const btnHideFilm = document.querySelector("#btn-hide-film");
+  btnHideFilm.addEventListener("click", async function () {
+    try {
+      const response = await fetch(`/admin/${selectedFilmId}/toggle-delete`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ is_deleted: !isDeleted }), // Đảo trạng thái
+      });
+
+      if (response.ok) {
+        window.location.reload(); // Reload lại trang sau khi cập nhật
+      } else {
+        alert("Failed to update the film status.");
+      }
+    } catch (error) {
+      console.error("Error updating the film status:", error);
+      alert("An error occurred while updating the film status.");
+    }
+  });
+});

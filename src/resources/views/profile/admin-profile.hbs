@@ -135,14 +135,27 @@
                           >Showtime</a>
                         </div>
 
-                        <button
-                          type="submit"
-                          style="margin-top: 10px; width: 100%"
-                          class="btn btn-danger btn-sm"
-                          data-toggle="modal"
-                          data-target="#delete-film-modal"
-                          data-id="{{this._id}}"
-                        >Delete</button>
+                        {{#if this.is_deleted}}
+                          <button
+                            class="btn btn-success toggle-film-btn"
+                            data-id="{{this._id}}"
+                            data-deleted="true"
+                            data-toggle="modal"
+                            data-target="#delete-film-modal"
+                          >
+                            Show
+                          </button>
+                        {{else}}
+                          <button
+                            class="btn btn-warning toggle-film-btn"
+                            data-id="{{this._id}}"
+                            data-deleted="false"
+                            data-toggle="modal"
+                            data-target="#delete-film-modal"
+                          >
+                            Hide
+                          </button>
+                        {{/if}}
 
                       </td>
                     </tr>
@@ -204,7 +217,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Delete film</h5>
+        <h5 id="modal-title" class="modal-title">Toggle Film Visibility</h5>
         <button
           type="button"
           class="close"
@@ -215,14 +228,14 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Are you sure to delete it?</p>
+        <p id="modal-message">Are you sure to hide this film?</p>
       </div>
       <div class="modal-footer">
         <button
-          id="btn-delete-film"
+          id="btn-hide-film"
           type="button"
           class="btn btn-primary"
-        >Delete</button>
+        >Confirm</button>
         <button
           type="button"
           class="btn btn-secondary"
@@ -237,15 +250,35 @@
 <form name="delete-form" method="POST">
 
 </form>
-<script>
-
-  document.addEventListener('DOMContentLoaded',function(){ var FilmId; var
-  deleteForm =document.forms['delete-form']; var btnDeleteFilm =
-  document.getElementById('btn-delete-film');
-  jQuery('#delete-film-modal').on('show.bs.modal', function (event) { var button
-  = jQuery(event.relatedTarget); FilmId = button.data('id'); });
-  btnDeleteFilm.onclick = function(){
-  deleteForm.action='/admin/'+FilmId+'?_method=DELETE'; deleteForm.submit(); }
-  });
-
-</script>
+<div id="delete-film-modal" class="modal modal-delete" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="modal-title" class="modal-title">Toggle Film Visibility</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="modal-message">Are you sure to hide this film?</p>
+      </div>
+      <div class="modal-footer">
+        <button
+          id="btn-hide-film"
+          type="button"
+          class="btn btn-primary"
+        >Confirm</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >Close</button>
+      </div>
+    </div>
+  </div>
+</div>

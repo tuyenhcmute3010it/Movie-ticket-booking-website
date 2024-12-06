@@ -366,6 +366,36 @@ class adminController {
       .then(() => res.redirect("back"))
       .catch(next);
   }
+  /////////////////
+  async toggleFilmDelete(req, res, next) {
+    try {
+      const { id } = req.params;
+      const { is_deleted } = req.body;
+
+      // Kiểm tra giá trị is_deleted có hợp lệ không
+      if (typeof is_deleted !== "boolean") {
+        return res
+          .status(400)
+          .json({ message: "Invalid value for is_deleted" });
+      }
+
+      // Cập nhật trạng thái phim
+      const film = await Films.findByIdAndUpdate(
+        id,
+        { is_deleted },
+        { new: true } // Trả về phim đã cập nhật
+      );
+
+      if (!film) {
+        return res.status(404).json({ message: "Film not found" });
+      }
+
+      res.json({ message: "Film status updated successfully", film });
+    } catch (err) {
+      console.error("Error toggling film delete status:", err);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  }
 }
 
 module.exports = new adminController();
